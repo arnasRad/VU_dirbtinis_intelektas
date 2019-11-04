@@ -1,0 +1,763 @@
+2 DALIS. Vykdymas.
+
+1 DALIS. Duomenys
+	1.1. Lenta 20x13
+
+Y,	V   ^
+BANGA 0, žymė L=2. Pradinė padėtis X = 9, Y=9, NAUJA=1
+	 13 |  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+	 12 |  0  0  0  0  0BANGA 1, žymė L=3
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1
+	 11 |  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0  1
+	 10 |  1  0  0  0  0  0  0  0  0  2  1  0  0  0  0  0  0  0  0  1
+	  9 |  1  0  1  0  1  0  1  0  1  0  1  0  1  1  1  1  1  1  1  1
+	  8 |  1  0  0  0  0  0  0  0  1  0  1  0  0  0  0  0  0  0  0  1
+	  7 |  1  0  1  0  1  0  1  0  1  0  1  1  1  1  1  1  1  1  0  1
+	  6 |  1  0  0  0  0  0  0  0  1  0  1  0  0  0  0  0  0  0  0  1
+	Uždaroma UZD=0, X=9, Y=9
+	  5 |  1  0  1  0  1  0  1  0  1  0  1  0  1  1  1  1  1  1  1  1
+	  4 |  1  0  0  0  0  0  0  0  1  0  1  0  0  0  0  0  0  0  0  1
+	  3 |  1  0  1  0  1  0  1  0  1  0  1  1  1  1  1  1  1  1  0  1
+	  2 |  1  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  1
+	  1 |  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+	    -------------------------------------------------------------> X, U
+	       1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+
+	1.2. Pradinė keliautojo padėtis X=10, Y=10. L=2
+
+	1.2. Naudojama prodedūra: WAVE_ALGORITHM
+
+		R 1. X=8, Y=9. Laisva. NAUJA=0
+		R 2. X=9, Y=8. Laisva. NAUJA=1
+		R 3. X=10, Y=9. Siena
+		R 4. X=9, Y=10. Siena
+BANGA 2, žymė L=4
+	Uždaroma UZD=1, X=8, Y=9
+		R 1. X=7, Y=9. Laisva. NAUJA=2
+		R 2. X=8, Y=8. Siena
+		R 3. X=9, Y=9. UŽDARYTA arba ATIDARYTA
+		R 4. X=8, Y=10. Siena
+	Uždaroma UZD=2, X=9, Y=8
+		R 1. X=8, Y=8. Siena
+		R 2. X=9, Y=7. Laisva. NAUJA=3
+		R 3. X=10, Y=8. Siena
+		R 4. X=9, Y=9. UŽDARYTA arba ATIDARYTA
+BANGA 3, žymė L=5
+	Uždaroma UZD=3, X=7, Y=9
+		R 1. X=6, Y=9. Laisva. NAUJA=4
+		R 2. X=7, Y=8. Laisva. NAUJA=5
+		R 3. X=8, Y=9. UŽDARYTA arba ATIDARYTA
+		R 4. X=7, Y=10. Siena
+	Uždaroma UZD=4, X=9, Y=7
+		R 1. X=8, Y=7. Siena
+		R 2. X=9, Y=6. Laisva. NAUJA=6
+		R 3. X=10, Y=7. Siena
+		R 4. X=9, Y=8. UŽDARYTA arba ATIDARYTA
+BANGA 4, žymė L=6
+	Uždaroma UZD=5, X=6, Y=9
+		R 1. X=5, Y=9. Laisva. NAUJA=7
+		R 2. X=6, Y=8. Siena
+		R 3. X=7, Y=9. UŽDARYTA arba ATIDARYTA
+		R 4. X=6, Y=10. Siena
+	Uždaroma UZD=6, X=7, Y=8
+		R 1. X=6, Y=8. Siena
+		R 2. X=7, Y=7. Laisva. NAUJA=8
+		R 3. X=8, Y=8. Siena
+		R 4. X=7, Y=9. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=7, X=9, Y=6
+		R 1. X=8, Y=6. Siena
+		R 2. X=9, Y=5. Laisva. NAUJA=9
+		R 3. X=10, Y=6. Siena
+		R 4. X=9, Y=7. UŽDARYTA arba ATIDARYTA
+BANGA 5, žymė L=7
+	Uždaroma UZD=8, X=5, Y=9
+		R 1. X=4, Y=9. Laisva. NAUJA=10
+		R 2. X=5, Y=8. Laisva. NAUJA=11
+		R 3. X=6, Y=9. UŽDARYTA arba ATIDARYTA
+		R 4. X=5, Y=10. Siena
+	Uždaroma UZD=9, X=7, Y=7
+		R 1. X=6, Y=7. Laisva. NAUJA=12
+		R 2. X=7, Y=6. Laisva. NAUJA=13
+		R 3. X=8, Y=7. Siena
+		R 4. X=7, Y=8. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=10, X=9, Y=5
+		R 1. X=8, Y=5. Siena
+		R 2. X=9, Y=4. Laisva. NAUJA=14
+		R 3. X=10, Y=5. Siena
+		R 4. X=9, Y=6. UŽDARYTA arba ATIDARYTA
+BANGA 6, žymė L=8
+	Uždaroma UZD=11, X=4, Y=9
+		R 1. X=3, Y=9. Laisva. NAUJA=15
+		R 2. X=4, Y=8. Siena
+		R 3. X=5, Y=9. UŽDARYTA arba ATIDARYTA
+		R 4. X=4, Y=10. Siena
+	Uždaroma UZD=12, X=5, Y=8
+		R 1. X=4, Y=8. Siena
+		R 2. X=5, Y=7. Laisva. NAUJA=16
+		R 3. X=6, Y=8. Siena
+		R 4. X=5, Y=9. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=13, X=6, Y=7
+		R 1. X=5, Y=7. Laisva. NAUJA=17
+		R 2. X=6, Y=6. Siena
+		R 3. X=7, Y=7. UŽDARYTA arba ATIDARYTA
+		R 4. X=6, Y=8. Siena
+	Uždaroma UZD=14, X=7, Y=6
+		R 1. X=6, Y=6. Siena
+		R 2. X=7, Y=5. Laisva. NAUJA=18
+		R 3. X=8, Y=6. Siena
+		R 4. X=7, Y=7. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=15, X=9, Y=4
+		R 1. X=8, Y=4. Siena
+		R 2. X=9, Y=3. Laisva. NAUJA=19
+		R 3. X=10, Y=4. Siena
+		R 4. X=9, Y=5. UŽDARYTA arba ATIDARYTA
+BANGA 7, žymė L=9
+	Uždaroma UZD=16, X=3, Y=9
+		R 1. X=2, Y=9. Laisva. NAUJA=20
+		R 2. X=3, Y=8. Laisva. NAUJA=21
+		R 3. X=4, Y=9. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=10. Siena
+	Uždaroma UZD=17, X=5, Y=7
+		R 1. X=4, Y=7. Laisva. NAUJA=22
+		R 2. X=5, Y=6. Laisva. NAUJA=23
+		R 3. X=6, Y=7. UŽDARYTA arba ATIDARYTA
+		R 4. X=5, Y=8. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=18, X=5, Y=7
+		R 1. X=4, Y=7. Laisva. NAUJA=24
+		R 2. X=5, Y=6. Laisva. NAUJA=25
+		R 3. X=6, Y=7. UŽDARYTA arba ATIDARYTA
+		R 4. X=5, Y=8. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=19, X=7, Y=5
+		R 1. X=6, Y=5. Laisva. NAUJA=26
+		R 2. X=7, Y=4. Laisva. NAUJA=27
+		R 3. X=8, Y=5. Siena
+		R 4. X=7, Y=6. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=20, X=9, Y=3
+		R 1. X=8, Y=3. Siena
+		R 2. X=9, Y=2. Laisva. NAUJA=28
+		R 3. X=10, Y=3. Siena
+		R 4. X=9, Y=4. UŽDARYTA arba ATIDARYTA
+BANGA 8, žymė L=10
+	Uždaroma UZD=21, X=2, Y=9
+		R 1. X=1, Y=9. Laisva. NAUJA=29
+		R 2. X=2, Y=8. Siena
+		R 3. X=3, Y=9. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=10. Siena
+	Uždaroma UZD=22, X=3, Y=8
+		R 1. X=2, Y=8. Siena
+		R 2. X=3, Y=7. Laisva. NAUJA=30
+		R 3. X=4, Y=8. Siena
+		R 4. X=3, Y=9. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=23, X=4, Y=7
+		R 1. X=3, Y=7. Laisva. NAUJA=31
+		R 2. X=4, Y=6. Siena
+		R 3. X=5, Y=7. UŽDARYTA arba ATIDARYTA
+		R 4. X=4, Y=8. Siena
+	Uždaroma UZD=24, X=5, Y=6
+		R 1. X=4, Y=6. Siena
+		R 2. X=5, Y=5. Laisva. NAUJA=32
+		R 3. X=6, Y=6. Siena
+		R 4. X=5, Y=7. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=25, X=4, Y=7
+		R 1. X=3, Y=7. Laisva. NAUJA=33
+		R 2. X=4, Y=6. Siena
+		R 3. X=5, Y=7. UŽDARYTA arba ATIDARYTA
+		R 4. X=4, Y=8. Siena
+	Uždaroma UZD=26, X=5, Y=6
+		R 1. X=4, Y=6. Siena
+		R 2. X=5, Y=5. Laisva. NAUJA=34
+		R 3. X=6, Y=6. Siena
+		R 4. X=5, Y=7. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=27, X=6, Y=5
+		R 1. X=5, Y=5. Laisva. NAUJA=35
+		R 2. X=6, Y=4. Siena
+		R 3. X=7, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=6, Y=6. Siena
+	Uždaroma UZD=28, X=7, Y=4
+		R 1. X=6, Y=4. Siena
+		R 2. X=7, Y=3. Laisva. NAUJA=36
+		R 3. X=8, Y=4. Siena
+		R 4. X=7, Y=5. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=29, X=9, Y=2
+		R 1. X=8, Y=2. Siena
+		R 2. X=9, Y=1. Laisva. NAUJA=37
+		R 3. X=10, Y=2. Siena
+		R 4. X=9, Y=3. UŽDARYTA arba ATIDARYTA
+BANGA 9, žymė L=11
+	Uždaroma UZD=30, X=1, Y=9
+		R 1. X=0, Y=9. Siena
+		R 2. X=1, Y=8. Laisva. NAUJA=38
+		R 3. X=2, Y=9. UŽDARYTA arba ATIDARYTA
+		R 4. X=1, Y=10. Siena
+	Uždaroma UZD=31, X=3, Y=7
+		R 1. X=2, Y=7. Laisva. NAUJA=39
+		R 2. X=3, Y=6. Laisva. NAUJA=40
+		R 3. X=4, Y=7. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=8. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=32, X=3, Y=7
+		R 1. X=2, Y=7. Laisva. NAUJA=41
+		R 2. X=3, Y=6. Laisva. NAUJA=42
+		R 3. X=4, Y=7. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=8. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=33, X=5, Y=5
+		R 1. X=4, Y=5. Laisva. NAUJA=43
+		R 2. X=5, Y=4. Laisva. NAUJA=44
+		R 3. X=6, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=5, Y=6. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=34, X=3, Y=7
+		R 1. X=2, Y=7. UŽDARYTA arba ATIDARYTA
+		R 2. X=3, Y=6. Laisva. NAUJA=45
+		R 3. X=4, Y=7. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=8. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=35, X=5, Y=5
+		R 1. X=4, Y=5. Laisva. NAUJA=46
+		R 2. X=5, Y=4. Laisva. NAUJA=47
+		R 3. X=6, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=5, Y=6. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=36, X=5, Y=5
+		R 1. X=4, Y=5. Laisva. NAUJA=48
+		R 2. X=5, Y=4. Laisva. NAUJA=49
+		R 3. X=6, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=5, Y=6. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=37, X=7, Y=3
+		R 1. X=6, Y=3. Laisva. NAUJA=50
+		R 2. X=7, Y=2. Laisva. NAUJA=51
+		R 3. X=8, Y=3. Siena
+		R 4. X=7, Y=4. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=38, X=9, Y=1
+		R 1. X=8, Y=1. Siena
+		R 2. X=9, Y=0. Siena
+		R 3. X=10, Y=1. Laisva. NAUJA=52
+		R 4. X=9, Y=2. UŽDARYTA arba ATIDARYTA
+BANGA 10, žymė L=12
+	Uždaroma UZD=39, X=1, Y=8
+		R 1. X=0, Y=8. Siena
+		R 2. X=1, Y=7. Laisva. NAUJA=53
+		R 3. X=2, Y=8. Siena
+		R 4. X=1, Y=9. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=40, X=2, Y=7
+		R 1. X=1, Y=7. Laisva. NAUJA=54
+		R 2. X=2, Y=6. Siena
+		R 3. X=3, Y=7. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=8. Siena
+	Uždaroma UZD=41, X=3, Y=6
+		R 1. X=2, Y=6. Siena
+		R 2. X=3, Y=5. Laisva. NAUJA=55
+		R 3. X=4, Y=6. Siena
+		R 4. X=3, Y=7. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=42, X=2, Y=7
+		R 1. X=1, Y=7. Laisva. NAUJA=56
+		R 2. X=2, Y=6. Siena
+		R 3. X=3, Y=7. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=8. Siena
+	Uždaroma UZD=43, X=3, Y=6
+		R 1. X=2, Y=6. Siena
+		R 2. X=3, Y=5. Laisva. NAUJA=57
+		R 3. X=4, Y=6. Siena
+		R 4. X=3, Y=7. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=44, X=4, Y=5
+		R 1. X=3, Y=5. Laisva. NAUJA=58
+		R 2. X=4, Y=4. Siena
+		R 3. X=5, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=4, Y=6. Siena
+	Uždaroma UZD=45, X=5, Y=4
+		R 1. X=4, Y=4. Siena
+		R 2. X=5, Y=3. Laisva. NAUJA=59
+		R 3. X=6, Y=4. Siena
+		R 4. X=5, Y=5. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=46, X=3, Y=6
+		R 1. X=2, Y=6. Siena
+		R 2. X=3, Y=5. Laisva. NAUJA=60
+		R 3. X=4, Y=6. Siena
+		R 4. X=3, Y=7. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=47, X=4, Y=5
+		R 1. X=3, Y=5. Laisva. NAUJA=61
+		R 2. X=4, Y=4. Siena
+		R 3. X=5, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=4, Y=6. Siena
+	Uždaroma UZD=48, X=5, Y=4
+		R 1. X=4, Y=4. Siena
+		R 2. X=5, Y=3. Laisva. NAUJA=62
+		R 3. X=6, Y=4. Siena
+		R 4. X=5, Y=5. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=49, X=4, Y=5
+		R 1. X=3, Y=5. UŽDARYTA arba ATIDARYTA
+		R 2. X=4, Y=4. Siena
+		R 3. X=5, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=4, Y=6. Siena
+	Uždaroma UZD=50, X=5, Y=4
+		R 1. X=4, Y=4. Siena
+		R 2. X=5, Y=3. Laisva. NAUJA=63
+		R 3. X=6, Y=4. Siena
+		R 4. X=5, Y=5. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=51, X=6, Y=3
+		R 1. X=5, Y=3. Laisva. NAUJA=64
+		R 2. X=6, Y=2. Siena
+		R 3. X=7, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=6, Y=4. Siena
+	Uždaroma UZD=52, X=7, Y=2
+		R 1. X=6, Y=2. Siena
+		R 2. X=7, Y=1. Laisva. NAUJA=65
+		R 3. X=8, Y=2. Siena
+		R 4. X=7, Y=3. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=53, X=10, Y=1
+		R 1. X=9, Y=1. UŽDARYTA arba ATIDARYTA
+		R 2. X=10, Y=0. Siena
+		R 3. X=11, Y=1. Laisva. NAUJA=66
+		R 4. X=10, Y=2. Siena
+BANGA 11, žymė L=13
+	Uždaroma UZD=54, X=1, Y=7
+		R 1. X=0, Y=7. Siena
+		R 2. X=1, Y=6. Laisva. NAUJA=67
+		R 3. X=2, Y=7. UŽDARYTA arba ATIDARYTA
+		R 4. X=1, Y=8. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=55, X=1, Y=7
+		R 1. X=0, Y=7. Siena
+		R 2. X=1, Y=6. Laisva. NAUJA=68
+		R 3. X=2, Y=7. UŽDARYTA arba ATIDARYTA
+		R 4. X=1, Y=8. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=56, X=3, Y=5
+		R 1. X=2, Y=5. Laisva. NAUJA=69
+		R 2. X=3, Y=4. Laisva. NAUJA=70
+		R 3. X=4, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=6. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=57, X=1, Y=7
+		R 1. X=0, Y=7. Siena
+		R 2. X=1, Y=6. Laisva. NAUJA=71
+		R 3. X=2, Y=7. UŽDARYTA arba ATIDARYTA
+		R 4. X=1, Y=8. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=58, X=3, Y=5
+		R 1. X=2, Y=5. Laisva. NAUJA=72
+		R 2. X=3, Y=4. Laisva. NAUJA=73
+		R 3. X=4, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=6. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=59, X=3, Y=5
+		R 1. X=2, Y=5. Laisva. NAUJA=74
+		R 2. X=3, Y=4. Laisva. NAUJA=75
+		R 3. X=4, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=6. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=60, X=5, Y=3
+		R 1. X=4, Y=3. Laisva. NAUJA=76
+		R 2. X=5, Y=2. Laisva. NAUJA=77
+		R 3. X=6, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=5, Y=4. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=61, X=3, Y=5
+		R 1. X=2, Y=5. Laisva. NAUJA=78
+		R 2. X=3, Y=4. Laisva. NAUJA=79
+		R 3. X=4, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=6. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=62, X=3, Y=5
+		R 1. X=2, Y=5. Laisva. NAUJA=80
+		R 2. X=3, Y=4. Laisva. NAUJA=81
+		R 3. X=4, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=6. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=63, X=5, Y=3
+		R 1. X=4, Y=3. Laisva. NAUJA=82
+		R 2. X=5, Y=2. Laisva. NAUJA=83
+		R 3. X=6, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=5, Y=4. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=64, X=5, Y=3
+		R 1. X=4, Y=3. Laisva. NAUJA=84
+		R 2. X=5, Y=2. Laisva. NAUJA=85
+		R 3. X=6, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=5, Y=4. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=65, X=5, Y=3
+		R 1. X=4, Y=3. Laisva. NAUJA=86
+		R 2. X=5, Y=2. Laisva. NAUJA=87
+		R 3. X=6, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=5, Y=4. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=66, X=7, Y=1
+		R 1. X=6, Y=1. Laisva. NAUJA=88
+		R 2. X=7, Y=0. Siena
+		R 3. X=8, Y=1. Siena
+		R 4. X=7, Y=2. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=67, X=11, Y=1
+		R 1. X=10, Y=1. UŽDARYTA arba ATIDARYTA
+		R 2. X=11, Y=0. Siena
+		R 3. X=12, Y=1. Laisva. NAUJA=89
+		R 4. X=11, Y=2. Siena
+BANGA 12, žymė L=14
+	Uždaroma UZD=68, X=1, Y=6
+		R 1. X=0, Y=6. Siena
+		R 2. X=1, Y=5. Laisva. NAUJA=90
+		R 3. X=2, Y=6. Siena
+		R 4. X=1, Y=7. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=69, X=1, Y=6
+		R 1. X=0, Y=6. Siena
+		R 2. X=1, Y=5. Laisva. NAUJA=91
+		R 3. X=2, Y=6. Siena
+		R 4. X=1, Y=7. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=70, X=2, Y=5
+		R 1. X=1, Y=5. Laisva. NAUJA=92
+		R 2. X=2, Y=4. Siena
+		R 3. X=3, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=6. Siena
+	Uždaroma UZD=71, X=3, Y=4
+		R 1. X=2, Y=4. Siena
+		R 2. X=3, Y=3. Laisva. NAUJA=93
+		R 3. X=4, Y=4. Siena
+		R 4. X=3, Y=5. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=72, X=1, Y=6
+		R 1. X=0, Y=6. Siena
+		R 2. X=1, Y=5. UŽDARYTA arba ATIDARYTA
+		R 3. X=2, Y=6. Siena
+		R 4. X=1, Y=7. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=73, X=2, Y=5
+		R 1. X=1, Y=5. UŽDARYTA arba ATIDARYTA
+		R 2. X=2, Y=4. Siena
+		R 3. X=3, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=6. Siena
+	Uždaroma UZD=74, X=3, Y=4
+		R 1. X=2, Y=4. Siena
+		R 2. X=3, Y=3. Laisva. NAUJA=94
+		R 3. X=4, Y=4. Siena
+		R 4. X=3, Y=5. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=75, X=2, Y=5
+		R 1. X=1, Y=5. UŽDARYTA arba ATIDARYTA
+		R 2. X=2, Y=4. Siena
+		R 3. X=3, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=6. Siena
+	Uždaroma UZD=76, X=3, Y=4
+		R 1. X=2, Y=4. Siena
+		R 2. X=3, Y=3. Laisva. NAUJA=95
+		R 3. X=4, Y=4. Siena
+		R 4. X=3, Y=5. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=77, X=4, Y=3
+		R 1. X=3, Y=3. Laisva. NAUJA=96
+		R 2. X=4, Y=2. Siena
+		R 3. X=5, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=4, Y=4. Siena
+	Uždaroma UZD=78, X=5, Y=2
+		R 1. X=4, Y=2. Siena
+		R 2. X=5, Y=1. Laisva. NAUJA=97
+		R 3. X=6, Y=2. Siena
+		R 4. X=5, Y=3. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=79, X=2, Y=5
+		R 1. X=1, Y=5. UŽDARYTA arba ATIDARYTA
+		R 2. X=2, Y=4. Siena
+		R 3. X=3, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=6. Siena
+	Uždaroma UZD=80, X=3, Y=4
+		R 1. X=2, Y=4. Siena
+		R 2. X=3, Y=3. Laisva. NAUJA=98
+		R 3. X=4, Y=4. Siena
+		R 4. X=3, Y=5. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=81, X=2, Y=5
+		R 1. X=1, Y=5. UŽDARYTA arba ATIDARYTA
+		R 2. X=2, Y=4. Siena
+		R 3. X=3, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=6. Siena
+	Uždaroma UZD=82, X=3, Y=4
+		R 1. X=2, Y=4. Siena
+		R 2. X=3, Y=3. UŽDARYTA arba ATIDARYTA
+		R 3. X=4, Y=4. Siena
+		R 4. X=3, Y=5. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=83, X=4, Y=3
+		R 1. X=3, Y=3. UŽDARYTA arba ATIDARYTA
+		R 2. X=4, Y=2. Siena
+		R 3. X=5, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=4, Y=4. Siena
+	Uždaroma UZD=84, X=5, Y=2
+		R 1. X=4, Y=2. Siena
+		R 2. X=5, Y=1. Laisva. NAUJA=99
+		R 3. X=6, Y=2. Siena
+		R 4. X=5, Y=3. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=85, X=4, Y=3
+		R 1. X=3, Y=3. UŽDARYTA arba ATIDARYTA
+		R 2. X=4, Y=2. Siena
+		R 3. X=5, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=4, Y=4. Siena
+	Uždaroma UZD=86, X=5, Y=2
+		R 1. X=4, Y=2. Siena
+		R 2. X=5, Y=1. Laisva. NAUJA=100
+		R 3. X=6, Y=2. Siena
+		R 4. X=5, Y=3. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=87, X=4, Y=3
+		R 1. X=3, Y=3. UŽDARYTA arba ATIDARYTA
+		R 2. X=4, Y=2. Siena
+		R 3. X=5, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=4, Y=4. Siena
+	Uždaroma UZD=88, X=5, Y=2
+		R 1. X=4, Y=2. Siena
+		R 2. X=5, Y=1. Laisva. NAUJA=101
+		R 3. X=6, Y=2. Siena
+		R 4. X=5, Y=3. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=89, X=6, Y=1
+		R 1. X=5, Y=1. Laisva. NAUJA=102
+		R 2. X=6, Y=0. Siena
+		R 3. X=7, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=6, Y=2. Siena
+	Uždaroma UZD=90, X=12, Y=1
+		R 1. X=11, Y=1. UŽDARYTA arba ATIDARYTA
+		R 2. X=12, Y=0. Siena
+		R 3. X=13, Y=1. Laisva. NAUJA=103
+		R 4. X=12, Y=2. Siena
+BANGA 13, žymė L=15
+	Uždaroma UZD=91, X=1, Y=5
+		R 1. X=0, Y=5. Siena
+		R 2. X=1, Y=4. Laisva. NAUJA=104
+		R 3. X=2, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=1, Y=6. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=92, X=1, Y=5
+		R 1. X=0, Y=5. Siena
+		R 2. X=1, Y=4. Laisva. NAUJA=105
+		R 3. X=2, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=1, Y=6. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=93, X=1, Y=5
+		R 1. X=0, Y=5. Siena
+		R 2. X=1, Y=4. Laisva. NAUJA=106
+		R 3. X=2, Y=5. UŽDARYTA arba ATIDARYTA
+		R 4. X=1, Y=6. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=94, X=3, Y=3
+		R 1. X=2, Y=3. Laisva. NAUJA=107
+		R 2. X=3, Y=2. Laisva. NAUJA=108
+		R 3. X=4, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=4. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=95, X=3, Y=3
+		R 1. X=2, Y=3. Laisva. NAUJA=109
+		R 2. X=3, Y=2. Laisva. NAUJA=110
+		R 3. X=4, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=4. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=96, X=3, Y=3
+		R 1. X=2, Y=3. Laisva. NAUJA=111
+		R 2. X=3, Y=2. Laisva. NAUJA=112
+		R 3. X=4, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=4. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=97, X=3, Y=3
+		R 1. X=2, Y=3. Laisva. NAUJA=113
+		R 2. X=3, Y=2. Laisva. NAUJA=114
+		R 3. X=4, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=4. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=98, X=5, Y=1
+		R 1. X=4, Y=1. Laisva. NAUJA=115
+		R 2. X=5, Y=0. Siena
+		R 3. X=6, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=5, Y=2. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=99, X=3, Y=3
+		R 1. X=2, Y=3. Laisva. NAUJA=116
+		R 2. X=3, Y=2. Laisva. NAUJA=117
+		R 3. X=4, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=4. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=100, X=5, Y=1
+		R 1. X=4, Y=1. Laisva. NAUJA=118
+		R 2. X=5, Y=0. Siena
+		R 3. X=6, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=5, Y=2. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=101, X=5, Y=1
+		R 1. X=4, Y=1. Laisva. NAUJA=119
+		R 2. X=5, Y=0. Siena
+		R 3. X=6, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=5, Y=2. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=102, X=5, Y=1
+		R 1. X=4, Y=1. Laisva. NAUJA=120
+		R 2. X=5, Y=0. Siena
+		R 3. X=6, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=5, Y=2. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=103, X=5, Y=1
+		R 1. X=4, Y=1. Laisva. NAUJA=121
+		R 2. X=5, Y=0. Siena
+		R 3. X=6, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=5, Y=2. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=104, X=13, Y=1
+		R 1. X=12, Y=1. UŽDARYTA arba ATIDARYTA
+		R 2. X=13, Y=0. Siena
+		R 3. X=14, Y=1. Laisva. NAUJA=122
+		R 4. X=13, Y=2. Siena
+BANGA 14, žymė L=16
+	Uždaroma UZD=105, X=1, Y=4
+		R 1. X=0, Y=4. Siena
+		R 2. X=1, Y=3. Laisva. NAUJA=123
+		R 3. X=2, Y=4. Siena
+		R 4. X=1, Y=5. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=106, X=1, Y=4
+		R 1. X=0, Y=4. Siena
+		R 2. X=1, Y=3. Laisva. NAUJA=124
+		R 3. X=2, Y=4. Siena
+		R 4. X=1, Y=5. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=107, X=1, Y=4
+		R 1. X=0, Y=4. Siena
+		R 2. X=1, Y=3. Laisva. NAUJA=125
+		R 3. X=2, Y=4. Siena
+		R 4. X=1, Y=5. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=108, X=2, Y=3
+		R 1. X=1, Y=3. UŽDARYTA arba ATIDARYTA
+		R 2. X=2, Y=2. Siena
+		R 3. X=3, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=4. Siena
+	Uždaroma UZD=109, X=3, Y=2
+		R 1. X=2, Y=2. Siena
+		R 2. X=3, Y=1. Laisva. NAUJA=126
+		R 3. X=4, Y=2. Siena
+		R 4. X=3, Y=3. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=110, X=2, Y=3
+		R 1. X=1, Y=3. UŽDARYTA arba ATIDARYTA
+		R 2. X=2, Y=2. Siena
+		R 3. X=3, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=4. Siena
+	Uždaroma UZD=111, X=3, Y=2
+		R 1. X=2, Y=2. Siena
+		R 2. X=3, Y=1. Laisva. NAUJA=127
+		R 3. X=4, Y=2. Siena
+		R 4. X=3, Y=3. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=112, X=2, Y=3
+		R 1. X=1, Y=3. UŽDARYTA arba ATIDARYTA
+		R 2. X=2, Y=2. Siena
+		R 3. X=3, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=4. Siena
+	Uždaroma UZD=113, X=3, Y=2
+		R 1. X=2, Y=2. Siena
+		R 2. X=3, Y=1. Laisva. NAUJA=128
+		R 3. X=4, Y=2. Siena
+		R 4. X=3, Y=3. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=114, X=2, Y=3
+		R 1. X=1, Y=3. UŽDARYTA arba ATIDARYTA
+		R 2. X=2, Y=2. Siena
+		R 3. X=3, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=4. Siena
+	Uždaroma UZD=115, X=3, Y=2
+		R 1. X=2, Y=2. Siena
+		R 2. X=3, Y=1. Laisva. NAUJA=129
+		R 3. X=4, Y=2. Siena
+		R 4. X=3, Y=3. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=116, X=4, Y=1
+		R 1. X=3, Y=1. Laisva. NAUJA=130
+		R 2. X=4, Y=0. Siena
+		R 3. X=5, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=4, Y=2. Siena
+	Uždaroma UZD=117, X=2, Y=3
+		R 1. X=1, Y=3. UŽDARYTA arba ATIDARYTA
+		R 2. X=2, Y=2. Siena
+		R 3. X=3, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=4. Siena
+	Uždaroma UZD=118, X=3, Y=2
+		R 1. X=2, Y=2. Siena
+		R 2. X=3, Y=1. Laisva. NAUJA=131
+		R 3. X=4, Y=2. Siena
+		R 4. X=3, Y=3. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=119, X=4, Y=1
+		R 1. X=3, Y=1. UŽDARYTA arba ATIDARYTA
+		R 2. X=4, Y=0. Siena
+		R 3. X=5, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=4, Y=2. Siena
+	Uždaroma UZD=120, X=4, Y=1
+		R 1. X=3, Y=1. UŽDARYTA arba ATIDARYTA
+		R 2. X=4, Y=0. Siena
+		R 3. X=5, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=4, Y=2. Siena
+	Uždaroma UZD=121, X=4, Y=1
+		R 1. X=3, Y=1. UŽDARYTA arba ATIDARYTA
+		R 2. X=4, Y=0. Siena
+		R 3. X=5, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=4, Y=2. Siena
+	Uždaroma UZD=122, X=4, Y=1
+		R 1. X=3, Y=1. UŽDARYTA arba ATIDARYTA
+		R 2. X=4, Y=0. Siena
+		R 3. X=5, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=4, Y=2. Siena
+	Uždaroma UZD=123, X=14, Y=1
+		R 1. X=13, Y=1. UŽDARYTA arba ATIDARYTA
+		R 2. X=14, Y=0. Siena
+		R 3. X=15, Y=1. Laisva. NAUJA=132
+		R 4. X=14, Y=2. Siena
+BANGA 15, žymė L=17
+	Uždaroma UZD=124, X=1, Y=3
+		R 1. X=0, Y=3. Siena
+		R 2. X=1, Y=2. Laisva. NAUJA=133
+		R 3. X=2, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=1, Y=4. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=125, X=1, Y=3
+		R 1. X=0, Y=3. Siena
+		R 2. X=1, Y=2. Laisva. NAUJA=134
+		R 3. X=2, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=1, Y=4. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=126, X=1, Y=3
+		R 1. X=0, Y=3. Siena
+		R 2. X=1, Y=2. Laisva. NAUJA=135
+		R 3. X=2, Y=3. UŽDARYTA arba ATIDARYTA
+		R 4. X=1, Y=4. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=127, X=3, Y=1
+		R 1. X=2, Y=1. Laisva. NAUJA=136
+		R 2. X=3, Y=0. Siena
+		R 3. X=4, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=2. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=128, X=3, Y=1
+		R 1. X=2, Y=1. Laisva. NAUJA=137
+		R 2. X=3, Y=0. Siena
+		R 3. X=4, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=2. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=129, X=3, Y=1
+		R 1. X=2, Y=1. Laisva. NAUJA=138
+		R 2. X=3, Y=0. Siena
+		R 3. X=4, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=2. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=130, X=3, Y=1
+		R 1. X=2, Y=1. Laisva. NAUJA=139
+		R 2. X=3, Y=0. Siena
+		R 3. X=4, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=2. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=131, X=3, Y=1
+		R 1. X=2, Y=1. Laisva. NAUJA=140
+		R 2. X=3, Y=0. Siena
+		R 3. X=4, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=2. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=132, X=3, Y=1
+		R 1. X=2, Y=1. Laisva. NAUJA=141
+		R 2. X=3, Y=0. Siena
+		R 3. X=4, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=3, Y=2. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=133, X=15, Y=1
+		R 1. X=14, Y=1. UŽDARYTA arba ATIDARYTA
+		R 2. X=15, Y=0. Siena
+		R 3. X=16, Y=1. Laisva. NAUJA=142
+		R 4. X=15, Y=2. Siena
+BANGA 16, žymė L=18
+	Uždaroma UZD=134, X=1, Y=2
+		R 1. X=0, Y=2. Siena
+		R 2. X=1, Y=1. Laisva. NAUJA=143
+		R 3. X=2, Y=2. Siena
+		R 4. X=1, Y=3. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=135, X=1, Y=2
+		R 1. X=0, Y=2. Siena
+		R 2. X=1, Y=1. Laisva. NAUJA=144
+		R 3. X=2, Y=2. Siena
+		R 4. X=1, Y=3. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=136, X=1, Y=2
+		R 1. X=0, Y=2. Siena
+		R 2. X=1, Y=1. Laisva. NAUJA=145
+		R 3. X=2, Y=2. Siena
+		R 4. X=1, Y=3. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=137, X=2, Y=1
+		R 1. X=1, Y=1. Laisva. NAUJA=146
+		R 2. X=2, Y=0. Siena
+		R 3. X=3, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=2. Siena
+	Uždaroma UZD=138, X=2, Y=1
+		R 1. X=1, Y=1. Laisva. NAUJA=147
+		R 2. X=2, Y=0. Siena
+		R 3. X=3, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=2. Siena
+	Uždaroma UZD=139, X=2, Y=1
+		R 1. X=1, Y=1. Laisva. NAUJA=148
+		R 2. X=2, Y=0. Siena
+		R 3. X=3, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=2. Siena
+	Uždaroma UZD=140, X=2, Y=1
+		R 1. X=1, Y=1. UŽDARYTA arba ATIDARYTA
+		R 2. X=2, Y=0. Siena
+		R 3. X=3, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=2. Siena
+	Uždaroma UZD=141, X=2, Y=1
+		R 1. X=1, Y=1. UŽDARYTA arba ATIDARYTA
+		R 2. X=2, Y=0. Siena
+		R 3. X=3, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=2. Siena
+	Uždaroma UZD=142, X=2, Y=1
+		R 1. X=1, Y=1. UŽDARYTA arba ATIDARYTA
+		R 2. X=2, Y=0. Siena
+		R 3. X=3, Y=1. UŽDARYTA arba ATIDARYTA
+		R 4. X=2, Y=2. Siena
+	Uždaroma UZD=143, X=16, Y=1
+		R 1. X=15, Y=1. UŽDARYTA arba ATIDARYTA
+		R 2. X=16, Y=0. Siena
+		R 3. X=17, Y=1. Laisva. NAUJA=149
+		R 4. X=16, Y=2. Siena

@@ -1,0 +1,93 @@
+1 DALIS. Duomenys
+	1.1. Lenta 7x7
+
+Y,	V   ^
+	  7 |  1  1  1  1  1  0  1
+	  6 |  0  0  6  5  4  5  6
+	  5 |  1  1  1  1  3  1  1
+	  4 |  1  5  4  3  2  1  1
+	  3 |  1  6  1  4  1  1  1
+	  2 |  1  0  6  5  1  1  1
+	  1 |  1  1  1  1  1  1  1
+	    ----------------------> X, U
+	       1  2  3  4  5  6  7
+
+	1.2. Pradinė keliautojo padėtis [X=5,Y=4]. L=2
+
+	1.3. Naudojama prodedūra: menuWave
+
+2 DALIS. Vykdymas
+
+BANGA 0, žymė L=2. Pradinė padėtis [X=5,Y=4], NAUJA=1
+BANGA 1, žymė L=3
+	Uždaroma UZD=0, [X=5,Y=4]
+		R 1. [X=4,Y=4]. Laisva. NAUJA=0
+		R 2. [X=5,Y=3]. Siena
+		R 3. [X=6,Y=4]. Siena
+		R 4. [X=5,Y=5]. Laisva. NAUJA=1
+BANGA 2, žymė L=4
+	Uždaroma UZD=1, [X=4,Y=4]
+		R 1. [X=3,Y=4]. Laisva. NAUJA=2
+		R 2. [X=4,Y=3]. Laisva. NAUJA=3
+		R 3. [X=5,Y=4]. UŽDARYTA arba ATIDARYTA
+		R 4. [X=4,Y=5]. Siena
+	Uždaroma UZD=2, [X=5,Y=5]
+		R 1. [X=4,Y=5]. Siena
+		R 2. [X=5,Y=4]. UŽDARYTA arba ATIDARYTA
+		R 3. [X=6,Y=5]. Siena
+		R 4. [X=5,Y=6]. Laisva. NAUJA=4
+BANGA 3, žymė L=5
+	Uždaroma UZD=3, [X=3,Y=4]
+		R 1. [X=2,Y=4]. Laisva. NAUJA=5
+		R 2. [X=3,Y=3]. Siena
+		R 3. [X=4,Y=4]. UŽDARYTA arba ATIDARYTA
+		R 4. [X=3,Y=5]. Siena
+	Uždaroma UZD=4, [X=4,Y=3]
+		R 1. [X=3,Y=3]. Siena
+		R 2. [X=4,Y=2]. Laisva. NAUJA=6
+		R 3. [X=5,Y=3]. Siena
+		R 4. [X=4,Y=4]. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=5, [X=5,Y=6]
+		R 1. [X=4,Y=6]. Laisva. NAUJA=7
+		R 2. [X=5,Y=5]. UŽDARYTA arba ATIDARYTA
+		R 3. [X=6,Y=6]. Laisva. NAUJA=8
+		R 4. [X=5,Y=7]. Siena
+BANGA 4, žymė L=6
+	Uždaroma UZD=6, [X=2,Y=4]
+		R 1. [X=1,Y=4]. Siena
+		R 2. [X=2,Y=3]. Laisva. NAUJA=9
+		R 3. [X=3,Y=4]. UŽDARYTA arba ATIDARYTA
+		R 4. [X=2,Y=5]. Siena
+	Uždaroma UZD=7, [X=4,Y=2]
+		R 1. [X=3,Y=2]. Laisva. NAUJA=10
+		R 2. [X=4,Y=1]. Siena
+		R 3. [X=5,Y=2]. Siena
+		R 4. [X=4,Y=3]. UŽDARYTA arba ATIDARYTA
+	Uždaroma UZD=8, [X=4,Y=6]
+		R 1. [X=3,Y=6]. Laisva. NAUJA=11
+		R 2. [X=4,Y=5]. Siena
+		R 3. [X=5,Y=6]. UŽDARYTA arba ATIDARYTA
+		R 4. [X=4,Y=7]. Siena
+	Uždaroma UZD=9, [X=6,Y=6]
+		R 1. [X=5,Y=6]. UŽDARYTA arba ATIDARYTA
+		R 2. [X=6,Y=5]. Siena
+		R 3. [X=7,Y=6]. Laisva. NAUJA=12
+
+3 DALIS. Rezultatai
+	1) Kelias rastas. Bandymų 0
+	2) Kelias grafiškai
+Y,	V   ^
+	  7 |  1  1  1  1  1  0  1
+	  6 |  0  0  6  5  4  5  6
+	  5 |  1  1  1  1  3  1  1
+	  4 |  1  5  4  3  2  1  1
+	  3 |  1  6  1  4  1  1  1
+	  2 |  1  0  6  5  1  1  1
+	  1 |  1  1  1  1  1  1  1
+	    ----------------------> X, U
+	       1  2  3  4  5  6  7
+
+3.3. Kelias taisyklėmis: R4 -> R4 -> R3 -> R3
+
+3.4. Kelias viršūnėmis: [X=6,Y=5] -> [X=6,Y=6] -> [X=6,Y=7] -> [X=7,Y=7] -> 
+						[X=7,Y=6] -> [X=6,Y=5]

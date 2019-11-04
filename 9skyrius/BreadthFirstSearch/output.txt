@@ -1,0 +1,42 @@
+1 DALIS. Duomenys
+	1.1. Grafas
+
+	1.2. Pradinė grafo viršūnė: c.
+
+	1.3. Terminalnė grafo viršūnė: d.
+
+	1.3. Naudojama procedūra: BFS
+
+2 DALIS. Vykdymas
+
+1. ---------------------------------
+	ATIDARYTA: [c(pradžia)]
+	UŽDARYTA: []
+2. ---------------------------------
+	ATIDARYTA: [f(c), a(c)]
+	UŽDARYTA: [c(pradžia)]
+3. ---------------------------------
+	ATIDARYTA: [a(c), i(f), e(f)]
+	UŽDARYTA: [c(pradžia), f(c)]
+4. ---------------------------------
+	ATIDARYTA: [i(f), e(f), b(a)]
+	UŽDARYTA: [c(pradžia), f(c), a(c)]
+5. ---------------------------------
+	ATIDARYTA: [e(f), b(a), h(i)]
+	UŽDARYTA: [c(pradžia), f(c), a(c), i(f)]
+6. ---------------------------------
+	ATIDARYTA: [b(a), h(i), g(e), d(e)]
+	UŽDARYTA: [c(pradžia), f(c), a(c), i(f), e(f)]
+7. ---------------------------------
+	ATIDARYTA: [h(i), g(e), d(e)]
+	UŽDARYTA: [c(pradžia), f(c), a(c), i(f), e(f), b(a)]
+8. ---------------------------------
+	ATIDARYTA: [g(e), d(e), j(h), k(h)]
+	UŽDARYTA: [c(pradžia), f(c), a(c), i(f), e(f), b(a), h(i)]
+9. ---------------------------------
+Rasta terminalinė viršūnė d
+
+3 DALIS. Rezultatai
+	3.1) Kelias rastas. Bandymų 9
+
+3.2) Kelias viršūnėmis: c -> f -> e -> d

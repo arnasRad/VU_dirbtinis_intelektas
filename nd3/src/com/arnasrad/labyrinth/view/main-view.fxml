@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            prefHeight="680.0" prefWidth="800.0" fx:controller="com.arnasrad.labyrinth.Controller">
+    <center>
+        <SplitPane dividerPositions="0.3">
+
+            <VBox alignment="CENTER">
+                <GridPane VBox.vgrow="ALWAYS">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="BOTTOM"
+                                        vgrow="ALWAYS"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS"/>
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER"
+                                        vgrow="ALWAYS"/>
+                        <RowConstraints maxHeight="90.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER"
+                                        vgrow="ALWAYS"/>
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER"
+                                        vgrow="ALWAYS"/>
+                        <RowConstraints maxHeight="60.0" minHeight="30.0" prefHeight="45.0" vgrow="ALWAYS"/>
+                    </rowConstraints>
+                    <VBox alignment="TOP_CENTER" spacing="10.0" GridPane.halignment="LEFT"
+                          GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER"
+                          GridPane.vgrow="ALWAYS">
+                        <Label text="Program state" underline="true" VBox.vgrow="ALWAYS">
+                            <font>
+                                <Font size="13.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="programStateLbl"/>
+                        <Label text="Current iteration" underline="true" VBox.vgrow="ALWAYS">
+                            <font>
+                                <Font size="13.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="currentIterationLbl"/>
+                        <Label text="Traversal mode" underline="true" VBox.vgrow="ALWAYS">
+                            <font>
+                                <Font size="13.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="traversalModeLbl"/>
+                        <Label text="Traversal speed" underline="true">
+                            <font>
+                                <Font size="13.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="traversalSpeedLbl"/>
+                        <Label text="Labyrinth size" underline="true" VBox.vgrow="ALWAYS">
+                            <font>
+                                <Font size="13.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="labyrinthSizeLbl"/>
+                        <Label text="Current coordinate " underline="true">
+                            <font>
+                                <Font size="13.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="currentCoordinateLbl"/>
+                        <GridPane.margin>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="10.0"/>
+                        </GridPane.margin>
+                    </VBox>
+                    <BorderPane GridPane.rowIndex="2">
+                        <center>
+                            <Slider fx:id="traversalSpeedSlider"
+                                    min="50" max="1000"
+                                    value="250"
+                                    majorTickUnit="50"
+                                    snapToTicks="true"
+                                    showTickMarks="true">
+                                <BorderPane.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                </BorderPane.margin>
+                            </Slider>
+                        </center>
+                        <top>
+                            <Separator BorderPane.alignment="CENTER"/>
+                        </top>
+                        <bottom>
+                            <Separator BorderPane.alignment="CENTER"/>
+                        </bottom>
+                    </BorderPane>
+                    <VBox alignment="BOTTOM_CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3"
+                          GridPane.vgrow="ALWAYS">
+                        <Label fx:id="instructionsLbl" alignment="BOTTOM_LEFT" contentDisplay="CENTER"
+                               text="Enter text input file name (without .txt extension)"
+                               textAlignment="CENTER" wrapText="true">
+                            <VBox.margin>
+                                <Insets bottom="2.0" left="10.0" right="10.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font name="System Bold" size="14.0"/>
+                            </font>
+                        </Label>
+                    </VBox>
+                    <TextField fx:id="console" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS"
+                               GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS"/>
+                    <Button fx:id="enterBtn" defaultButton="true" maxHeight="Infinity" maxWidth="Infinity"
+                            mnemonicParsing="false" onAction="#processEnterClicked" text="Enter"
+                            GridPane.rowIndex="5"/>
+                    <Label text="PROGRAM STATE">
+                        <GridPane.margin>
+                            <Insets/>
+                        </GridPane.margin>
+                        <font>
+                            <Font name="System Bold" size="14.0"/>
+                        </font>
+                    </Label>
+                </GridPane>
+            </VBox>
+            <GridPane>
+
+                <columnConstraints>
+                    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" vgrow="ALWAYS"/>
+                    <RowConstraints maxHeight="60.0" minHeight="30.0" prefHeight="45.0" vgrow="ALWAYS"/>
+                </rowConstraints>
+                <VBox fx:id="boardVBox" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS"
+                      GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS"/>
+                <VBox GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
+                      GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                    <GridPane VBox.vgrow="ALWAYS">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" percentWidth="50.0"/>
+                            <ColumnConstraints hgrow="ALWAYS" percentWidth="50.0"/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints vgrow="ALWAYS"/>
+                        </rowConstraints>
+                        <Button fx:id="resetBtn" disable="true" maxHeight="Infinity" maxWidth="Infinity"
+                                mnemonicParsing="false" onAction="#processResetClicked" text="Reset"
+                                GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS"
+                                GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS"/>
+                        <Button fx:id="runBtn" disable="true" maxHeight="Infinity" maxWidth="Infinity"
+                                mnemonicParsing="false" onAction="#processRunClicked" text="Run"
+                                GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                                GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER"
+                                GridPane.vgrow="ALWAYS"/>
+                    </GridPane>
+                </VBox>
+            </GridPane>
+        </SplitPane>
+    </center>
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <Menu mnemonicParsing="false" text="File">
+                <MenuItem mnemonicParsing="false" onAction="#menuOpenClicked" text="Open"/>
+                <MenuItem mnemonicParsing="false" onAction="#menuRestartClicked" text="Restart"/>
+                <MenuItem mnemonicParsing="false" onAction="#menuCloseClicked" text="Close"/>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+                <Menu mnemonicParsing="false" text="Traverse">
+                    <fx:define>
+                        <ToggleGroup fx:id="traverseGroup"/>
+                    </fx:define>
+                    <RadioMenuItem fx:id="menuBacktrack" mnemonicParsing="false" text="BACKTRACK"
+                                   toggleGroup="$traverseGroup"/>
+                    <RadioMenuItem fx:id="menuBacktrack1" mnemonicParsing="false" text="BACKTRACK1"
+                                   toggleGroup="$traverseGroup"/>
+                    <RadioMenuItem fx:id="menuBacktrackMem" mnemonicParsing="false" text="BACKTRACK_MEMORY"
+                                   toggleGroup="$traverseGroup"/>
+                    <RadioMenuItem fx:id="menuWave" mnemonicParsing="false" selected="true"
+                                   text="WAVE_ALGORITHM" toggleGroup="$traverseGroup"/>
+                </Menu>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+                <MenuItem mnemonicParsing="false" onAction="#menuAboutClicked" text="About"/>
+            </Menu>
+        </MenuBar>
+    </top>
+</BorderPane>

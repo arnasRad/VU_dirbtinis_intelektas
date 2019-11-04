@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.arnasrad.labyrinth.Controller">
+    <center>
+        <GridPane prefHeight="680.0" prefWidth="800.0">
+
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" vgrow="ALWAYS"/>
+                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS"/>
+                <RowConstraints maxHeight="60.0" minHeight="30.0" prefHeight="45.0" vgrow="ALWAYS"/>
+            </rowConstraints>
+            <children>
+                <VBox fx:id="boardVBox" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS"
+                      GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS"/>
+                <VBox GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                    <children>
+                        <TextField fx:id="console" prefHeight="30" prefWidth="5000.0"
+                                   promptText="&gt; Enter text input file name (without .txt extension)"
+                                   style="-fx-control-inner-background: #000000; -fx-prompt-text-fill: gray; -fx-text-fill: white"/>
+                    </children>
+                </VBox>
+                <VBox GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2"
+                      GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                    <children>
+                        <GridPane VBox.vgrow="ALWAYS">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="33.33333"/>
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="33.33333"/>
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="33.33333"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="ALWAYS"/>
+                            </rowConstraints>
+                            <children>
+                                <Button fx:id="enterBtn" defaultButton="true" maxHeight="Infinity" maxWidth="Infinity"
+                                        mnemonicParsing="false" onAction="#processEnterClicked" text="Enter"
+                                        GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS"
+                                        GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS"/>
+                                <Button fx:id="resetBtn" disable="true" maxHeight="Infinity" maxWidth="Infinity"
+                                        mnemonicParsing="false" onAction="#processResetClicked" text="Reset"
+                                        GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS"
+                                        GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS"/>
+                                <Button fx:id="runBtn" disable="true" maxHeight="Infinity" maxWidth="Infinity"
+                                        mnemonicParsing="false" onAction="#processRunClicked" text="Run"
+                                        GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS"
+                                        GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS"/>
+                            </children>
+                        </GridPane>
+                    </children>
+                </VBox>
+            </children>
+        </GridPane>
+    </center>
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuOpenClicked" text="Open"/>
+                        <MenuItem mnemonicParsing="false" onAction="#menuRestartClicked" text="Restart"/>
+                        <MenuItem mnemonicParsing="false" onAction="#menuCloseClicked" text="Close"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <Menu mnemonicParsing="false" text="Traverse">
+                            <fx:define>
+                                <ToggleGroup fx:id="traverseGroup"/>
+                            </fx:define>
+                            <items>
+                                <RadioMenuItem fx:id="menuBacktrack" mnemonicParsing="false" text="BACKTRACK"
+                                               toggleGroup="$traverseGroup"/>
+                                <RadioMenuItem fx:id="menuBacktrack1" mnemonicParsing="false" text="BACKTRACK1"
+                                               toggleGroup="$traverseGroup"/>
+                                <RadioMenuItem fx:id="menuBacktrackMem" mnemonicParsing="false" text="BACKTRACK_MEMORY"
+                                               toggleGroup="$traverseGroup"/>
+                                <RadioMenuItem fx:id="menuWave" mnemonicParsing="false" selected="true"
+                                               text="WAVE_ALGORITHM" toggleGroup="$traverseGroup"/>
+                            </items>
+                        </Menu>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuAboutClicked" text="About"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+</BorderPane>

@@ -1,0 +1,35 @@
+.button {
+    -fx-font-family: Helvetica;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+}
+
+.button.tile-btn-idle, .button.tile-btn-disabled {
+    -fx-text-fill: transparent;
+}
+
+.button.tile-btn-active {
+    -fx-border-width: 1;
+    /*-fx-background-color: #FFFFFF;*/
+}
+
+.button.tile-btn-current {
+    /*-fx-border-color: #00e004;*/
+    -fx-border-color: #000000;
+    -fx-background-color: #00e004;
+    /*-fx-text-fill: #00e004;*/
+}
+
+.button.tile-btn-visited {
+    /*-fx-border-color: #006e02;*/
+    -fx-border-color: #000000;
+    -fx-background-color: #006e02;
+    /*-fx-text-fill: #006e02;*/
+}
+
+.button.tile-btn-thread {
+    /*-fx-border-color: #DC143C;*/
+    -fx-border-color: #000000;
+    -fx-background-color: #DC143C;
+    /*-fx-text-fill: #DC143C;*/
+}
