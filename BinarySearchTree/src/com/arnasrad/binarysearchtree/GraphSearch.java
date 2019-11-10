@@ -49,6 +49,7 @@ public class GraphSearch implements Runnable {
     // TODO: fix line positioning on graph load
     // TODO: hide edge costs on search type change in menu
     // TODO: test search when there is no solution to the problem (disconnected graphs)
+    // TODO: fix bug when there is no 'root' node specified in input file
 
     public GraphSearch(MainController controller, String fileName) throws Exception {
 
@@ -174,6 +175,7 @@ public class GraphSearch implements Runnable {
                         "vertex to search for a path");
             }
 
+            String rootVertexId = names[0];
             // leave only distinct vertex names
             Set<String> distinctNames = new HashSet<>(Arrays.asList(names));
 
@@ -184,7 +186,11 @@ public class GraphSearch implements Runnable {
             // load vertex names
             for (String name : distinctNames) {
 
-                model.addVertex(name, VertexType.ELLIPSE, Vertex.State.IDLE);
+                if (name.equals(rootVertexId)) {
+                    model.addVertex(name, true);
+                } else {
+                    model.addVertex(name);
+                }
             }
 
             controller.setVertexCountLbl(distinctNames.size());
@@ -208,7 +214,7 @@ public class GraphSearch implements Runnable {
                 }
 
                 model.addEdge(edgeVertices[0], edgeVertices[1],
-                        Double.parseDouble(edgeVertices[2]));
+                        true, Double.parseDouble(edgeVertices[2]));
             }
 
         } catch (IOException e) {

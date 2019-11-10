@@ -1,4 +1,4 @@
-1. Viršūnės
+1. Viršūnės (the first vertex in this list is the root node)
 root a b c d e f g h i j k n l m
 
 2. Briaunos

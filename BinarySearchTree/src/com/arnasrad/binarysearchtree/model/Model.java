@@ -10,6 +10,7 @@ import java.util.Map;
 public class Model {
 
     private Vertex graphParent;
+    private Vertex root;
 
     private List<Vertex> allVertices;
     private List<Vertex> addedVertices;
@@ -40,12 +41,17 @@ public class Model {
         removedEdges = new ArrayList<>();
 
         vertexMap = new HashMap<>(); // <id,vertex>
-
+        root = null;
     }
 
     public void clearAddedLists() {
         addedVertices.clear();
         addedEdges.clear();
+    }
+
+    private Vertex getRoot() {
+
+        return this.root;
     }
 
     public Vertex getVertex(String id) {
@@ -89,23 +95,33 @@ public class Model {
         return null;
     }
 
-    public void addVertex(String id, VertexType type, Vertex.State state) {
+    public void addVertex(String id) {
+
+        addVertex(id, VertexType.ELLIPSE, Vertex.State.IDLE, false);
+    }
+
+    public void addVertex(String id, boolean isRoot) {
+
+        addVertex(id, VertexType.ELLIPSE, Vertex.State.IDLE, isRoot);
+    }
+
+    public void addVertex(String id, VertexType type, Vertex.State state, boolean isRoot) {
 
         switch (type) {
 
             case RECTANGLE:
                 RectangleVertex rectangleVertex = new RectangleVertex(id, state);
-                addVertex(rectangleVertex);
+                addVertexModel(rectangleVertex, isRoot);
                 break;
 
             case TRIANGLE:
                 TriangleVertex triangleVertex = new TriangleVertex(id, state);
-                addVertex(triangleVertex);
+                addVertexModel(triangleVertex, isRoot);
                 break;
 
             case ELLIPSE:
                 EllipseVertex ellipseVertex = new EllipseVertex(id, state);
-                addVertex(ellipseVertex);
+                addVertexModel(ellipseVertex, isRoot);
                 break;
 
             default:
@@ -113,11 +129,11 @@ public class Model {
         }
     }
 
-    private void addVertex(Vertex vertex) {
+    private void addVertexModel(Vertex vertex, boolean isRoot) {
 
         addedVertices.add(vertex);
         vertexMap.put( vertex.getVertexId(), vertex);
-
+        this.root = vertex;
     }
 
     public void addEdge(String sourceId, String targetId) throws Exception {
@@ -202,6 +218,93 @@ public class Model {
         addedEdges.clear();
         removedEdges.clear();
 
+    }
+
+    public int getGraphDepth() {
+
+        return getGraphDepth(getRoot(), 0);
+    }
+
+    private int getGraphDepth(Vertex vertex, int currentDepth) {
+
+        int leftDepth = currentDepth;
+        int rightDepth = currentDepth;
+        List<Vertex> children = vertex.getVertexChildren();
+        if (children == null || children.size() == 0) {
+            // edge condition
+            return currentDepth;
+        }
+
+        Vertex child = children.get(0);
+        leftDepth = getGraphDepth(child, currentDepth + 1);
+
+        if (children.size() == 1) {
+            return Math.max(leftDepth, rightDepth);
+        }
+
+        child = children.get(1);
+        rightDepth = getGraphDepth(child, currentDepth + 1);
+
+        return Math.max(leftDepth, rightDepth);
+    }
+
+    public void setBTVertexPositions() {
+
+        int graphDepth = getGraphDepth();
+        double totalWidth = Math.pow(2, graphDepth) * 65;
+        double currentLayoutX = totalWidth / 2;
+        getRoot().relocate(currentLayoutX, 50);
+
+        List<Vertex> children = getRoot().getVertexChildren();
+        if (children.size() == 0) {
+            // root has no children
+            return;
+        } else if (children.size() > 2) {
+            // root has more than two children -> unexpected error
+            return;
+        }
+
+
+        Vertex child = children.get(0); // left child
+        positionVertex(child, -currentLayoutX/2);
+
+        if (children.size() == 1) {
+            // root only has one child
+            getRoot().relocate(currentLayoutX - currentLayoutX/2, 50);
+            return;
+        }
+
+        child = children.get(1); // right child
+        positionVertex(child, currentLayoutX/2);
+    }
+
+    /**
+     * Recursive function
+     * Sets layout coordinates for vertex
+     * @param vertex to set coordinates to
+     * @param xOffset relative to parent
+     */
+    private void positionVertex(Vertex vertex, double xOffset) {
+
+        Vertex parentVertex = vertex.getVertexParents().get(0);
+        vertex.setLayoutX(parentVertex.getLayoutX() + xOffset);
+        vertex.setLayoutY(parentVertex.getLayoutY() + 70);
+
+        List<Vertex> children = vertex.getVertexChildren();
+
+        if (children.size() == 0) {
+            return;
+        }
+
+        Vertex child = vertex.getVertexChildren().get(0);
+        positionVertex(child, -(xOffset/2)); // left child
+
+        if (children.size() == 1) {
+            return;
+        }
+
+        child = vertex.getVertexChildren().get(1);
+        positionVertex(child, xOffset/2); // right child
     }
 
     /**

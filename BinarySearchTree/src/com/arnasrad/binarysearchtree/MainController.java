@@ -374,6 +374,7 @@ public class MainController {
 //        boardGridPane.prefHeightProperty().bind(boardVBox.heightProperty());
 
         boardVBox.getChildren().add(graph.getGraph().getScrollPane());
+        graph.getGraph().getModel().setBTVertexPositions();
     }
 
     private void processOutputFilename() {

@@ -84,8 +84,7 @@ public class Graph {
 
         for(Vertex vertex : model.getAllVertices()) {
 
-            this.model.addVertex(vertex.getVertexId(),
-                    VertexType.ELLIPSE, Vertex.State.IDLE);
+            this.model.addVertex(vertex.getVertexId());
         }
 
         for(Edge edge : model.getAllEdges()) {

@@ -30,7 +30,7 @@ public class Edge extends Group {
 
     private boolean oriented;
 
-    private ChangeListener<Number> targetListener = (observable, oldValue, newValue) -> {
+    private ChangeListener<Number> connectionCoordinatesListener = (observable, oldValue, newValue) -> {
 
         Ellipse sourceNode = (Ellipse) source.getView();
         Ellipse targetNode = (Ellipse) target.getView();
@@ -137,10 +137,10 @@ public class Edge extends Group {
 //        target.layoutXProperty().removeListener(targetListener);
 //        target.layoutYProperty().removeListener(targetListener);
 
-        source.layoutXProperty().addListener(targetListener);
-        source.layoutYProperty().addListener(targetListener);
-        target.layoutXProperty().addListener(targetListener);
-        target.layoutYProperty().addListener(targetListener);
+        source.layoutXProperty().addListener(connectionCoordinatesListener);
+        source.layoutYProperty().addListener(connectionCoordinatesListener);
+        target.layoutXProperty().addListener(connectionCoordinatesListener);
+        target.layoutYProperty().addListener(connectionCoordinatesListener);
     }
 
     private Point2D getOffset(Ellipse source, Ellipse target) {
