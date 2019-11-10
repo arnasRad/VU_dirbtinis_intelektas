@@ -1,0 +1,48 @@
+1 DALIS. Duomenys
+	1.1. Grafas
+
+	1.2. Pradinė grafo viršūnė: root.
+
+	1.3. Terminalnė grafo viršūnė: k.
+
+	1.3. Naudojama procedūra: BFS
+
+2 DALIS. Vykdymas
+
+1. ---------------------------------
+	ATIDARYTA: [root(pradžia)]
+	UŽDARYTA: []
+2. ---------------------------------
+	ATIDARYTA: [a(root)]
+	UŽDARYTA: [root(pradžia)]
+3. ---------------------------------
+	ATIDARYTA: [b(a), h(a)]
+	UŽDARYTA: [root(pradžia), a(root)]
+4. ---------------------------------
+	ATIDARYTA: [h(a), c(b), d(b)]
+	UŽDARYTA: [root(pradžia), a(root), b(a)]
+5. ---------------------------------
+	ATIDARYTA: [c(b), d(b), i(h), j(h)]
+	UŽDARYTA: [root(pradžia), a(root), b(a), h(a)]
+6. ---------------------------------
+	ATIDARYTA: [d(b), i(h), j(h)]
+	UŽDARYTA: [root(pradžia), a(root), b(a), h(a), c(b)]
+7. ---------------------------------
+	ATIDARYTA: [i(h), j(h), e(d), f(d)]
+	UŽDARYTA: [root(pradžia), a(root), b(a), h(a), c(b), d(b)]
+8. ---------------------------------
+	ATIDARYTA: [j(h), e(d), f(d)]
+	UŽDARYTA: [root(pradžia), a(root), b(a), h(a), c(b), d(b), i(h)]
+9. ---------------------------------
+	ATIDARYTA: [e(d), f(d), k(j), n(j)]
+	UŽDARYTA: [root(pradžia), a(root), b(a), h(a), c(b), d(b), i(h), j(h)]
+10. ---------------------------------
+	ATIDARYTA: [f(d), k(j), n(j)]
+	UŽDARYTA: [root(pradžia), a(root), b(a), h(a), c(b), d(b), i(h), j(h), e(d)]
+11. ---------------------------------
+Rasta terminalinė viršūnė k
+
+3 DALIS. Rezultatai
+	3.1) Kelias rastas. Bandymų 11
+
+3.2) Kelias viršūnėmis: root -> a -> h -> j -> k

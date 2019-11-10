@@ -1,57 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/input4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/arnasrad/breadthfirstsearch/ResultController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/arnasrad/breadthfirstsearch/view/main-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/arnasrad/breadthfirstsearch/view/result-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Section 11 complete">
+      <change afterPath="$PROJECT_DIR$/../.idea/9skyrius.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/BinarySearchTree.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/input1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/input2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/input3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/input4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/output.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/Graph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/GraphSearch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/MouseGestures.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/ResultController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/layout/Layout.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/layout/RandomLayout.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/layout/ZoomableScrollPane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/model/Edge.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/model/Model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/model/vertex/EllipseVertex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/model/vertex/RectangleVertex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/model/vertex/TriangleVertex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/model/vertex/Vertex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/model/vertex/VertexLayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/model/vertex/VertexType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/view/main-view-wo-menu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/view/main-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/view/result-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/META-INF/BreadthFirstSearch.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/ view/main-view-wo-menu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/ view/main-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/Graph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/GraphSearch$SearchType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/GraphSearch$SearchType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/GraphSearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/GraphSearch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MainController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MainController$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MainController$State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MainController$StatesPromptTexts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MainController$StatesPromptTexts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$DragContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$DragContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/layout/Layout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/layout/Layout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/layout/RandomLayout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/layout/RandomLayout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/layout/ZoomableScrollPane$ZoomHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/layout/ZoomableScrollPane$ZoomHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/layout/ZoomableScrollPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/layout/ZoomableScrollPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/Edge.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/Edge.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/Model$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/Model$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/Model.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/EllipseVertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/EllipseVertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/RectangleVertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/RectangleVertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/TriangleVertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/TriangleVertex.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/Vertex$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/Vertex$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/Vertex$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/Vertex$State.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/Vertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/VertexLayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/VertexLayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/VertexType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/VertexType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/arnasrad/breadthfirstsearch/ view/main-view-wo-menu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/arnasrad/breadthfirstsearch/ view/main-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/arnasrad/breadthfirstsearch/GraphSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arnasrad/breadthfirstsearch/GraphSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/arnasrad/breadthfirstsearch/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arnasrad/breadthfirstsearch/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/arnasrad/breadthfirstsearch/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arnasrad/breadthfirstsearch/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/arnasrad/breadthfirstsearch/model/vertex/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arnasrad/breadthfirstsearch/model/vertex/Vertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../nd2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../nd2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../nd3/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../nd3/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../nd3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../nd3/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -135,11 +126,14 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1SK7WLgTvxZtRhzWgDFY9W8nIm6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
@@ -150,7 +144,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PATH_TO_FX$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -210,7 +204,7 @@
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.arnasrad.breadthfirstsearch.Main" />
       <module name="BreadthFirstSearch" />
-      <option name="VM_PARAMETERS" value=" --module-path ${PATH_TO_FX} --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path ${PATH_TO_FX} --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="sample.*" />
@@ -290,8 +284,17 @@
       <workItem from="1572961669257" duration="19000" />
       <workItem from="1573299216243" duration="2487000" />
       <workItem from="1573323707900" duration="4560000" />
-      <workItem from="1573374373114" duration="1075000" />
+      <workItem from="1573374373114" duration="1319000" />
+      <workItem from="1573375834978" duration="1492000" />
     </task>
+    <task id="LOCAL-00001" summary="Section 11 complete">
+      <created>1573375530048</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1573375530048</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,7 +315,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <MESSAGE value="Section 11 complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="Section 11 complete" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

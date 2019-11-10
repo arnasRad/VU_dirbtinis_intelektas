@@ -1,0 +1,19 @@
+1. Viršūnės
+a b c d e f g h i j k
+
+2. Briaunos
+a c 300.0
+a b 150.0
+b d 60.0
+b e 500.0
+c f 600.0
+d e 450.0
+e f 200.0
+e g 290.0
+e h 300.0
+f i 150.0
+g j 100.0
+h j 60.0
+h i 120.0
+h k 100.0
+j k 100.0

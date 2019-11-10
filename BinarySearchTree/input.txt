@@ -1,0 +1,11 @@
+1. Vertices
+Vilnius Kaunas Klaipėda Varėna Panevėžys Rokiškis Utena Šiauliai
+
+2. Edges
+Vilnius Kaunas 1.0
+Vilnius Klaipėda 1.0
+Kaunas Varėna 1.0
+Kaunas Panevėžys 1.0
+Klaipėda Rokiškis 1.0
+Klaipėda Utena 1.0
+Panevėžys Šiauliai 1.0

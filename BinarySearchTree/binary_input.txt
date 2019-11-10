@@ -1,0 +1,18 @@
+1. Viršūnės
+root a b c d e f g h i j k n l m
+
+2. Briaunos
+root a 1.0
+a b 1.0
+a h 1.0
+b c 1.0
+b d 1.0
+d e 1.0
+d f 1.0
+f g 1.0
+h i 1.0
+h j 1.0
+j k 1.0
+j n 1.0
+k l 1.0
+k m 1.0
