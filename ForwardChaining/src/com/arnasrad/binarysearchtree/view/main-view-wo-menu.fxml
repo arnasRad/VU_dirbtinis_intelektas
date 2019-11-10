@@ -87,7 +87,7 @@
                     <BorderPane GridPane.rowIndex="2">
                         <center>
                             <Slider fx:id="traversalSpeedSlider"
-                                    min="50" max="2500"
+                                    min="50" max="1000"
                                     value="250"
                                     majorTickUnit="50"
                                     snapToTicks="true"
@@ -168,28 +168,6 @@
         </SplitPane>
     </center>
     <top>
-        <MenuBar BorderPane.alignment="CENTER">
-            <Menu mnemonicParsing="false" text="File">
-                <MenuItem mnemonicParsing="false" onAction="#menuOpenClicked" text="Open"/>
-                <MenuItem mnemonicParsing="false" onAction="#menuRestartClicked" text="Restart"/>
-                <MenuItem mnemonicParsing="false" onAction="#menuCloseClicked" text="Close"/>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Edit">
-                <Menu mnemonicParsing="false" text="Traverse">
-                    <fx:define>
-                        <ToggleGroup fx:id="traverseGroup"/>
-                    </fx:define>
-                    <RadioMenuItem fx:id="menuPrefix" mnemonicParsing="false" selected="true"
-                                   text="PREFIX" toggleGroup="$traverseGroup"/>
-                    <RadioMenuItem fx:id="menuInfix" mnemonicParsing="false"
-                                   text="INFIX" toggleGroup="$traverseGroup"/>
-                    <RadioMenuItem fx:id="menuPostfix" mnemonicParsing="false"
-                                   text="POSTFIX" toggleGroup="$traverseGroup"/>
-                </Menu>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Help">
-                <MenuItem mnemonicParsing="false" onAction="#menuAboutClicked" text="About"/>
-            </Menu>
-        </MenuBar>
+
     </top>
 </BorderPane>

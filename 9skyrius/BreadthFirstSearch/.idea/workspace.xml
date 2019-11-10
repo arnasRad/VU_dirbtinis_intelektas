@@ -2,47 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Section 11 complete">
-      <change afterPath="$PROJECT_DIR$/../.idea/9skyrius.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/BinarySearchTree.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/input1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/input2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/input3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/input4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/output.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/Graph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/GraphSearch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/MouseGestures.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/ResultController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/layout/Layout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/layout/RandomLayout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/layout/ZoomableScrollPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/model/Edge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/model/Model.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/model/vertex/EllipseVertex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/model/vertex/RectangleVertex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/model/vertex/TriangleVertex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/model/vertex/Vertex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/model/vertex/VertexLayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/model/vertex/VertexType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/view/main-view-wo-menu.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/view/main-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/view/result-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/Vertex$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/Vertex$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/Vertex.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/ant.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/ForwardChaining.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/src/sample/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/src/sample/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/src/sample/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/GraphSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/GraphSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/view/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/view/main-view.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -286,6 +263,7 @@
       <workItem from="1573323707900" duration="4560000" />
       <workItem from="1573374373114" duration="1319000" />
       <workItem from="1573375834978" duration="1492000" />
+      <workItem from="1573388410790" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="Section 11 complete">
       <created>1573375530048</created>
