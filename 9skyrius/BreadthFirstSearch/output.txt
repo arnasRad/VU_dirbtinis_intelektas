@@ -1,42 +1,36 @@
 1 DALIS. Duomenys
 	1.1. Grafas
 
-	1.2. Pradinė grafo viršūnė: c.
+	1.2. Pradinė grafo viršūnė: s.
 
-	1.3. Terminalnė grafo viršūnė: d.
+	1.3. Terminalnė grafo viršūnė: t.
 
-	1.3. Naudojama procedūra: BFS
+	1.3. Naudojama procedūra: DFS
 
 2 DALIS. Vykdymas
 
 1. ---------------------------------
-	ATIDARYTA: [c(pradžia)]
+	ATIDARYTA: [s(pradžia)]
 	UŽDARYTA: []
 2. ---------------------------------
-	ATIDARYTA: [f(c), a(c)]
-	UŽDARYTA: [c(pradžia)]
+	ATIDARYTA: [a(s), t(s), b(s)]
+	UŽDARYTA: [s(pradžia)]
 3. ---------------------------------
-	ATIDARYTA: [a(c), i(f), e(f)]
-	UŽDARYTA: [c(pradžia), f(c)]
+	ATIDARYTA: [c(a), d(a), e(a), t(s), b(s)]
+	UŽDARYTA: [s(pradžia), a(s)]
 4. ---------------------------------
-	ATIDARYTA: [i(f), e(f), b(a)]
-	UŽDARYTA: [c(pradžia), f(c), a(c)]
+	ATIDARYTA: [d(c), e(a), t(s), b(s)]
+	UŽDARYTA: [s(pradžia), a(s), c(a)]
 5. ---------------------------------
-	ATIDARYTA: [e(f), b(a), h(i)]
-	UŽDARYTA: [c(pradžia), f(c), a(c), i(f)]
+	ATIDARYTA: [e(a), t(s), b(s)]
+	UŽDARYTA: [s(pradžia), a(s), c(a), d(c)]
 6. ---------------------------------
-	ATIDARYTA: [b(a), h(i), g(e), d(e)]
-	UŽDARYTA: [c(pradžia), f(c), a(c), i(f), e(f)]
+	ATIDARYTA: [b(e), t(e)]
+	UŽDARYTA: [s(pradžia), a(s), c(a), d(c), e(a)]
 7. ---------------------------------
-	ATIDARYTA: [h(i), g(e), d(e)]
-	UŽDARYTA: [c(pradžia), f(c), a(c), i(f), e(f), b(a)]
-8. ---------------------------------
-	ATIDARYTA: [g(e), d(e), j(h), k(h)]
-	UŽDARYTA: [c(pradžia), f(c), a(c), i(f), e(f), b(a), h(i)]
-9. ---------------------------------
-Rasta terminalinė viršūnė d
+Rasta terminalinė viršūnė t
 
 3 DALIS. Rezultatai
-	3.1) Kelias rastas. Bandymų 9
+	3.1) Kelias rastas. Bandymų 7
 
-3.2) Kelias viršūnėmis: c -> f -> e -> d
+3.2) Kelias viršūnėmis: s -> a -> e -> t

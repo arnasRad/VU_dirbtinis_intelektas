@@ -80,6 +80,8 @@ public class MainController {
     RadioMenuItem menuBreadthFirst;
     @FXML
     RadioMenuItem menuDijkstra;
+    @FXML
+    RadioMenuItem menuDepthFirst;
 
     @FXML
     public void initialize() {
@@ -245,6 +247,8 @@ public class MainController {
                 return GraphSearch.SearchType.BFS;
             case "menuDijkstra":
                 return GraphSearch.SearchType.DIJKSTRA;
+            case "menuDepthFirst":
+                return GraphSearch.SearchType.DFS;
             default:
                 return null;
         }

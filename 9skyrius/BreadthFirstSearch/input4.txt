@@ -1,0 +1,13 @@
+1. Viršūnės
+a b c d e s t
+
+2. Briaunos
+s a 1.0
+s t 1.0
+s b 1.0
+a c 1.0
+a d 1.0
+a e 1.0
+c d 1.0
+e b 1.0
+e t 1.0

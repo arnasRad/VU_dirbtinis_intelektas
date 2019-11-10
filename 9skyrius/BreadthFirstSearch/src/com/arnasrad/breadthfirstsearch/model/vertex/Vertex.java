@@ -79,7 +79,9 @@ public class Vertex extends StackPane {
 
     public List<Vertex> getAdjacentVertices() {
 
-        List<Vertex> adjacentVertices = new ArrayList<>(getVertexChildren());
+        List<Vertex> adjacentVertices = new ArrayList<>(
+                getVertexChildren()
+        );
         adjacentVertices.addAll(getVertexParents());
         return adjacentVertices;
     }

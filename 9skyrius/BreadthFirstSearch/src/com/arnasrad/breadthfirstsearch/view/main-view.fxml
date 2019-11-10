@@ -183,6 +183,8 @@
                                    text="BREADTH_FIRST" toggleGroup="$traverseGroup"/>
                     <RadioMenuItem fx:id="menuDijkstra" mnemonicParsing="false"
                                    text="DIJKSTRA" toggleGroup="$traverseGroup"/>
+                    <RadioMenuItem fx:id="menuDepthFirst" mnemonicParsing="false"
+                                   text="DEPTH_FIRST" toggleGroup="$traverseGroup"/>
                 </Menu>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">

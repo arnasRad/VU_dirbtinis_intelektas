@@ -27,6 +27,7 @@ public class GraphSearch implements Runnable {
 
         BFS, // 0; breadth first search without cost
         DIJKSTRA, // 1; unoriented search with costs
+        DFS, // 2; depth first search without cost
         UNDEFINED
     }
 
@@ -48,6 +49,7 @@ public class GraphSearch implements Runnable {
 
     // TODO: fix line positioning on graph load
     // TODO: hide edge costs on search type change in menu
+    // TODO: test search when there is no solution to the problem (disconnected graphs)
 
     public GraphSearch(MainController controller, String fileName) throws Exception {
 
@@ -70,7 +72,8 @@ public class GraphSearch implements Runnable {
         addTraversalFrame(e -> printInfoData());
 
         if (traversalOption.equals(SearchType.BFS) ||
-            traversalOption.equals(SearchType.DIJKSTRA)) {
+            traversalOption.equals(SearchType.DIJKSTRA) ||
+            traversalOption.equals(SearchType.DFS)) {
 
             runBFS();
         }
@@ -478,11 +481,8 @@ public class GraphSearch implements Runnable {
             addTraversalFrame(e -> currentVertex.setState(Vertex.State.CLOSED));
             open.remove(0);
             ArrayList<Vertex> newOpen = null;
-            if (graphSearchType == SearchType.BFS) {
-                newOpen = getAdjacentVerticesBFS(currentVertex, open, closed);
-            } else if (graphSearchType == SearchType.DIJKSTRA) {
-                newOpen = getAdjacentVerticesDijkstra(currentVertex, open, closed);
-            }
+
+            newOpen = getOpenVertices(currentVertex, open, closed);
 
             if (newOpen != null) {
                 for(Vertex vertex : newOpen) {
@@ -491,7 +491,11 @@ public class GraphSearch implements Runnable {
                     addTraversalFrame(e -> vertex.setState(Vertex.State.OPENED));
                 }
 
-                open.addAll(newOpen);
+                if(graphSearchType == SearchType.DFS) {
+                    open.addAll(0, newOpen);
+                } else {
+                    open.addAll(newOpen);
+                }
             }
         }
     }
@@ -499,6 +503,20 @@ public class GraphSearch implements Runnable {
     private void orderListByCost(ArrayList<Vertex> vertices) {
 
         vertices.sort((o1, o2) -> Double.compare(o2.getPathCost(), o1.getPathCost()));
+    }
+
+    private ArrayList<Vertex> getOpenVertices(Vertex vertex, List<Vertex> openedVertices, List<Vertex> closedVertices) {
+
+        switch(graphSearchType) {
+            case BFS:
+                return getAdjacentVerticesBFS(vertex, openedVertices, closedVertices);
+            case DIJKSTRA:
+                return getAdjacentVerticesDijkstra(vertex, openedVertices, closedVertices);
+            case DFS:
+                return getAdjacentVerticesDFS(vertex, openedVertices, closedVertices);
+            default:
+                return null;
+        }
     }
 
     private ArrayList<Vertex> getAdjacentVerticesBFS(Vertex vertex, List<Vertex> openedVertices, List<Vertex> closedVertices) {
@@ -541,6 +559,25 @@ public class GraphSearch implements Runnable {
 
                     filteredList.add(adjVertex);
                 }
+            }
+        }
+
+        if (filteredList.size() == 0)
+            return null;
+
+        return filteredList;
+    }
+
+    private ArrayList<Vertex> getAdjacentVerticesDFS(Vertex vertex, List<Vertex> openedVertices, List<Vertex> closedVertices) {
+
+        ArrayList<Vertex> adjacentVertices = new ArrayList<>(vertex.getAdjacentVertices());
+        ArrayList<Vertex> filteredList = new ArrayList<>();
+
+        for(Vertex adjVertex : adjacentVertices) {
+            if (!closedVertices.contains(adjVertex)) {
+
+                filteredList.add(adjVertex);
+                openedVertices.remove(adjVertex);
             }
         }
 

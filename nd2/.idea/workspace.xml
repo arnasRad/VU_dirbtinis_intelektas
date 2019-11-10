@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d327e3e-c8a1-491d-b036-dddb64d4c4f3" name="Default Changelist" comment="" />
+    <list default="true" id="4d327e3e-c8a1-491d-b036-dddb64d4c4f3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../9skyrius/BreadthFirstSearch/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../9skyrius/BreadthFirstSearch/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../9skyrius/BreadthFirstSearch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../9skyrius/BreadthFirstSearch/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nd3/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../nd3/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nd3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../nd3/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +21,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1R9RMV2bVm8wkGnEcdjbReVuMTv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -85,11 +95,26 @@
       <workItem from="1570348258591" duration="3174000" />
       <workItem from="1570386194594" duration="773000" />
       <workItem from="1570520354488" duration="4424000" />
+      <workItem from="1572950106859" duration="32000" />
+      <workItem from="1572987181744" duration="610000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/nd2$Main.ic" NAME="Main Coverage Results" MODIFIED="1569164133567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
