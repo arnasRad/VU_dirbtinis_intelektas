@@ -4,6 +4,8 @@ import com.arnasrad.binarysearchtree.layout.Layout;
 import com.arnasrad.binarysearchtree.layout.RandomLayout;
 import com.arnasrad.binarysearchtree.model.Edge;
 import com.arnasrad.binarysearchtree.model.Model;
+import com.arnasrad.binarysearchtree.model.ProductionSystem;
+import com.arnasrad.binarysearchtree.model.Rule;
 import com.arnasrad.binarysearchtree.model.vertex.Vertex;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -19,23 +21,21 @@ import java.util.*;
  * credit for JavaFX Graph layout implementation goes to Roland
  * reference: https://stackoverflow.com/questions/30679025/graph-visualisation-like-yfiles-in-javafx
 */
-public class GraphSearch implements Runnable {
+public class Chaining implements Runnable {
 
-    public enum SearchType {
+    public enum ChainingType {
 
-        PREFIX, // 0;
-        INFIX, // 1;
-        POSTFIX, // 2;
+        FORWARD, // 0;
+        BACKWARD, // 1;
         UNDEFINED
     }
 
     private MainController controller;
 
-    private Vertex startVertex, targetVertex; // search start and end vertices
     private boolean exists; // specifies whether a path from start to end vertices exists
     private Graph graph;
-    private SearchType graphSearchType;
-    private boolean isGraphOriented;
+    private ProductionSystem productionSystem;
+    private ChainingType chainingType;
 
     private int currentIteration;
 
@@ -46,36 +46,33 @@ public class GraphSearch implements Runnable {
     private int currentTransitionStep;
 
     // TODO: fix line positioning on graph load
-    // TODO: hide edge costs on search type change in menu
-    // TODO: test search when there is no solution to the problem (disconnected graphs)
-    // TODO: fix bug when there is no 'root' node specified in input file
-    // TODO: implement infix and postfix traversals
 
-    public GraphSearch(MainController controller, String fileName) throws Exception {
+    public Chaining(MainController controller, String fileName) throws Exception {
 
         this.controller = controller;
         resetInfoFields();
         resetAnimationFields();
         initializeGraph();
-        loadGraph(fileName);
+        loadInputFile(fileName);
     }
 
     @Override
     public void run() {
 
-        SearchType traversalOption = controller.getTraversalOption();
-        setGraphSearchType(traversalOption);
+        ChainingType traversalOption = controller.getTraversalOption();
+        setChainingType(traversalOption);
 
         millisecondDelay = 0;
         currentTransitionStep = 0;
 
         addTraversalFrame(e -> printInfoData());
 
-        if (traversalOption.equals(SearchType.PREFIX) ||
-            traversalOption.equals(SearchType.INFIX) ||
-            traversalOption.equals(SearchType.POSTFIX)) {
-
-            traverse();
+        if (traversalOption.equals(ChainingType.FORWARD)) {
+            runForwardChaining();
+        } else if (traversalOption.equals(ChainingType.BACKWARD)) {
+            runBackwardChaining();
+        } else {
+            return;
         }
 
         traversalTimeline = new Timeline();
@@ -97,11 +94,6 @@ public class GraphSearch implements Runnable {
         stopTraversalAnimation();
         resetAnimationFields();
         this.exists = false;
-        startVertex = null;
-        targetVertex = null;
-//        setStartingVertex(new Vertex("null"));
-//        setFinishVertex(new Vertex("null"));
-//        resetAnimationFields();
         currentIteration = 0;
     }
 
@@ -150,85 +142,82 @@ public class GraphSearch implements Runnable {
         initializeLayout();
     }
 
-    private void loadGraph(String fileName) throws Exception {
+    private void loadInputFile(String fileName) throws Exception {
 
         try {
             BufferedReader br = new BufferedReader(
                     new FileReader(new File(fileName)));
 
-            br.readLine(); // ignore the first line
-            // graph search type
-            String line = br.readLine();
-            if (line == null) {
+            br.readLine();br.readLine(); br.readLine(); // skip the first three lines (file header + rules caption)
+
+            int lineNo = 4;
+            // read the rules of production system
+            String line, result;
+            String[] facts;
+            ArrayList<Rule> rules = new ArrayList<>();
+            while(!(line = br.readLine()).equals("")) {
+
+                String[] rule = line.split(" ");
+
+                if (rule.length == 0) {
+                    throw new Exception("ERROR: No rule names specified in " +
+                            "input file line " + lineNo);
+                } else if (rule.length == 1) {
+                    throw new Exception("ERROR: a rule must contain more than one " +
+                            "fact to make a rule");
+                }
+
+                facts = new String[rule.length - 1];
+                result = rule[0];
+                for(int i = 1; i < rule.length; ++i) {
+                    facts[i-1] = rule[i];
+                }
+                rules.add(new Rule(result, facts));
+
+                ++lineNo;
+            }
+
+            br.readLine(); // skip the following line (facts caption)
+            // load facts
+            if ((line = br.readLine()) == null) {
+
                 throw new Exception("ERROR: Incorrect input file format. " +
-                        "Second line must not be empty.");
+                        "Facts line must not be empty.");
             }
 
-            // the second line of input file contains vertex names
-            String[] names = line.split(" ");
+            int i = 0;
+            facts = line.split(" ");
 
-            if (names.length == 0) {
-                throw new Exception("ERROR: No vertex names specified in " +
-                        "input file");
-            } else if (names.length == 1) {
-                throw new Exception("ERROR: a graph must contain more than one " +
-                        "vertex to search for a path");
+            br.readLine();br.readLine(); // skip the following two lines (target caption)
+            line = br.readLine();
+            if (line == null) {
+
+                throw new Exception("ERROR: Incorrect input file format. " +
+                        "Target line must not be empty.");
             }
 
-            String rootVertexId = names[0];
-            // leave only distinct vertex names
-            Set<String> distinctNames = new HashSet<>(Arrays.asList(names));
+            String[] targets = line.split(" ");
+            if (targets.length != 1) {
 
-            Model model = graph.getModel();
-
-            graph.beginUpdate();
-
-            // load vertex names
-            for (String name : distinctNames) {
-
-                if (name.equals(rootVertexId)) {
-                    model.addVertex(name, true);
-                } else {
-                    model.addVertex(name);
-                }
+                throw new Exception("ERROR: Incorrect input file format. " +
+                        "There must be only one target. Found: " + targets.length);
             }
+            String target = targets[0];
 
-            controller.setVertexCountLbl(distinctNames.size());
-            // ignore the two following lines
-            br.readLine(); br.readLine();
-            String[] edgeVertices;
-            int fileLine = 4; // BufferedReader is currently on input file line 4
+            controller.setFactsCountLbl(facts.length);
+            controller.setRulesCountLbl(rules.size());
 
-            // read the rest of the input
-            while ((line = br.readLine()) != null) {
-
-                ++fileLine;
-                // each line must contain only names of adjacent vertices
-                // separated by a whitespace
-                edgeVertices = line.split(" ");
-
-                if (edgeVertices.length != 3) {
-                    throw new Exception("ERROR: incorrect input file line " + fileLine +
-                            ". Must contain two vertex names followed by cost double value, " +
-                            "all of which are separated by a whitespace");
-                }
-
-                model.addEdge(edgeVertices[0], edgeVertices[1],
-                        true, Double.parseDouble(edgeVertices[2]));
-            }
+            productionSystem = new ProductionSystem(rules, facts, target);
 
         } catch (IOException e) {
 
-            graph.endUpdate();
             throw new Exception("ERROR: No such file exists. Enter a valid file name");
         } catch (Exception e) {
 
-            graph.endUpdate();
 //            throw new Exception("ERROR occurred while reading input file.");
             throw e;
         } finally {
 
-            graph.endUpdate();
             initializeLayout();
         }
     }
@@ -243,24 +232,22 @@ public class GraphSearch implements Runnable {
 
     }
 
-    public SearchType getGraphSearchType(int type) {
+    public ChainingType getGraphSearchType(int type) {
 
         switch (type) {
 
             case 0:
-                return SearchType.PREFIX;
+                return ChainingType.FORWARD;
             case 1:
-                return SearchType.INFIX;
-            case 2:
-                return SearchType.POSTFIX;
+                return ChainingType.BACKWARD;
             default:
-                return SearchType.UNDEFINED;
+                return ChainingType.UNDEFINED;
         }
     }
 
-    public void setGraphSearchType(SearchType type) {
+    public void setChainingType(ChainingType type) {
 
-        this.graphSearchType = type;
+        this.chainingType = type;
     }
 
     public Graph getGraph() {
@@ -270,13 +257,13 @@ public class GraphSearch implements Runnable {
     public void setStartVertex(Vertex vertex) {
 
         vertex.setState(Vertex.State.CURRENT);
-        this.startVertex = vertex;
+//        this.startVertex = vertex;
     }
 
     public void setTargetVertex(Vertex vertex) {
 
         vertex.setState(Vertex.State.TARGET);
-        this.targetVertex = vertex;
+//        this.targetVertex = vertex;
     }
 
     public boolean exitExists() {
@@ -296,30 +283,18 @@ public class GraphSearch implements Runnable {
         try {
             FileWriter fileWriter = controller.getFileWriter();
 
-            fileWriter.write("1 DALIS. Duomenys\n");
-            fileWriter.write("\t1.1. Grafas\n\n");
-            printGraph();
-            fileWriter.write("\t1.2. Pradinė grafo viršūnė: " +
-                    startVertex + ".\n\n");
-            fileWriter.write("\t1.3. Terminalnė grafo viršūnė: " +
-                    targetVertex + ".\n\n");
-            fileWriter.write("\t1.3. Naudojama procedūra: ");
+            fileWriter.write("1 DALIS. Duomenys\n\n");
+            fileWriter.write("\t1) Taisyklės\n");
+            fileWriter.write(productionSystem.getRulesString() + "\n");
+            fileWriter.write("\t2) Faktai: " +
+                    productionSystem.getFactsString() + ".\n\n");
+            fileWriter.write("\t3) Tikslas " +
+                    productionSystem.getTarget() + ".\n\n");
+            fileWriter.write("\t4) Naudojama procedūra: ");
             fileWriter.write(controller.getTraversalOption() + "\n\n");
             fileWriter.write("2 DALIS. Vykdymas\n\n");
 
         } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void printGraph() {
-
-        FileWriter fileWriter = controller.getFileWriter();
-        try {
-
-            fileWriter.write("");
-        } catch (IOException e) {
-
             e.printStackTrace();
         }
     }
@@ -333,21 +308,15 @@ public class GraphSearch implements Runnable {
 
             if (exitExists()) {
 
-                fileWriter.write("\t3.1) Kelias rastas. Bandymų " +
-                        getCurrentIteration() + "\n");
+                fileWriter.write("\t1) Tikslas " + productionSystem.getTarget() +
+                        " išvestas. Bandymų " + getCurrentIteration() + "\n");
 
-//                fileWriter.write("\t2) Kelias grafiškai\n");
-//
-//                printGraph();
-//
-//                fileWriter.write("\n3.3. Kelias taisyklėmis: " +
-//                        getProdPath() + "\n");
-
-                fileWriter.write("\n3.2) Kelias viršūnėmis: " +
+                fileWriter.write("\n2) Kelias: " +
                         getSearchPathString() + "\n");
             } else {
 
-                fileWriter.write("\t3.1) Kelias neegzistuoja\n");
+                fileWriter.write("\t3.1) Tikslas negali būti pasiektas. " +
+                        "Kelias neegzistuoja\n");
             }
 
         } catch (IOException e) {
@@ -408,66 +377,133 @@ public class GraphSearch implements Runnable {
     }
 
     /********* ALGORITHMS *********/
-    private void traverse() {
+    private void runForwardChaining() {
 
-        ArrayList<Vertex> open = new ArrayList<>();
-        ArrayList<Vertex> closed = new ArrayList<>();
+        int iteration = 0;
 
-        open.add(startVertex);
+        while (true) {
 
-        while(!open.isEmpty() && !exists) {
-
-            StringBuilder sb = new StringBuilder((currentIteration+1) + ". ---------------------------------\n");
-
-//            if (graphSearchType == SearchType.DIJKSTRA) {
-//                orderListByCost(open);
-//            }
-            Vertex currentVertex = open.get(0);
-            addTraversalFrame(e -> currentVertex.setState(Vertex.State.CURRENT));
-            addTraversalFrame(e -> updateCurrentVertexLbl(currentVertex));
-            int tempCurrentIteration = currentIteration;
-            addTraversalFrame(e -> updateCurrentIterationLbl(tempCurrentIteration+1));
-
-            ++currentTransitionStep;
-            ++currentIteration;
-
-            if (currentVertex.equals(targetVertex)) {
-
-                sb.append("Rasta terminalinė viršūnė ").append(currentVertex);
-                addTraversalFrame(e -> writeToDefaultFile(sb));
+            if (productionSystem.isTargetReached()) {
 
                 this.exists = true;
-                addTraversalFrame(e -> deriveSearchPath(currentVertex));
-                addTraversalFrame(e -> currentVertex.setState(Vertex.State.TARGET_REACHED));
-                addTraversalFrameDelay(e -> controller.processEndOfTraversal());
-                return;
+                addTraversalFrame(e -> writeToDefaultFile("Tikslas gautas."));
+                addTraversalFrame(e -> controller.processEndOfTraversal());
+                break;
             }
 
-            sb.append("\tATIDARYTA: ").append(getVerticesListString(open)).append("\n");
-            sb.append("\tUŽDARYTA: ").append(getVerticesListString(closed));
+            StringBuilder sb = new StringBuilder("\t" + (iteration+1) + " ITERACIJA\n");
+
+            ArrayList<Rule> rules = productionSystem.getRules();
+
+            int i = 0;
+            for(Rule rule : rules) {
+
+                ++i;
+                sb.append("\t\tR").append(i+1).append(":").append(rule).append(" ");
+
+                byte flag;
+                if ((flag = rule.getFlag()) != 0) {
+
+                    sb.append("praleidžiame, nes pakelta flag").append(flag).append("\n");
+                    continue;
+                } else if (productionSystem.resultInFacts(rule)) {
+
+                    sb.append("netaikome, nes konsekventas faktuose. Pakeliame flag2\n");
+                    continue;
+                }
+
+                try {
+                    ArrayList<String> absentFacts = productionSystem.applyRule(rule);
+
+                    if (absentFacts.size() == 0) {
+
+                        sb.append("taikome. Pakeliame flag1. Faktai ")
+                                .append(productionSystem.getFactsString());
+                        break;
+                    } else {
+
+                        sb.append("netaikome, nes trūksta");
+                        for (String fact : absentFacts) {
+                            sb.append(" ").append(fact);
+                        }
+                        sb.append("\n");
+                    }
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                }
+            }
+
+            if (i == rules.size() - 1) {
+                // solution does not exist
+                addTraversalFrame(e -> controller.processEndOfTraversal());
+                break;
+            }
+
             addTraversalFrame(e -> writeToDefaultFile(sb));
-
-            closed.add(currentVertex);
-            addTraversalFrame(e -> currentVertex.setState(Vertex.State.CLOSED));
-            open.remove(0);
-            ArrayList<Vertex> newOpen = null;
-
-            newOpen = getOpenVertices(currentVertex, open, closed);
-
-            if (newOpen != null) {
-                for(Vertex vertex : newOpen) {
-
-                    vertex.setSourceParent(currentVertex);
-                    addTraversalFrame(e -> vertex.setState(Vertex.State.OPENED));
-                }
-
-                if(graphSearchType == SearchType.PREFIX) {
-                    open.addAll(0, newOpen);
-                } else {
-                    open.addAll(newOpen);
-                }
-            }
+            ++iteration;
         }
+//        ArrayList<Vertex> open = new ArrayList<>();
+//        ArrayList<Vertex> closed = new ArrayList<>();
+//
+//        open.add(startVertex);
+//
+//        while(!open.isEmpty() && !exists) {
+//
+//            StringBuilder sb = new StringBuilder((currentIteration+1) + ". ---------------------------------\n");
+//
+////            if (graphSearchType == SearchType.DIJKSTRA) {
+////                orderListByCost(open);
+////            }
+//            Vertex currentVertex = open.get(0);
+//            addTraversalFrame(e -> currentVertex.setState(Vertex.State.CURRENT));
+//            addTraversalFrame(e -> updateCurrentVertexLbl(currentVertex));
+//            int tempCurrentIteration = currentIteration;
+//            addTraversalFrame(e -> updateCurrentIterationLbl(tempCurrentIteration+1));
+//
+//            ++currentTransitionStep;
+//            ++currentIteration;
+//
+//            if (currentVertex.equals(targetVertex)) {
+//
+//                sb.append("Rasta terminalinė viršūnė ").append(currentVertex);
+//                addTraversalFrame(e -> writeToDefaultFile(sb));
+//
+//                this.exists = true;
+//                addTraversalFrame(e -> deriveSearchPath(currentVertex));
+//                addTraversalFrame(e -> currentVertex.setState(Vertex.State.TARGET_REACHED));
+//                addTraversalFrameDelay(e -> controller.processEndOfTraversal());
+//                return;
+//            }
+//
+//            sb.append("\tATIDARYTA: ").append(getVerticesListString(open)).append("\n");
+//            sb.append("\tUŽDARYTA: ").append(getVerticesListString(closed));
+//            addTraversalFrame(e -> writeToDefaultFile(sb));
+//
+//            closed.add(currentVertex);
+//            addTraversalFrame(e -> currentVertex.setState(Vertex.State.CLOSED));
+//            open.remove(0);
+//            ArrayList<Vertex> newOpen = null;
+//
+//            newOpen = getOpenVertices(currentVertex, open, closed);
+//
+//            if (newOpen != null) {
+//                for(Vertex vertex : newOpen) {
+//
+//                    vertex.setSourceParent(currentVertex);
+//                    addTraversalFrame(e -> vertex.setState(Vertex.State.OPENED));
+//                }
+//
+//                if(chainingType == ChainingType.FORWARD) {
+//                    open.addAll(0, newOpen);
+//                } else {
+//                    open.addAll(newOpen);
+//                }
+//            }
+//        }
+    }
+
+    private void runBackwardChaining() {
+
     }
 
     private void orderListByCost(ArrayList<Vertex> vertices) {
@@ -477,8 +513,8 @@ public class GraphSearch implements Runnable {
 
     private ArrayList<Vertex> getOpenVertices(Vertex vertex, List<Vertex> openedVertices, List<Vertex> closedVertices) {
 
-        switch(graphSearchType) {
-            case PREFIX:
+        switch(chainingType) {
+            case FORWARD:
                 return getAdjacentVerticesDFS(vertex, openedVertices, closedVertices);
 //            case INFIX:
 //                return getAdjacentVerticesDijkstra(vertex, openedVertices, closedVertices);
@@ -587,34 +623,34 @@ public class GraphSearch implements Runnable {
 
     public void deriveSearchPath(Vertex endVertex) {
 
-        if (endVertex == null) {
-
-            searchPath = null;
-            return;
-        }
-
-        Vertex currentVertex = endVertex;
-        while(!currentVertex.equals(startVertex)) {
-
-            if(currentVertex == null) {
-
-                searchPath = null;
-                return;
-            }
-
-            if (currentVertex != endVertex) {
-
-                currentVertex.setState(Vertex.State.PATH);
-            }
-
-            searchPath.add(currentVertex);
-            currentVertex = currentVertex.getSourceParent();
-        }
-        currentVertex.setState(Vertex.State.PATH);
-        searchPath.add(currentVertex); // add the last source parent (start vertex)
-
-        reverseSearchPath();
-        setSearchPathOrientated();
+//        if (endVertex == null) {
+//
+//            searchPath = null;
+//            return;
+//        }
+//
+//        Vertex currentVertex = endVertex;
+//        while(!currentVertex.equals(startVertex)) {
+//
+//            if(currentVertex == null) {
+//
+//                searchPath = null;
+//                return;
+//            }
+//
+//            if (currentVertex != endVertex) {
+//
+//                currentVertex.setState(Vertex.State.PATH);
+//            }
+//
+//            searchPath.add(currentVertex);
+//            currentVertex = currentVertex.getSourceParent();
+//        }
+//        currentVertex.setState(Vertex.State.PATH);
+//        searchPath.add(currentVertex); // add the last source parent (start vertex)
+//
+//        reverseSearchPath();
+//        setSearchPathOrientated();
     }
 
     private void reverseSearchPath() {

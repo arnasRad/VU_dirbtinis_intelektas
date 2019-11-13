@@ -179,12 +179,12 @@
                     <fx:define>
                         <ToggleGroup fx:id="traverseGroup"/>
                     </fx:define>
-                    <RadioMenuItem fx:id="menuBreadthFirst" mnemonicParsing="false" selected="true"
-                                   text="BREADTH_FIRST" toggleGroup="$traverseGroup"/>
-                    <RadioMenuItem fx:id="menuDijkstra" mnemonicParsing="false"
-                                   text="DIJKSTRA" toggleGroup="$traverseGroup"/>
-                    <RadioMenuItem fx:id="menuDepthFirst" mnemonicParsing="false"
-                                   text="DEPTH_FIRST" toggleGroup="$traverseGroup"/>
+                    <RadioMenuItem fx:id="menuPrefix" mnemonicParsing="false" selected="true"
+                                   text="PREFIX" toggleGroup="$traverseGroup"/>
+                    <RadioMenuItem fx:id="menuInfix" mnemonicParsing="false"
+                                   text="INFIX" toggleGroup="$traverseGroup"/>
+                    <RadioMenuItem fx:id="menuPostfix" mnemonicParsing="false"
+                                   text="POSTFIX" toggleGroup="$traverseGroup"/>
                 </Menu>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">

@@ -18,8 +18,6 @@ public class MainController {
     public enum  State {
         INPUT, // start of the program; enter input filename
         OUTPUT, // enter output filename
-        START_VERTEX, // choose starting vertex on the board
-        TARGET_VERTEX, // choose starting vertex on the board
         TRAVERSE, // play graph traversal (step-by-step or run-through)
         FINISH // end of traversal; may input a new graph
     }
@@ -27,8 +25,6 @@ public class MainController {
     public static final class StatesPromptTexts {
         public static final String INPUT = "Enter text input file name (without .txt extension)";
         public static final String OUTPUT = "Enter output file name (without type extension):";
-        public static final String START_VERTEX = "Choose the start vertex of traversal by clicking on board vertex";
-        public static final String TARGET_VERTEX = "Choose the target vertex of traversal by clicking on board vertex";
         public static final String TRAVERSE = "Step or run through the graph. See help for more information";
         public static final String FINISH = "Path found! Enter a new input file or reset the current graph with new path search";
     }
@@ -37,7 +33,7 @@ public class MainController {
 
 //    private Labyrinth labyrinth;
 
-    private GraphSearch graph;
+    private Chaining graph;
     private int traversalSpeed = 250;
     private String outputFilename = ""; // log output filename
     private FileWriter fileWriter;
@@ -52,7 +48,9 @@ public class MainController {
     @FXML
     Label traversalSpeedLbl;
     @FXML
-    Label vertexCountLbl;
+    Label factsCountLbl;
+    @FXML
+    Label rulesCountLbl;
     @FXML
     Label currentVertexLbl;
     @FXML
@@ -77,11 +75,9 @@ public class MainController {
     @FXML
     ToggleGroup traverseGroup;
     @FXML
-    RadioMenuItem menuPrefix;
+    RadioMenuItem menuForward;
     @FXML
-    RadioMenuItem menuInfix;
-    @FXML
-    RadioMenuItem menuPostfix;
+    RadioMenuItem menuBackward;
 
     @FXML
     public void initialize() {
@@ -132,7 +128,7 @@ public class MainController {
 
         try {
             this.graph.reset();
-            changeToStartVertexState();
+            changeToTraversalState();
         } catch (Exception e) {
             setInstructionsLbl(e.getMessage());
         }
@@ -237,18 +233,16 @@ public class MainController {
         this.console.setText(null);
     }
 
-    public GraphSearch.SearchType getTraversalOption() {
+    public Chaining.ChainingType getTraversalOption() {
 
         String selectedToggleId = ((RadioMenuItem) traverseGroup
                 .getSelectedToggle()).getId();
 
         switch (selectedToggleId) {
-            case "menuPrefix":
-                return GraphSearch.SearchType.PREFIX;
-            case "menuInfix":
-                return GraphSearch.SearchType.INFIX;
-            case "menuPostfix":
-                return GraphSearch.SearchType.POSTFIX;
+            case "menuForward":
+                return Chaining.ChainingType.FORWARD;
+            case "menuBackward":
+                return Chaining.ChainingType.BACKWARD;
             default:
                 return null;
         }
@@ -281,13 +275,7 @@ public class MainController {
 
     public void setProgramStateLbl(State state) {
 
-        if (state == State.START_VERTEX) {
-            programStateLbl.setText("START VERTEX");
-        } else if (state != State.TARGET_VERTEX) {
-            programStateLbl.setText("TARGET VERTEX");
-        } else {
-            programStateLbl.setText(state.toString());
-        }
+        programStateLbl.setText(state.toString());
     }
 
     public void setCurrentIterationLbl(int currentIteration) {
@@ -300,9 +288,14 @@ public class MainController {
         traversalModeLbl.setText(traversalMode);
     }
 
-    public void setVertexCountLbl(int count) {
+    public void setFactsCountLbl(int count) {
 
-        vertexCountLbl.setText(String.valueOf(count));
+        factsCountLbl.setText(String.valueOf(count));
+    }
+
+    public void setRulesCountLbl(int count) {
+
+        rulesCountLbl.setText(String.valueOf(count));
     }
 
     public void setCurrentVertexLbl(Vertex vertex) {
@@ -325,7 +318,7 @@ public class MainController {
 
         currentIterationLbl.setText(null);
         traversalModeLbl.setText(null);
-        vertexCountLbl.setText(null);
+        factsCountLbl.setText(null);
         currentVertexLbl.setText(null);
         instructionsLbl.setText(null);
     }
@@ -359,7 +352,7 @@ public class MainController {
     private void setupInputFile(String fileName) {
 
         try {
-            this.graph = new GraphSearch(this, fileName);
+            this.graph = new Chaining(this, fileName);
 
             // user will be prompted to specify the output file next
             changeState(State.OUTPUT);
@@ -374,7 +367,7 @@ public class MainController {
 //        boardGridPane.prefHeightProperty().bind(boardVBox.heightProperty());
 
         boardVBox.getChildren().add(graph.getGraph().getScrollPane());
-        graph.getGraph().getModel().setBTVertexPositions();
+//        graph.getGraph().getModel().setBTVertexPositions();
     }
 
     private void processOutputFilename() {
@@ -391,7 +384,7 @@ public class MainController {
 
         // update console for UI
         // user will be asked to click on the starting vertex on the board
-        changeToStartVertexState();
+        changeToTraversalState();
 //        setupGraphContainers();
 //        changeState(State.START_VERTEX);
         // disable "Enter" button; not used in this step
@@ -400,32 +393,32 @@ public class MainController {
 //        console.setDisable(true);
     }
 
-    public void setStartVertex(Vertex vertex) {
+//    public void setStartVertex(Vertex vertex) {
+//
+//        graph.setStartVertex(vertex);
+//        changeToTargetVertexState();
+//    }
+//
+//    public void setTargetVertex(Vertex vertex) {
+//
+//        graph.setTargetVertex(vertex);
+//        changeToTraversalState();
+//    }
 
-        graph.setStartVertex(vertex);
-        changeToTargetVertexState();
-    }
+//    private void changeToStartVertexState() {
+//
+//        // update console for UI
+//        // user will be asked to click on the starting vertex on the board
+//        setupGraphContainers();
+//        changeState(State.START_VERTEX);
+//        // disable all buttons; not used in this step
+//        disableButtons();
+//    }
 
-    public void setTargetVertex(Vertex vertex) {
-
-        graph.setTargetVertex(vertex);
-        changeToTraversalState();
-    }
-
-    private void changeToStartVertexState() {
-
-        // update console for UI
-        // user will be asked to click on the starting vertex on the board
-        setupGraphContainers();
-        changeState(State.START_VERTEX);
-        // disable all buttons; not used in this step
-        disableButtons();
-    }
-
-    private void changeToTargetVertexState() {
-
-        changeState(State.TARGET_VERTEX);
-    }
+//    private void changeToTargetVertexState() {
+//
+//        changeState(State.TARGET_VERTEX);
+//    }
 
     private void disableButtons() {
         enterBtn.setDisable(true);
@@ -479,10 +472,6 @@ public class MainController {
                 return StatesPromptTexts.INPUT;
             case OUTPUT:
                 return StatesPromptTexts.OUTPUT;
-            case START_VERTEX:
-                return StatesPromptTexts.START_VERTEX;
-            case TARGET_VERTEX:
-                return StatesPromptTexts.TARGET_VERTEX;
             case TRAVERSE:
                 return StatesPromptTexts.TRAVERSE;
             case FINISH:

@@ -90,15 +90,15 @@ public class MouseGestures {
         @Override
         public void handle(MouseEvent mouseEvent) {
 
-            MainController.State currentAppState = controller.getCurrentRunState();
-            switch (currentAppState) {
-                case START_VERTEX:
-                    controller.setStartVertex((Vertex) mouseEvent.getSource());
-                    break;
-                case TARGET_VERTEX:
-                    controller.setTargetVertex((Vertex) mouseEvent.getSource());
-                    break;
-            }
+//            MainController.State currentAppState = controller.getCurrentRunState();
+//            switch (currentAppState) {
+//                case START_VERTEX:
+//                    controller.setStartVertex((Vertex) mouseEvent.getSource());
+//                    break;
+//                case TARGET_VERTEX:
+//                    controller.setTargetVertex((Vertex) mouseEvent.getSource());
+//                    break;
+//            }
         }
     };
 

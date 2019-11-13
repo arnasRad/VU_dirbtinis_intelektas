@@ -2,24 +2,78 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Section 11 complete">
-      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/ant.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/ForwardChaining.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/src/sample/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/src/sample/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/src/sample/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/GraphSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/GraphSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/view/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../BinarySearchTree/src/com/arnasrad/binarysearchtree/view/main-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/META-INF/ForwardChaining.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/Graph.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/GraphSearch$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/GraphSearch$SearchType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/GraphSearch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/MainController$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/MainController$State.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/MainController$StatesPromptTexts.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/MainController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/MouseGestures$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/MouseGestures$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/MouseGestures$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/MouseGestures$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/MouseGestures$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/MouseGestures$DragContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/MouseGestures.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/ResultController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/layout/Layout.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/layout/RandomLayout.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/layout/ZoomableScrollPane$ZoomHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/layout/ZoomableScrollPane.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/model/Edge.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/model/Model$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/model/Model.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/model/vertex/EllipseVertex.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/model/vertex/RectangleVertex.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/model/vertex/TriangleVertex.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/model/vertex/Vertex$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/model/vertex/Vertex$State.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/model/vertex/Vertex.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/model/vertex/VertexLayer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/model/vertex/VertexType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/view/main-view-wo-menu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/view/main-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/binarysearchtree/view/result-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/Graph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/GraphSearch$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/GraphSearch$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/GraphSearch$SearchType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/GraphSearch$SearchType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/GraphSearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/GraphSearch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MainController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MainController$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MainController$State.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MainController$StatesPromptTexts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MainController$StatesPromptTexts.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$DragContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures$DragContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/MouseGestures.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/layout/Layout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/layout/Layout.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/layout/RandomLayout.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/layout/ZoomableScrollPane$ZoomHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/layout/ZoomableScrollPane$ZoomHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/layout/ZoomableScrollPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/layout/ZoomableScrollPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/Edge.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/Model$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/Model$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/Model.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/EllipseVertex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/RectangleVertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/RectangleVertex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/TriangleVertex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/Vertex$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/Vertex$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/Vertex$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/Vertex$State.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/Vertex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/VertexLayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/VertexLayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BreadthFirstSearch/com/arnasrad/breadthfirstsearch/model/vertex/VertexType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/sample/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/sample/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ForwardChaining/out/production/ForwardChaining/sample/sample.fxml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +175,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PATH_TO_FX$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -129,7 +183,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.16073479" />
     <property name="project.structure.side.proportion" value="0.20652173" />
     <property name="recentsLimit" value="5" />
@@ -264,6 +318,8 @@
       <workItem from="1573374373114" duration="1319000" />
       <workItem from="1573375834978" duration="1492000" />
       <workItem from="1573388410790" duration="10000" />
+      <workItem from="1573492537717" duration="705000" />
+      <workItem from="1573568097974" duration="759000" />
     </task>
     <task id="LOCAL-00001" summary="Section 11 complete">
       <created>1573375530048</created>
@@ -299,20 +355,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Section 11 complete" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/arnasrad/breadthfirstsearch/GraphSearch.java</url>
-          <line>454</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/arnasrad/breadthfirstsearch/GraphSearch.java</url>
-          <line>484</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="line.layoutXProperty()" language="JAVA" />
