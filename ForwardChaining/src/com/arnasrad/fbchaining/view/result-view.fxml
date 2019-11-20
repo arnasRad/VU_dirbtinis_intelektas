@@ -3,7 +3,7 @@
 
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
-<BorderPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arnasrad.binarysearchtree.view.ResultView">
+<BorderPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.arnasrad.fbchaining.view.ResultView">
    <center>
       <VBox fx:id="boardVBox" />
    </center>
