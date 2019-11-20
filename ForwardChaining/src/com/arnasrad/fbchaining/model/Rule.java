@@ -7,22 +7,29 @@ import java.util.Arrays;
 
 public class Rule {
 
+    private String name;
     private String result;
     private ArrayList<String> facts;
     private byte flag;
 
     public Rule() {
 
+        name = null;
         result = null;
         facts = new ArrayList<>();
         flag = 0;
     }
 
-    public Rule(String result, String[] facts) {
+    public Rule(String name, String result, String[] facts) {
 
+        this.name = name;
         this.result = result;
         this.facts = new ArrayList<>(Arrays.asList(facts));
         this.flag = 0;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public ArrayList<String> getFacts() {
@@ -47,6 +54,6 @@ public class Rule {
 
     @Override
     public String toString() {
-        return Utils.getListString(facts) + " -> " + result;
+        return name + ":" + Utils.getListString(facts, ", ") + " -> " + result;
     }
 }

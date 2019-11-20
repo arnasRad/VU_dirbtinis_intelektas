@@ -173,7 +173,7 @@ public class Model {
                     "Binary tree nodes can only have one parent vertex" + getErrorTxt(sourceId, targetId));
         }
 
-        Edge edge = new Edge(sourceVertex, targetVertex, isOriented, cost);
+        Edge edge = new Edge(sourceVertex, targetVertex, isOriented, String.valueOf(cost));
         addedEdges.add(edge);
     }
 

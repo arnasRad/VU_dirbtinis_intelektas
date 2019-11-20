@@ -17,10 +17,10 @@ public class Edge extends Group {
 
     private Vertex source;
     private Vertex target;
-    private double cost;
+    private String label;
 
     private Line line;
-    private Text costTxt;
+    private Text labelTxt;
 
     private Line arrow1;
     private Line arrow2;
@@ -49,9 +49,9 @@ public class Edge extends Group {
         drawArrow();
     };
 
-    public Edge(Vertex source, Vertex target, boolean isOriented, double cost) {
+    public Edge(Vertex source, Vertex target, boolean isOriented, String label) {
 
-        costTxt = new Text();
+        labelTxt = new Text();
         line = new Line();
         arrow1 = new Line();
         arrow2 = new Line();
@@ -63,19 +63,19 @@ public class Edge extends Group {
         addArrowListener();
 
         setOriented(isOriented);
-        setCostTxt(cost);
-        getChildren().add(costTxt);
+        setLabelTxt(label);
+        getChildren().add(labelTxt);
         bindCostTxtToLine();
     }
 
     public Edge(Vertex source, Vertex target) {
 
-        this(source, target, false, NULL_COST);
+        this(source, target, false, "");
     }
 
-    public Edge(Vertex source, Vertex target, double cost) {
+    public Edge(Vertex source, Vertex target, String label) {
 
-        this(source, target, false, cost);
+        this(source, target, false, label);
     }
 
     private void addArrowListener() {
@@ -276,23 +276,23 @@ public class Edge extends Group {
         }
     }
 
-    private void setCostTxt(double cost) {
+    private void setLabelTxt(String label) {
 
-        this.cost = cost;
-        if (cost != NULL_COST) {
-            this.costTxt.setText(String.valueOf(this.cost));
+        this.label = label;
+        if (!label.equals(String.valueOf(NULL_COST))) {
+            this.labelTxt.setText(this.label);
         }
     }
 
     private void bindCostTxtToLine() {
 
 //        costTxt.rotateProperty().bind(line.rotateProperty());
-        costTxt.xProperty().bind(startXProperty().add((endXProperty().subtract(startXProperty())).divide(2)).add(5));
-        costTxt.yProperty().bind(startYProperty().add((endYProperty().subtract(startYProperty())).divide(2)).subtract(5));
+        labelTxt.xProperty().bind(startXProperty().add((endXProperty().subtract(startXProperty())).divide(2)).add(5));
+        labelTxt.yProperty().bind(startYProperty().add((endYProperty().subtract(startYProperty())).divide(2)).subtract(5));
     }
 
-    public double getCost() {
-        return cost;
+    public String getLabel() {
+        return label;
     }
 
     public Vertex getSource() {

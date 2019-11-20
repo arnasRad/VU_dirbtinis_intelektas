@@ -9,11 +9,16 @@ public class EllipseVertex extends Vertex {
         super(id, state);
 
         double textWidth = this.getIdTxt().getLayoutBounds().getWidth();
+        double textHeight = this.getIdTxt().getLayoutBounds().getHeight();
         if (textWidth < 30) {
             textWidth = 30;
         }
 
-        Ellipse view = new Ellipse(textWidth, 30);
+        if (textHeight < 30) {
+            textHeight = 30;
+        }
+
+        Ellipse view = new Ellipse(textWidth, textHeight);
 
         view.setStroke(Color.BLACK);
 //        view.setFill(Color.DODGERBLUE);

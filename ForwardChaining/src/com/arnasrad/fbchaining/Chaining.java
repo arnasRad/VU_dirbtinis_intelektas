@@ -209,6 +209,7 @@ public class Chaining implements Runnable {
             String line, result;
             String[] facts;
             ArrayList<Rule> rules = new ArrayList<>();
+            int ruleIndex = 1;
             while(!(line = br.readLine()).equals("")) {
 
                 String[] rule = line.split(" ");
@@ -226,7 +227,8 @@ public class Chaining implements Runnable {
                 for(int i = 1; i < rule.length; ++i) {
                     facts[i-1] = rule[i];
                 }
-                rules.add(new Rule(result, facts));
+                rules.add(new Rule("R" + ruleIndex, result, facts));
+                ++ruleIndex;
 
                 ++lineNo;
             }
@@ -463,9 +465,10 @@ public class Chaining implements Runnable {
 
                     if (absentFacts.size() == 0) {
 
-                        synthesizedGraph.apply(rule);
-                        semanticGraph.apply(rule);
-                        verificationGraph.apply(rule);
+                        ++currentTransitionStep;
+                        addTraversalFrameDelay(e -> synthesizedGraph.apply(rule));
+                        addTraversalFrameDelay(e -> semanticGraph.apply(rule));
+                        addTraversalFrameDelay(e -> verificationGraph.apply(rule));
                         sb.append("taikome. Pakeliame flag1. Faktai ")
                                 .append(productionSystem.getFactsString());
                         break;
@@ -556,7 +559,7 @@ public class Chaining implements Runnable {
                 if (openedVertices.contains(adjVertex)) {
 
                     Edge edge = synthesizedGraph.getModel().getEdge(vertex, adjVertex);
-                    double newCost = vertex.getPathCost() + edge.getCost();
+                    double newCost = vertex.getPathCost() + Double.parseDouble(edge.getLabel());
                     if (newCost < adjVertex.getPathCost()) {
 
                         adjVertex.setSourceParent(vertex);
