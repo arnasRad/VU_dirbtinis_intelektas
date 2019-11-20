@@ -1,11 +1,12 @@
-package com.arnasrad.binarysearchtree;
+package com.arnasrad.binarysearchtree.graph;
 
+import com.arnasrad.binarysearchtree.MainController;
+import com.arnasrad.binarysearchtree.MouseGestures;
 import com.arnasrad.binarysearchtree.layout.ZoomableScrollPane;
 import com.arnasrad.binarysearchtree.model.Edge;
+import com.arnasrad.binarysearchtree.model.Model;
 import com.arnasrad.binarysearchtree.model.vertex.Vertex;
 import com.arnasrad.binarysearchtree.model.vertex.VertexLayer;
-import com.arnasrad.binarysearchtree.model.Model;
-import com.arnasrad.binarysearchtree.model.vertex.VertexType;
 import javafx.scene.Group;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;

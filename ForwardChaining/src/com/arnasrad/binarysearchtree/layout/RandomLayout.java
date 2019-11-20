@@ -1,6 +1,6 @@
 package com.arnasrad.binarysearchtree.layout;
 
-import com.arnasrad.binarysearchtree.Graph;
+import com.arnasrad.binarysearchtree.graph.Graph;
 import com.arnasrad.binarysearchtree.model.vertex.Vertex;
 
 import java.util.List;

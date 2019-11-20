@@ -1,5 +1,6 @@
 package com.arnasrad.binarysearchtree;
 
+import com.arnasrad.binarysearchtree.graph.Graph;
 import com.arnasrad.binarysearchtree.layout.Layout;
 import com.arnasrad.binarysearchtree.layout.RandomLayout;
 import com.arnasrad.binarysearchtree.model.Edge;
@@ -15,7 +16,8 @@ import javafx.event.EventHandler;
 import javafx.util.Duration;
 
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * credit for JavaFX Graph layout implementation goes to Roland

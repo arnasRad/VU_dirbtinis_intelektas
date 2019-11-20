@@ -1,6 +1,6 @@
 package com.arnasrad.binarysearchtree;
 
-import com.arnasrad.binarysearchtree.model.vertex.Vertex;
+import com.arnasrad.binarysearchtree.graph.Graph;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
