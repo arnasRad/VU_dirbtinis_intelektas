@@ -22,6 +22,12 @@ public class MainController {
         FINISH // end of traversal; may input a new graph
     }
 
+    public enum OutputType {
+
+        SEMANTIC_GRAPH,
+        VERIFICATION_GRAPH
+    }
+
     public static final class StatesPromptTexts {
         public static final String INPUT = "Enter text input file name (without .txt extension)";
         public static final String OUTPUT = "Enter output file name (without type extension):";
@@ -33,7 +39,7 @@ public class MainController {
 
 //    private Labyrinth labyrinth;
 
-    private Chaining graph;
+    private Chaining chaining;
     private int traversalSpeed = 250;
     private String outputFilename = ""; // log output filename
     private FileWriter fileWriter;
@@ -78,6 +84,13 @@ public class MainController {
     RadioMenuItem menuForward;
     @FXML
     RadioMenuItem menuBackward;
+
+    @FXML
+    ToggleGroup outputGroup;
+    @FXML
+    RadioMenuItem menuVerificationGraph;
+    @FXML
+    RadioMenuItem menuSemanticGraph;
 
     @FXML
     public void initialize() {
@@ -127,7 +140,7 @@ public class MainController {
         clearProgramStateLabels();
 
         try {
-            this.graph.reset();
+            this.chaining.reset();
             changeToTraversalState();
         } catch (Exception e) {
             setInstructionsLbl(e.getMessage());
@@ -145,7 +158,7 @@ public class MainController {
 
         initializeFileWriter();
 
-        new Thread(graph).start();
+        new Thread(chaining).start();
 //        new Thread(labyrinth).start();
     }
 
@@ -243,6 +256,22 @@ public class MainController {
                 return Chaining.ChainingType.FORWARD;
             case "menuBackward":
                 return Chaining.ChainingType.BACKWARD;
+            default:
+                return null;
+        }
+    }
+
+    // TODO: implement output types (choose which graph to output)
+    public OutputType getOutputTypeOption() {
+
+        String selectedToggleId = ((RadioMenuItem) outputGroup
+                .getSelectedToggle()).getId();
+
+        switch (selectedToggleId) {
+            case "menuVerificationGraph":
+                return OutputType.VERIFICATION_GRAPH;
+            case "menuSemanticGraph":
+                return OutputType.SEMANTIC_GRAPH;
             default:
                 return null;
         }
@@ -352,7 +381,7 @@ public class MainController {
     private void setupInputFile(String fileName) {
 
         try {
-            this.graph = new Chaining(this, fileName);
+            this.chaining = new Chaining(this, fileName);
 
             // user will be prompted to specify the output file next
             changeState(State.OUTPUT);
@@ -366,7 +395,7 @@ public class MainController {
 //        boardGridPane.prefWidthProperty().bind(boardVBox.widthProperty());
 //        boardGridPane.prefHeightProperty().bind(boardVBox.heightProperty());
 
-        boardVBox.getChildren().add(graph.getGraph().getScrollPane());
+        boardVBox.getChildren().add(chaining.getGraph().getScrollPane());
 //        graph.getGraph().getModel().setBTVertexPositions();
     }
 
@@ -447,7 +476,7 @@ public class MainController {
         resetBtn.setDefaultButton(true);
         console.setDisable(false);
 
-        graph.printResults();
+        chaining.printResults();
 
         try {
             this.fileWriter.close();

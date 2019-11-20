@@ -191,6 +191,17 @@
                                    text="BACKWARD_CHAINING" toggleGroup="$traverseGroup"/>
                 </Menu>
             </Menu>
+            <Menu mnemonicParsing="false" text="Show">
+                <Menu mnemonicParsing="false" text="Output">
+                    <fx:define>
+                        <ToggleGroup fx:id="outputGroup"/>
+                    </fx:define>
+                    <RadioMenuItem fx:id="menuVerificationGraph" mnemonicParsing="false"
+                                   text="Verification Graph" toggleGroup="$outputGroup"/>
+                    <RadioMenuItem fx:id="menuSemanticGraph" mnemonicParsing="false" selected="true"
+                                   text="Semantic Graph" toggleGroup="$outputGroup"/>
+                </Menu>
+            </Menu>
             <Menu mnemonicParsing="false" text="Help">
                 <MenuItem mnemonicParsing="false" onAction="#menuAboutClicked" text="About"/>
             </Menu>

@@ -7,12 +7,14 @@ public class ProductionSystem {
 
     private ArrayList<Rule> rules;
     private ArrayList<String> facts;
+    private ArrayList<String> originalFacts; // facts loaded from file; used for resetting
     private String target;
 
     public ProductionSystem() {
 
         this.rules = new ArrayList<>();
         this.facts = new ArrayList<>();
+        this.originalFacts = new ArrayList<>();
         this.target = null;
     }
 
@@ -20,7 +22,13 @@ public class ProductionSystem {
 
         this.rules = new ArrayList<>(rules);
         this.facts = new ArrayList<>(Arrays.asList(facts));
+        this.originalFacts = new ArrayList<>(Arrays.asList(facts));
         this.target = target;
+    }
+
+    public void reset() {
+
+        this.facts = new ArrayList<>(originalFacts);
     }
 
     public void addRule(Rule rule) {

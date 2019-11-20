@@ -65,7 +65,7 @@ public class Chaining implements Runnable {
         millisecondDelay = 0;
         currentTransitionStep = 0;
 
-        addTraversalFrame(e -> printInfoData());
+        addTraversalFrameDelay(e -> printInfoData());
 
         if (traversalOption.equals(ChainingType.FORWARD)) {
             runForwardChaining();
@@ -86,6 +86,7 @@ public class Chaining implements Runnable {
     public void reset() throws Exception {
 
         resetInfoFields();
+        resetProductionSystem();
         resetGraph();
     }
 
@@ -120,6 +121,11 @@ public class Chaining implements Runnable {
 
         Layout layout = new RandomLayout(graph);
         layout.execute();
+    }
+
+    private void resetProductionSystem() {
+
+        this.productionSystem.reset();
     }
 
     private void resetGraph() throws Exception {
@@ -383,14 +389,6 @@ public class Chaining implements Runnable {
 
         while (true) {
 
-            if (productionSystem.isTargetReached()) {
-
-                this.exists = true;
-                addTraversalFrame(e -> writeToDefaultFile("Tikslas gautas."));
-                addTraversalFrame(e -> controller.processEndOfTraversal());
-                break;
-            }
-
             StringBuilder sb = new StringBuilder("\t" + (iteration+1) + " ITERACIJA\n");
 
             ArrayList<Rule> rules = productionSystem.getRules();
@@ -399,7 +397,7 @@ public class Chaining implements Runnable {
             for(Rule rule : rules) {
 
                 ++i;
-                sb.append("\t\tR").append(i+1).append(":").append(rule).append(" ");
+                sb.append("\t\tR").append(i).append(":").append(rule).append(" ");
 
                 byte flag;
                 if ((flag = rule.getFlag()) != 0) {
@@ -431,75 +429,27 @@ public class Chaining implements Runnable {
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
                 }
+
+                if (!this.exists && i == rules.size()) {
+                    // solution does not exist
+                    addTraversalFrameDelay(e -> controller.processEndOfTraversal());
+                    break;
+                }
             }
 
-            if (i == rules.size() - 1) {
-                // solution does not exist
-                addTraversalFrame(e -> controller.processEndOfTraversal());
+            if (productionSystem.isTargetReached()) {
+
+                this.exists = true;
+                sb.append("\n\t\tTikslas gautas.");
+                addTraversalFrameDelay(e -> writeToDefaultFile(sb));
+                addTraversalFrameDelay(e -> controller.processEndOfTraversal());
                 break;
             }
 
-            addTraversalFrame(e -> writeToDefaultFile(sb));
+            addTraversalFrameDelay(e -> writeToDefaultFile(sb));
             ++iteration;
         }
-//        ArrayList<Vertex> open = new ArrayList<>();
-//        ArrayList<Vertex> closed = new ArrayList<>();
-//
-//        open.add(startVertex);
-//
-//        while(!open.isEmpty() && !exists) {
-//
-//            StringBuilder sb = new StringBuilder((currentIteration+1) + ". ---------------------------------\n");
-//
-////            if (graphSearchType == SearchType.DIJKSTRA) {
-////                orderListByCost(open);
-////            }
-//            Vertex currentVertex = open.get(0);
-//            addTraversalFrame(e -> currentVertex.setState(Vertex.State.CURRENT));
-//            addTraversalFrame(e -> updateCurrentVertexLbl(currentVertex));
-//            int tempCurrentIteration = currentIteration;
-//            addTraversalFrame(e -> updateCurrentIterationLbl(tempCurrentIteration+1));
-//
-//            ++currentTransitionStep;
-//            ++currentIteration;
-//
-//            if (currentVertex.equals(targetVertex)) {
-//
-//                sb.append("Rasta terminalinė viršūnė ").append(currentVertex);
-//                addTraversalFrame(e -> writeToDefaultFile(sb));
-//
-//                this.exists = true;
-//                addTraversalFrame(e -> deriveSearchPath(currentVertex));
-//                addTraversalFrame(e -> currentVertex.setState(Vertex.State.TARGET_REACHED));
-//                addTraversalFrameDelay(e -> controller.processEndOfTraversal());
-//                return;
-//            }
-//
-//            sb.append("\tATIDARYTA: ").append(getVerticesListString(open)).append("\n");
-//            sb.append("\tUŽDARYTA: ").append(getVerticesListString(closed));
-//            addTraversalFrame(e -> writeToDefaultFile(sb));
-//
-//            closed.add(currentVertex);
-//            addTraversalFrame(e -> currentVertex.setState(Vertex.State.CLOSED));
-//            open.remove(0);
-//            ArrayList<Vertex> newOpen = null;
-//
-//            newOpen = getOpenVertices(currentVertex, open, closed);
-//
-//            if (newOpen != null) {
-//                for(Vertex vertex : newOpen) {
-//
-//                    vertex.setSourceParent(currentVertex);
-//                    addTraversalFrame(e -> vertex.setState(Vertex.State.OPENED));
-//                }
-//
-//                if(chainingType == ChainingType.FORWARD) {
-//                    open.addAll(0, newOpen);
-//                } else {
-//                    open.addAll(newOpen);
-//                }
-//            }
-//        }
+
     }
 
     private void runBackwardChaining() {
