@@ -465,10 +465,10 @@ public class Chaining implements Runnable {
 
                     if (absentFacts.size() == 0) {
 
-                        ++currentTransitionStep;
                         addTraversalFrameDelay(e -> synthesizedGraph.apply(rule));
                         addTraversalFrameDelay(e -> semanticGraph.apply(rule));
                         addTraversalFrameDelay(e -> verificationGraph.apply(rule));
+                        ++currentTransitionStep;
                         sb.append("taikome. Pakeliame flag1. Faktai ")
                                 .append(productionSystem.getFactsString());
                         break;

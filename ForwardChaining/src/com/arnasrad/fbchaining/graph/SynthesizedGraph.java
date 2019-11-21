@@ -67,6 +67,8 @@ public class SynthesizedGraph extends Graph {
         if (!this.resultsPart.contains(result)) {
             addResult(result);
         }
+
+
     }
 
     public void initializeLayout() {
