@@ -133,7 +133,10 @@ public class Model {
 
         addedVertices.add(vertex);
         vertexMap.put( vertex.getVertexId(), vertex);
-        this.root = vertex;
+        
+        if (isRoot) {
+            this.root = vertex;
+        }
     }
 
     public void addEdge(String sourceId, String targetId) throws Exception {
@@ -164,14 +167,14 @@ public class Model {
                     "vertex list" + getErrorTxt(sourceId, targetId));
         }
 
-        if (sourceVertex.getVertexChildren().size() > 1) {
-            throw new Exception("Parent vertex " + sourceId + " already has more than one children. " +
-                    "Binary tree nodes can have 2 children at most" + getErrorTxt(sourceId, targetId));
-        }
-        if (targetVertex.getVertexParents().size() > 0) {
-            throw new Exception("Target vertex " + targetId + " already has a parent. " +
-                    "Binary tree nodes can only have one parent vertex" + getErrorTxt(sourceId, targetId));
-        }
+//        if (sourceVertex.getVertexChildren().size() > 1) {
+//            throw new Exception("Parent vertex " + sourceId + " already has more than one children. " +
+//                    "Binary tree nodes can have 2 children at most" + getErrorTxt(sourceId, targetId));
+//        }
+//        if (targetVertex.getVertexParents().size() > 0) {
+//            throw new Exception("Target vertex " + targetId + " already has a parent. " +
+//                    "Binary tree nodes can only have one parent vertex" + getErrorTxt(sourceId, targetId));
+//        }
 
         Edge edge = new Edge(sourceVertex, targetVertex, isOriented, String.valueOf(cost));
         addedEdges.add(edge);

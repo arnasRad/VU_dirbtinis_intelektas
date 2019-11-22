@@ -464,7 +464,7 @@ public class Chaining implements Runnable {
                     ArrayList<String> absentFacts = productionSystem.applyRule(rule);
 
                     if (absentFacts.size() == 0) {
-
+                        // TODO: update graphs with vertices on rule application
                         addTraversalFrameDelay(e -> synthesizedGraph.apply(rule));
                         addTraversalFrameDelay(e -> semanticGraph.apply(rule));
                         addTraversalFrameDelay(e -> verificationGraph.apply(rule));

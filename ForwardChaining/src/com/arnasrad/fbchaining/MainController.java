@@ -414,7 +414,7 @@ public class MainController {
         // update console for UI
         // user will be asked to click on the starting vertex on the board
         changeToTraversalState();
-//        setupGraphContainers();
+        setupGraphContainers();
 //        changeState(State.START_VERTEX);
         // disable "Enter" button; not used in this step
 //        enterBtn.setDisable(true);

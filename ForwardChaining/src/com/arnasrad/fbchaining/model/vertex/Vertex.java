@@ -1,5 +1,6 @@
 package com.arnasrad.fbchaining.model.vertex;
 
+import com.arnasrad.fbchaining.utility.Utils;
 import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -85,7 +86,7 @@ public class Vertex extends StackPane {
         return adjacentVertices;
     }
 
-    protected Text getIdTxt() {
+    public Text getIdTxt() {
         return this.idTxt;
     }
 

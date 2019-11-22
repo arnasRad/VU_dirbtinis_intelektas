@@ -1,22 +1,21 @@
 package com.arnasrad.fbchaining.graph;
 
 import com.arnasrad.fbchaining.MainController;
-import com.arnasrad.fbchaining.layout.Layout;
 import com.arnasrad.fbchaining.layout.SynthesizedLayout;
+import com.arnasrad.fbchaining.model.Model;
 import com.arnasrad.fbchaining.model.Rule;
 import com.arnasrad.fbchaining.utility.Utils;
-import com.sun.webkit.network.Util;
 
 import java.util.ArrayList;
-import java.util.SplittableRandom;
 
 public class SynthesizedGraph extends Graph {
 
+    public final static String PRODUCTIONS_ID = "productions";
     private ArrayList<String> factsPart;
     private ArrayList<String> productionsPart;
     private ArrayList<String> resultsPart;
 
-    private Layout layout;
+    private SynthesizedLayout layout;
 
     public SynthesizedGraph(MainController controller) {
 
@@ -25,7 +24,12 @@ public class SynthesizedGraph extends Graph {
         this.factsPart = new ArrayList<>();
         this.productionsPart = new ArrayList<>();
         this.resultsPart = new ArrayList<>();
-        layout = new SynthesizedLayout(this);
+
+        beginUpdate();
+        getModel().addVertex(PRODUCTIONS_ID);
+        endUpdate();
+
+        initializeLayout();
     }
 
     public void reset() {
@@ -37,22 +41,74 @@ public class SynthesizedGraph extends Graph {
 
     private void addFact(String fact) {
 
-        this.factsPart.add(fact);
+        try {
+            this.factsPart.add(fact);
+
+            beginUpdate();
+
+            Model model = getModel();
+            model.addVertex(fact);
+            model.addEdge(fact, PRODUCTIONS_ID);
+
+            layout.relocateFact(this.factsPart.size()-1, fact);
+
+        } catch (Exception e) {
+            System.err.println("ERROR: error occurred while adding a new edge. " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            endUpdate();
+        }
     }
 
     private void addFacts(ArrayList<String> facts) {
 
-        this.factsPart.addAll(facts);
+        try {
+
+            beginUpdate();
+            for (String fact : facts) {
+
+                this.factsPart.add(fact);
+
+                Model model = getModel();
+                model.addVertex(fact);
+                model.addEdge(fact, PRODUCTIONS_ID);
+
+                layout.relocateFact(this.factsPart.size()-1, fact);
+            }
+
+        } catch (Exception e) {
+            System.err.println("ERROR: error occurred while adding a new edge. " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            endUpdate();
+        }
     }
 
     private void addProduction(String production) {
 
         this.productionsPart.add(production);
+        layout.appendProdVertexTxt(production, resultsPart);
     }
 
     private void addResult(String result) {
 
-        this.resultsPart.add(result);
+        try {
+            this.resultsPart.add(result);
+
+            beginUpdate();
+
+            Model model = getModel();
+            model.addVertex(result);
+            model.addEdge(PRODUCTIONS_ID, result);
+
+            layout.relocateResult(this.resultsPart.size()-1, result);
+
+        } catch (Exception e) {
+            System.err.println("ERROR: error occurred while adding a new edge. " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            endUpdate();
+        }
     }
 
     public void apply(Rule rule) {

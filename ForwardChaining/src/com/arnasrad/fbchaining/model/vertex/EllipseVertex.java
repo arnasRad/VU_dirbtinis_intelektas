@@ -1,21 +1,29 @@
 package com.arnasrad.fbchaining.model.vertex;
 
+import com.arnasrad.fbchaining.utility.Utils;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
+import javafx.scene.text.Text;
+
+import java.util.ArrayList;
 
 public class EllipseVertex extends Vertex {
+
+    public static int DEFAULT_WIDTH = 30;
+    public static int DEFAULT_HEIGHT = 30;
 
     public EllipseVertex(String id, State state) {
         super(id, state);
 
         double textWidth = this.getIdTxt().getLayoutBounds().getWidth();
         double textHeight = this.getIdTxt().getLayoutBounds().getHeight();
-        if (textWidth < 30) {
-            textWidth = 30;
+
+        if (textWidth < DEFAULT_WIDTH) {
+            textWidth = DEFAULT_WIDTH;
         }
 
-        if (textHeight < 30) {
-            textHeight = 30;
+        if (textHeight < DEFAULT_HEIGHT) {
+            textHeight = DEFAULT_HEIGHT;
         }
 
         Ellipse view = new Ellipse(textWidth, textHeight);
@@ -27,15 +35,57 @@ public class EllipseVertex extends Vertex {
 
     }
 
+    public void appendIdTxt(ArrayList<String> text) {
+
+        if (text == null || text.size() == 0) {
+            return;
+        }
+
+        Text idTxt = getIdTxt();
+        idTxt.setText(idTxt.getText() + "\n"
+                + Utils.getListString(text, "\n"));
+
+        resizeView();
+    }
+
+    public void appendIdTxt(String text) {
+
+        if (text == null) {
+            return;
+        }
+
+        Text idTxt = getIdTxt();
+        idTxt.setText(idTxt.getText() + "\n" + text);
+
+        resizeView();
+    }
+
+    private void resizeView() {
+
+        Text idTxt = getIdTxt();
+        double textWidth = idTxt.getLayoutBounds().getWidth();
+        double textHeight = idTxt.getLayoutBounds().getHeight();
+
+        Ellipse view = (Ellipse) getView();
+        view.setRadiusX(textWidth);
+        view.setRadiusY(textHeight);
+    }
+
     public EllipseVertex(String id) {
         super(id, State.IDLE);
 
         double textWidth = this.getIdTxt().getLayoutBounds().getWidth();
-        if (textWidth < 30) {
-            textWidth = 30;
+        double textHeight = this.getIdTxt().getLayoutBounds().getHeight();
+
+        if (textWidth < DEFAULT_WIDTH) {
+            textWidth = DEFAULT_WIDTH;
         }
 
-        Ellipse view = new Ellipse(30, textWidth);
+        if (textHeight < DEFAULT_HEIGHT) {
+            textHeight = DEFAULT_HEIGHT;
+        }
+
+        Ellipse view = new Ellipse(textHeight, textWidth);
 
         view.setStroke(Color.BLACK);
         view.setFill(Color.DODGERBLUE);
