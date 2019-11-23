@@ -63,9 +63,9 @@ public class Edge extends Group {
         addArrowListener();
 
         setOriented(isOriented);
-        setLabelTxt(label);
-        getChildren().add(labelTxt);
-        bindCostTxtToLine();
+//        setLabelTxt(label);
+//        getChildren().add(labelTxt);
+//        bindCostTxtToLine();
     }
 
     public Edge(Vertex source, Vertex target) {

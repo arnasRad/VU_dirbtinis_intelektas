@@ -2,6 +2,7 @@ package com.arnasrad.fbchaining.graph;
 
 import com.arnasrad.fbchaining.MainController;
 import com.arnasrad.fbchaining.layout.SynthesizedLayout;
+import com.arnasrad.fbchaining.model.Edge;
 import com.arnasrad.fbchaining.model.Model;
 import com.arnasrad.fbchaining.model.Rule;
 import com.arnasrad.fbchaining.utility.Utils;
@@ -37,6 +38,7 @@ public class SynthesizedGraph extends Graph {
         this.factsPart = new ArrayList<>();
         this.productionsPart = new ArrayList<>();
         this.resultsPart = new ArrayList<>();
+        initializeLayout();
     }
 
     private void addFact(String fact) {
@@ -71,7 +73,7 @@ public class SynthesizedGraph extends Graph {
 
                 Model model = getModel();
                 model.addVertex(fact);
-                model.addEdge(fact, PRODUCTIONS_ID);
+                model.addEdge(fact, PRODUCTIONS_ID, true, Edge.NULL_COST);
 
                 layout.relocateFact(this.factsPart.size()-1, fact);
             }
@@ -87,7 +89,7 @@ public class SynthesizedGraph extends Graph {
     private void addProduction(String production) {
 
         this.productionsPart.add(production);
-        layout.appendProdVertexTxt(production, resultsPart);
+        layout.appendProdVertexTxt("    call ".concat(production), resultsPart);
     }
 
     private void addResult(String result) {
@@ -99,7 +101,7 @@ public class SynthesizedGraph extends Graph {
 
             Model model = getModel();
             model.addVertex(result);
-            model.addEdge(PRODUCTIONS_ID, result);
+            model.addEdge(PRODUCTIONS_ID, result, true, Edge.NULL_COST);
 
             layout.relocateResult(this.resultsPart.size()-1, result);
 
