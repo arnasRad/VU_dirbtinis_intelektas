@@ -91,6 +91,8 @@ public class Chaining implements Runnable {
     public void reset() throws Exception {
 
         resetInfoFields();
+        resetAnimationFields();
+        initializeGraphs();
         resetProductionSystem();
         resetGraph();
     }
@@ -409,11 +411,6 @@ public class Chaining implements Runnable {
         controller.setCurrentIterationLbl(iteration);
     }
 
-    private void updateCurrentVertexLbl(Vertex vertex) {
-
-        controller.setCurrentVertexLbl(vertex);
-    }
-
     /**** APPEND ANIMATION FRAMES ****/
 
     private void addTraversalFrame(EventHandler<ActionEvent> eventHandler) {
@@ -468,7 +465,11 @@ public class Chaining implements Runnable {
                         addTraversalFrameDelay(e -> synthesizedGraph.apply(rule));
                         addTraversalFrameDelay(e -> semanticGraph.apply(rule));
                         addTraversalFrameDelay(e -> verificationGraph.apply(rule));
+                        final int tempFactsCount = productionSystem.getFactsCount();
+                        addTraversalFrameDelay(e -> controller.setFactsCountLbl(tempFactsCount));
                         ++currentTransitionStep;
+                        final int tempTransitionStep = currentTransitionStep;
+                        addTraversalFrameDelay(e -> controller.setCurrentIterationLbl(tempTransitionStep));
                         sb.append("taikome. Pakeliame flag1. Faktai ")
                                 .append(productionSystem.getFactsString());
                         break;

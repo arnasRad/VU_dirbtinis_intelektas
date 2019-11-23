@@ -33,11 +33,17 @@ public class SynthesizedGraph extends Graph {
         initializeLayout();
     }
 
+    // TODO: fix graph resetting
     public void reset() {
 
         this.factsPart = new ArrayList<>();
         this.productionsPart = new ArrayList<>();
         this.resultsPart = new ArrayList<>();
+
+        beginUpdate();
+        getModel().addVertex(PRODUCTIONS_ID);
+        endUpdate();
+
         initializeLayout();
     }
 

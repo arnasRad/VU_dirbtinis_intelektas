@@ -65,12 +65,12 @@
                             </font>
                         </Label>
                         <Label fx:id="rulesCountLbl"/>
-                        <Label text="Current vertex " underline="true">
+                        <Label text="Output show types" underline="true" VBox.vgrow="ALWAYS">
                             <font>
-                                <Font size="13.0"/>
+                                <Font size="13.0" />
                             </font>
                         </Label>
-                        <Label fx:id="currentVertexLbl"/>
+                        <Label fx:id="outputShowTypeLbl"/>
                         <GridPane.margin>
                             <Insets bottom="5.0" left="5.0" right="5.0" top="10.0"/>
                         </GridPane.margin>
@@ -178,13 +178,10 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Show">
                 <Menu mnemonicParsing="false" text="Output">
-                    <fx:define>
-                        <ToggleGroup fx:id="outputGroup"/>
-                    </fx:define>
-                    <RadioMenuItem fx:id="menuVerificationGraph" mnemonicParsing="false"
-                                   text="Verification Graph" toggleGroup="$outputGroup"/>
-                    <RadioMenuItem fx:id="menuSemanticGraph" mnemonicParsing="false" selected="true"
-                                   text="Semantic Graph" toggleGroup="$outputGroup"/>
+                    <CheckMenuItem fx:id="menuVerificationGraph" mnemonicParsing="false"
+                                   text="Verification Graph" />
+                    <CheckMenuItem fx:id="menuSemanticGraph" mnemonicParsing="false" selected="true"
+                                   text="Semantic Graph" />
                 </Menu>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">

@@ -1,8 +1,8 @@
 package com.arnasrad.fbchaining;
 
-import com.arnasrad.fbchaining.model.vertex.Vertex;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
@@ -11,6 +11,7 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class MainController {
@@ -58,7 +59,7 @@ public class MainController {
     @FXML
     Label rulesCountLbl;
     @FXML
-    Label currentVertexLbl;
+    Label outputShowTypeLbl;
     @FXML
     Label instructionsLbl;
 
@@ -85,12 +86,12 @@ public class MainController {
     @FXML
     RadioMenuItem menuBackward;
 
+//    @FXML
+//    ToggleGroup outputGroup;
     @FXML
-    ToggleGroup outputGroup;
+    CheckMenuItem menuVerificationGraph;
     @FXML
-    RadioMenuItem menuVerificationGraph;
-    @FXML
-    RadioMenuItem menuSemanticGraph;
+    CheckMenuItem menuSemanticGraph;
 
     @FXML
     public void initialize() {
@@ -104,15 +105,35 @@ public class MainController {
                     traversalSpeedLbl.setText(String.valueOf(traversalSpeed));
                 });
 
+//        setOutputShowTypeLbl(((RadioMenuItem) outputGroup
+//                .getSelectedToggle()).getText());
+//
+//        outputGroup.selectedToggleProperty().addListener(
+//                ((observableValue, old_val, new_val) ->
+//                        setOutputShowTypeLbl(((RadioMenuItem) new_val).getText())));
+
+        EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                if (((CheckMenuItem) actionEvent.getSource()).isSelected()) {
+                    appendOutputShowTypeLbl(
+                            ((CheckMenuItem) actionEvent.getSource()).getText());
+                } else { // deselected
+                    removeOutputShowTypeLbl(
+                            ((CheckMenuItem) actionEvent.getSource()).getText());
+                }
+            }
+        };
+
+        menuSemanticGraph.setOnAction(event);
+        menuVerificationGraph.setOnAction(event);
 
         setTraversalModeLbl(((RadioMenuItem) traverseGroup
                 .getSelectedToggle()).getText());
 
         traverseGroup.selectedToggleProperty().addListener(
-                (observableValue, old_val, new_val) -> {
-
-                    setTraversalModeLbl(((RadioMenuItem) new_val).getText());
-                });
+                (observableValue, old_val, new_val) ->
+                        setTraversalModeLbl(((RadioMenuItem) new_val).getText()));
     }
 
     @FXML
@@ -262,19 +283,19 @@ public class MainController {
     }
 
     // TODO: implement output types (choose which graph to output)
-    public OutputType getOutputTypeOption() {
+    public ArrayList<OutputType> getOutputTypeOption() {
 
-        String selectedToggleId = ((RadioMenuItem) outputGroup
-                .getSelectedToggle()).getId();
+        ArrayList<OutputType> types = new ArrayList<>();
 
-        switch (selectedToggleId) {
-            case "menuVerificationGraph":
-                return OutputType.VERIFICATION_GRAPH;
-            case "menuSemanticGraph":
-                return OutputType.SEMANTIC_GRAPH;
-            default:
-                return null;
+        if (menuSemanticGraph.isSelected()) {
+            types.add(OutputType.SEMANTIC_GRAPH);
         }
+
+        if (menuVerificationGraph.isSelected()) {
+            types.add(OutputType.VERIFICATION_GRAPH);
+        }
+
+        return types;
     }
 
     public int getTraversalSpeed() {
@@ -327,16 +348,18 @@ public class MainController {
         rulesCountLbl.setText(String.valueOf(count));
     }
 
-    public void setCurrentVertexLbl(Vertex vertex) {
+    public void appendOutputShowTypeLbl(String type) {
 
-        currentVertexLbl.setText(vertex.getVertexId());
+        this.outputShowTypeLbl.setText(
+                this.outputShowTypeLbl.getText().concat(type).concat("\n"));
     }
 
-//    public void setCurrentCoordinateLbl(Coordinate currentVertex) {
-//
-//        currentCoordinateLbl.setText("(x, y) = (" + currentVertex.getX() +
-//                ", " + currentVertex.getY() + ")");
-//    }
+    public void removeOutputShowTypeLbl(String type) {
+
+        this.outputShowTypeLbl.setText(
+                this.outputShowTypeLbl.getText()
+                        .replace(type.concat("\n"), ""));
+    }
 
     public void setInstructionsLbl(String instructions) {
 
@@ -348,7 +371,6 @@ public class MainController {
         currentIterationLbl.setText(null);
         traversalModeLbl.setText(null);
         factsCountLbl.setText(null);
-        currentVertexLbl.setText(null);
         instructionsLbl.setText(null);
     }
 

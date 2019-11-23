@@ -180,4 +180,9 @@ public class ProductionSystem {
         String factsString = sb.toString();
         return factsString.substring(0, factsString.length() - 2);
     }
+
+    public int getFactsCount() {
+
+        return this.facts.size();
+    }
 }
