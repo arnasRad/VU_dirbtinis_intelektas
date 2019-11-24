@@ -57,7 +57,7 @@ public class Chaining implements Runnable {
         this.controller = controller;
         resetInfoFields();
         resetAnimationFields();
-        initializeGraphs();
+        initializeMainGraph();
         loadInputFile(fileName);
     }
 
@@ -92,8 +92,9 @@ public class Chaining implements Runnable {
 
         resetInfoFields();
         resetAnimationFields();
-        initializeGraphs();
         resetProductionSystem();
+        initializeMainGraph();
+        initializeOptionalGraphs();
         resetGraph();
     }
 
@@ -119,34 +120,38 @@ public class Chaining implements Runnable {
         this.traversalTimeline = new Timeline();
     }
 
-    private void initializeGraphs() {
+    private void initializeMainGraph() {
 
         this.synthesizedGraph = new SynthesizedGraph(controller);
+    }
+
+    private void initializeOptionalGraphs() {
+
         this.semanticGraph = new SemanticGraph(controller);
-        this.verificationGraph = new VerificationGraph(controller);
+        this.verificationGraph = new VerificationGraph(controller, productionSystem.getFacts());
     }
 
-    private void initializeLayouts() {
+//    private void initializeLayouts() {
+//
+//        initializeSemanticLayout();
+//        initializeSemanticLayout();
+//        initializeVerificationLayout();
+//    }
 
-        initializeSemanticLayout();
-        initializeSemanticLayout();
-        initializeVerificationLayout();
-    }
-
-    private void initializeSynthesizedLayout() {
-
-        synthesizedGraph.initializeLayout();
-    }
-
-    private void initializeSemanticLayout() {
-
-        semanticGraph.initializeLayout();
-    }
-
-    private void initializeVerificationLayout() {
-
-        verificationGraph.initializeLayout();
-    }
+//    private void initializeSynthesizedLayout() {
+//
+//        synthesizedGraph.initializeLayout();
+//    }
+//
+//    private void initializeSemanticLayout() {
+//
+//        semanticGraph.initializeLayout();
+//    }
+//
+//    private void initializeVerificationLayout() {
+//
+//        verificationGraph.initializeLayout();
+//    }
 
     private void resetProductionSystem() {
 
@@ -177,7 +182,7 @@ public class Chaining implements Runnable {
         synthesizedGraph.resetContainers();
         this.synthesizedGraph = new SynthesizedGraph(controller);
         this.synthesizedGraph.copyModel(model);
-        initializeSynthesizedLayout();
+//        initializeSynthesizedLayout();
     }
 
     private void restartSemanticGraph() throws Exception {
@@ -186,16 +191,16 @@ public class Chaining implements Runnable {
         semanticGraph.resetContainers();
         this.semanticGraph = new SemanticGraph(controller);
         this.semanticGraph.copyModel(model);
-        initializeSemanticLayout();
+//        initializeSemanticLayout();
     }
 
     private void restartVerificationGraph() throws Exception {
 
         Model model = verificationGraph.getModel();
         verificationGraph.resetContainers();
-        this.verificationGraph = new VerificationGraph(controller);
+        this.verificationGraph = new VerificationGraph(controller, productionSystem.getFacts());
         this.verificationGraph.copyModel(model);
-        initializeVerificationLayout();
+//        initializeVerificationLayout();
     }
 
     private void loadInputFile(String fileName) throws Exception {
@@ -266,6 +271,7 @@ public class Chaining implements Runnable {
             controller.setRulesCountLbl(rules.size());
 
             productionSystem = new ProductionSystem(rules, facts, target);
+            initializeOptionalGraphs();
 
         } catch (IOException e) {
 
@@ -274,9 +280,6 @@ public class Chaining implements Runnable {
 
 //            throw new Exception("ERROR occurred while reading input file.");
             throw e;
-        } finally {
-
-            initializeLayouts();
         }
     }
 
@@ -310,6 +313,14 @@ public class Chaining implements Runnable {
 
     public Graph getSynthesizedGraph() {
         return this.synthesizedGraph;
+    }
+
+    public Graph getVerificationGraph() {
+        return this.verificationGraph;
+    }
+
+    public Graph getSemanticGraph() {
+        return this.semanticGraph;
     }
 
     public void setStartVertex(Vertex vertex) {
@@ -461,7 +472,7 @@ public class Chaining implements Runnable {
                     ArrayList<String> absentFacts = productionSystem.applyRule(rule);
 
                     if (absentFacts.size() == 0) {
-                        // TODO: update graphs with vertices on rule application
+                        // TODO: implement semantic and verification graphs
                         addTraversalFrameDelay(e -> synthesizedGraph.apply(rule));
                         addTraversalFrameDelay(e -> semanticGraph.apply(rule));
                         addTraversalFrameDelay(e -> verificationGraph.apply(rule));

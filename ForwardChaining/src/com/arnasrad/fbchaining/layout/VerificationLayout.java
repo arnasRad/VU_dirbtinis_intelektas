@@ -1,12 +1,21 @@
 package com.arnasrad.fbchaining.layout;
 
 import com.arnasrad.fbchaining.graph.VerificationGraph;
+import com.arnasrad.fbchaining.model.Model;
 import com.arnasrad.fbchaining.model.vertex.Vertex;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class VerificationLayout extends Layout {
+
+    private class Spacing {
+
+        private static final int LEFT = 20; // left graph padding
+        private static final int TOP = 20; // top graph padding
+        private static final int BETWEEN_HOR = 100; // horizontal spacing between vertices
+    }
 
     private VerificationGraph graph;
 
@@ -22,11 +31,25 @@ public class VerificationLayout extends Layout {
 
         List<Vertex> vertices = graph.getModel().getAllVertices();
 
-        for (Vertex vertex : vertices) {
+        Vertex vertex = vertices.get(0);
 
-            // define vertices layout
+        double x = Spacing.LEFT;
+        double y = Spacing.TOP;
 
-        }
+        vertex.relocate(x, y);
 
+    }
+
+    public void relocateLastVertex() {
+
+        Model model = graph.getModel();
+        List<Vertex> vertices = model.getAllVertices();
+        int verticesSize = vertices.size();
+        Vertex lastVertex = vertices.get(verticesSize-1);
+
+        double x = Spacing.LEFT + Spacing.BETWEEN_HOR * verticesSize;
+        double y = Spacing.TOP;
+
+        lastVertex.relocate(x, y);
     }
 }

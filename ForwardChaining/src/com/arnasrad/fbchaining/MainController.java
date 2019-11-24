@@ -4,9 +4,13 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -493,6 +497,9 @@ public class MainController {
 
     public void processEndOfTraversal() {
         changeState(State.FINISH);
+
+        showOptionalGraphs();
+
         enterBtn.setDisable(false);
         resetBtn.setDisable(false);
         resetBtn.setDefaultButton(true);
@@ -505,6 +512,38 @@ public class MainController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void showOptionalGraphs() {
+
+        ArrayList<OutputType> selectedOutputTypes = getOutputTypeOption();
+
+        if (selectedOutputTypes.contains(OutputType.SEMANTIC_GRAPH)) {
+
+            showSemanticGraph();
+        }
+
+        if (selectedOutputTypes.contains(OutputType.VERIFICATION_GRAPH)) {
+
+            showVerificationGraph();
+        }
+    }
+
+    private void showSemanticGraph() {
+
+        // TODO implement graph output views
+        Stage stage = new Stage();
+        stage.setTitle("Semantic graph");
+        stage.setScene(new Scene(chaining.getSemanticGraph().getScrollPane(), 450, 450));
+        stage.show();
+    }
+
+    private void showVerificationGraph() {
+
+        Stage stage = new Stage();
+        stage.setTitle("Verification graph");
+        stage.setScene(new Scene(chaining.getVerificationGraph().getScrollPane(), 450, 450));
+        stage.show();
     }
 
     private void changeState(State state) {

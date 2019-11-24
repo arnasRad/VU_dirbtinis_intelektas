@@ -40,6 +40,7 @@ public class SynthesizedGraph extends Graph {
         this.productionsPart = new ArrayList<>();
         this.resultsPart = new ArrayList<>();
 
+        getModel().clear();
         beginUpdate();
         getModel().addVertex(PRODUCTIONS_ID);
         endUpdate();

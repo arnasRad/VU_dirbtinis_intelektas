@@ -51,6 +51,11 @@ public class ProductionSystem {
         return this.target;
     }
 
+    public ArrayList<String> getFacts() {
+
+        return new ArrayList<>(this.facts);
+    }
+
     /**
      * Checks whether the production system already has a fact
      *      that the specified rule produces
@@ -148,7 +153,7 @@ public class ProductionSystem {
 
     public ArrayList<Rule> getRules() {
 
-        return rules;
+        return new ArrayList<>(rules);
     }
 
     public String getRulesString() {
