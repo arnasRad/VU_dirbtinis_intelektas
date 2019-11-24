@@ -180,7 +180,7 @@
                 <Menu mnemonicParsing="false" text="Output">
                     <CheckMenuItem fx:id="menuVerificationGraph" mnemonicParsing="false"
                                    text="Verification Graph" />
-                    <CheckMenuItem fx:id="menuSemanticGraph" mnemonicParsing="false" selected="true"
+                    <CheckMenuItem fx:id="menuSemanticGraph" mnemonicParsing="false"
                                    text="Semantic Graph" />
                 </Menu>
             </Menu>
