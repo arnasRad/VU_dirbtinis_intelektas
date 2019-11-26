@@ -155,6 +155,12 @@ public class Model {
             throw new Exception("Edge cost cannot be negative. Specified cost: " + cost +
                     getErrorTxt(sourceId, targetId));
         }
+
+        addEdge(sourceId, targetId, isOriented, String.valueOf(cost));
+    }
+
+    public void addEdge(String sourceId, String targetId, boolean isOriented, String label) throws Exception {
+
         Vertex sourceVertex = vertexMap.get( sourceId);
         Vertex targetVertex = vertexMap.get( targetId);
 
@@ -167,18 +173,11 @@ public class Model {
                     "vertex list" + getErrorTxt(sourceId, targetId));
         }
 
-//        if (sourceVertex.getVertexChildren().size() > 1) {
-//            throw new Exception("Parent vertex " + sourceId + " already has more than one children. " +
-//                    "Binary tree nodes can have 2 children at most" + getErrorTxt(sourceId, targetId));
-//        }
-//        if (targetVertex.getVertexParents().size() > 0) {
-//            throw new Exception("Target vertex " + targetId + " already has a parent. " +
-//                    "Binary tree nodes can only have one parent vertex" + getErrorTxt(sourceId, targetId));
-//        }
-
-        Edge edge = new Edge(sourceVertex, targetVertex, isOriented, String.valueOf(cost));
+        Edge edge = new Edge(sourceVertex, targetVertex, isOriented, label);
         addedEdges.add(edge);
     }
+
+
 
     /**
      * Attach all vertices which don't have a parent to graphParent
@@ -221,6 +220,11 @@ public class Model {
         addedEdges.clear();
         removedEdges.clear();
 
+    }
+
+    public int getVerticesCount() {
+
+        return this.allVertices.size();
     }
 
     /**

@@ -45,20 +45,21 @@ public class VerificationGraph extends Graph {
 
     }
 
-    private void addFact(String fact) {
+    public void apply(Rule rule) {
 
         try {
-            String newVertexId = getAppendedFactString(fact);
-            this.facts.add(fact);
+            String previousVertexId = getFactString();
+            String newVertexId = getAppendedFactString(rule.getResult());
+            this.facts.add(rule.getResult());
 
-            // TODO: fix vertex addition
+            beginUpdate();
             Model model = getModel();
             model.addVertex(newVertexId);
             endUpdate();
 
             beginUpdate();
-            model.addEdge(this.facts.get(this.facts.size()-1),
-                    newVertexId, true, Edge.NULL_COST);
+            model.addEdge(previousVertexId,
+                    newVertexId, true, rule.getName());
 
             layout.relocateLastVertex();
         } catch (Exception e) {
@@ -67,11 +68,6 @@ public class VerificationGraph extends Graph {
         } finally {
             endUpdate();
         }
-    }
-
-    public void apply(Rule rule) {
-
-        addFact(rule.getResult());
     }
 
     public void initializeLayout() {

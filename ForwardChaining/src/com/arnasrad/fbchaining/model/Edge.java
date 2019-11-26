@@ -13,7 +13,7 @@ import javafx.scene.text.Text;
 
 public class Edge extends Group {
 
-    public static final int NULL_COST = 1;
+    public static final int NULL_COST = -1;
 
     private Vertex source;
     private Vertex target;
@@ -63,9 +63,21 @@ public class Edge extends Group {
         addArrowListener();
 
         setOriented(isOriented);
-//        setLabelTxt(label);
-//        getChildren().add(labelTxt);
-//        bindCostTxtToLine();
+
+        try {
+            // only set labels for those double values that are not equal to NULL_COST
+            if (Double.parseDouble(label.trim()) != NULL_COST) {
+                setLabelTxt(label);
+                getChildren().add(labelTxt);
+                bindCostTxtToLine();
+            }
+        } catch (NumberFormatException e) {
+            // label is not a number
+            setLabelTxt(label);
+            getChildren().add(labelTxt);
+            bindCostTxtToLine();
+
+        }
     }
 
     public Edge(Vertex source, Vertex target) {
@@ -132,11 +144,6 @@ public class Edge extends Group {
 
     private void bindVerticesXYProperty() {
 
-//        source.layoutXProperty().removeListener(targetListener);
-//        source.layoutYProperty().removeListener(targetListener);
-//        target.layoutXProperty().removeListener(targetListener);
-//        target.layoutYProperty().removeListener(targetListener);
-
         source.layoutXProperty().addListener(connectionCoordinatesListener);
         source.layoutYProperty().addListener(connectionCoordinatesListener);
         target.layoutXProperty().addListener(connectionCoordinatesListener);
@@ -163,14 +170,6 @@ public class Edge extends Group {
         double dy = pointTarget.getY() - pointSource.getY();
 
         return -Math.atan2(dy,dx);
-
-//          // used for vector angles
-//        Point2D p1 = new Point2D(boundsE1.getCenterX(), boundsE1.getCenterY());
-//        Point2D p2 = new Point2D(boundsE2.getCenterX(), boundsE2.getCenterY());
-//        Point2D p3 = p2.subtract(p1);
-//        Point2D p4 = new Point2D(1, 0);
-//
-//        return toRadians(p4.angle(p3));
     }
 
     private double calculateOffsetX(double a, double b, double angle) {
