@@ -14,7 +14,7 @@ public class VerificationLayout extends Layout {
 
         private static final int LEFT = 20; // left graph padding
         private static final int TOP = 20; // top graph padding
-        private static final int BETWEEN_HOR = 100; // horizontal spacing between vertices
+        private static final int BETWEEN_HOR = 150; // horizontal spacing between vertices
     }
 
     private VerificationGraph graph;
@@ -47,7 +47,7 @@ public class VerificationLayout extends Layout {
         int verticesSize = vertices.size();
         Vertex lastVertex = vertices.get(verticesSize-1);
 
-        double x = Spacing.LEFT + Spacing.BETWEEN_HOR * verticesSize;
+        double x = Spacing.LEFT + Spacing.BETWEEN_HOR * (verticesSize-1);
         double y = Spacing.TOP;
 
         lastVertex.relocate(x, y);
