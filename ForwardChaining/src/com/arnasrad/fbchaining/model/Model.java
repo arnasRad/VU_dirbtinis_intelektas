@@ -149,6 +149,11 @@ public class Model {
         addEdge(sourceId, targetId, false, cost);
     }
 
+    public void addEdge(String sourceId, String targetId, boolean isOriented) throws Exception {
+
+        addEdge(sourceId, targetId, isOriented, Edge.NULL_COST);
+    }
+
     public void addEdge(String sourceId, String targetId, boolean isOriented, double cost) throws Exception {
 
         if (cost < 0 && cost != Edge.NULL_COST) {

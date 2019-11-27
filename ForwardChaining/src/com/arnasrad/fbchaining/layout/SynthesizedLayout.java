@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class SynthesizedLayout extends Layout {
 
-    private class Spacing {
+    private static class Spacing {
 
         private static final int LEFT = 20; // left graph padding
         private static final int TOP = 20; // top graph padding

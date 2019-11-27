@@ -67,6 +67,11 @@ public abstract class Graph {
         setupContainers();
     }
 
+    protected void resetModel() {
+
+        this.model = new Model();
+    }
+
     private void setupContainers() {
 
         canvas = new Group();
