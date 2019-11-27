@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 public class EllipseVertex extends Vertex {
 
-    public static int DEFAULT_WIDTH = 30;
-    public static int DEFAULT_HEIGHT = 30;
+    public static int DEFAULT_RADIUSX = 30;
+    public static int DEFAULT_RADIUSY = 30;
 
     public EllipseVertex(String id, State state) {
         super(id, state);
@@ -18,12 +18,12 @@ public class EllipseVertex extends Vertex {
         double textWidth = this.getIdTxt().getLayoutBounds().getWidth();
         double textHeight = this.getIdTxt().getLayoutBounds().getHeight();
 
-        if (textWidth < DEFAULT_WIDTH) {
-            textWidth = DEFAULT_WIDTH;
+        if (textWidth < DEFAULT_RADIUSX) {
+            textWidth = DEFAULT_RADIUSX;
         }
 
-        if (textHeight < DEFAULT_HEIGHT) {
-            textHeight = DEFAULT_HEIGHT;
+        if (textHeight < DEFAULT_RADIUSY) {
+            textHeight = DEFAULT_RADIUSY;
         }
 
         Ellipse view = new Ellipse(textWidth, textHeight);
@@ -77,12 +77,12 @@ public class EllipseVertex extends Vertex {
         double textWidth = this.getIdTxt().getLayoutBounds().getWidth();
         double textHeight = this.getIdTxt().getLayoutBounds().getHeight();
 
-        if (textWidth < DEFAULT_WIDTH) {
-            textWidth = DEFAULT_WIDTH;
+        if (textWidth < DEFAULT_RADIUSX) {
+            textWidth = DEFAULT_RADIUSX;
         }
 
-        if (textHeight < DEFAULT_HEIGHT) {
-            textHeight = DEFAULT_HEIGHT;
+        if (textHeight < DEFAULT_RADIUSY) {
+            textHeight = DEFAULT_RADIUSY;
         }
 
         Ellipse view = new Ellipse(textHeight, textWidth);

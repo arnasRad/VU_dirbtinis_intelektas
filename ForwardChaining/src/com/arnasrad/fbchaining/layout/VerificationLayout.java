@@ -12,9 +12,9 @@ public class VerificationLayout extends Layout {
 
     private static class Spacing {
 
-        private static final int LEFT = 20; // left graph padding
-        private static final int TOP = 20; // top graph padding
-        private static final int BETWEEN_HOR = 150; // horizontal spacing between vertices
+        private static final double LEFT = 20; // left graph padding
+        private static final double TOP = 20; // top graph padding
+        private static final double BETWEEN_HOR = 150; // horizontal spacing between vertices
     }
 
     private VerificationGraph graph;

@@ -179,9 +179,9 @@
             <Menu mnemonicParsing="false" text="Show">
                 <Menu mnemonicParsing="false" text="Output">
                     <CheckMenuItem fx:id="menuVerificationGraph" mnemonicParsing="false"
-                                   text="Verification Graph" />
+                                   text="Verification Graph" selected="true" />
                     <CheckMenuItem fx:id="menuSemanticGraph" mnemonicParsing="false"
-                                   text="Semantic Graph" />
+                                   text="Semantic Graph" selected="true" />
                 </Menu>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">

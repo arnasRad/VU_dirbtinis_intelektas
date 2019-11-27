@@ -531,10 +531,9 @@ public class MainController {
 
     private void showSemanticGraph() {
 
-        // TODO implement graph output views
         Stage stage = new Stage();
         stage.setTitle("Semantic graph");
-        stage.setScene(new Scene(chaining.getSemanticGraph().getScrollPane(), 450, 450));
+        stage.setScene(new Scene(chaining.getSemanticGraph().getScrollPane(), 1200, 450));
         stage.show();
     }
 
@@ -542,7 +541,7 @@ public class MainController {
 
         Stage stage = new Stage();
         stage.setTitle("Verification graph");
-        stage.setScene(new Scene(chaining.getVerificationGraph().getScrollPane(), 450, 450));
+        stage.setScene(new Scene(chaining.getVerificationGraph().getScrollPane(), 1200, 450));
         stage.show();
     }
 
