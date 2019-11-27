@@ -453,12 +453,14 @@ public class Chaining implements Runnable {
         }
 
         int iteration = 0;
+        boolean ruleApplied;
 
         while (true) {
 
             StringBuilder sb = new StringBuilder("\t" + (iteration+1) + " ITERACIJA\n");
 
             ArrayList<Rule> rules = productionSystem.getRules();
+            ruleApplied = false;
 
             int i = 0;
             for(Rule rule : rules) {
@@ -491,6 +493,8 @@ public class Chaining implements Runnable {
                         addTraversalFrameDelay(e -> controller.setCurrentIterationLbl(tempTransitionStep));
                         sb.append("taikome. Pakeliame flag1. Faktai ")
                                 .append(productionSystem.getFactsString());
+
+                        ruleApplied = true;
                         break;
                     } else {
 
@@ -505,18 +509,18 @@ public class Chaining implements Runnable {
                 }
             }
 
-            if (!this.exists && i == rules.size()) {
-                // solution does not exist
-
-                sb.append("\n\t\tTikslas neegzistuoja.");
-                addTraversalFrameDelay(e -> writeToDefaultFile(sb));
-                addTraversalFrameDelay(e -> controller.processEndOfTraversal());
-                break;
-            }
             if (productionSystem.isTargetReached()) {
 
                 this.exists = true;
                 sb.append("\n\t\tTikslas gautas.");
+                addTraversalFrameDelay(e -> writeToDefaultFile(sb));
+                addTraversalFrameDelay(e -> controller.processEndOfTraversal());
+                break;
+            }
+            if (!ruleApplied && !this.exists && i == rules.size()) {
+                // solution does not exist
+
+                sb.append("\n\t\tTikslas neegzistuoja.");
                 addTraversalFrameDelay(e -> writeToDefaultFile(sb));
                 addTraversalFrameDelay(e -> controller.processEndOfTraversal());
                 break;

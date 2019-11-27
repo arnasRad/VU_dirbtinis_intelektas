@@ -1,0 +1,32 @@
+1 DALIS. Duomenys
+
+	1) Taisyklės
+	R1: R1:A -> L
+	R1: R2:L -> K
+	R1: R3:D -> A
+	R1: R4:D -> M
+	R1: R5:F, B -> Z
+	R1: R6:C, D -> F
+	R1: R7:A -> D
+
+	2) Faktai: A, B, C.
+
+	3) Tikslas Z.
+
+	4) Naudojama procedūra: FORWARD
+
+2 DALIS. Vykdymas
+
+	1 ITERACIJA
+		R1:A -> L praleidžiame, nes pakelta flag1
+		R2:L -> K praleidžiame, nes pakelta flag1
+		R3:D -> A praleidžiame, nes pakelta flag2
+		R4:D -> M praleidžiame, nes pakelta flag1
+		R5:F, B -> Z praleidžiame, nes pakelta flag1
+		R6:C, D -> F praleidžiame, nes pakelta flag1
+		R7:A -> D praleidžiame, nes pakelta flag1
+
+		Tikslas neegzistuoja.
+
+3 DALIS. Rezultatai
+	3.1) Tikslas negali būti pasiektas. Kelias neegzistuoja
