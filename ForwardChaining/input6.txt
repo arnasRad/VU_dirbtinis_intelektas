@@ -1,5 +1,5 @@
 Studentas Arnas Radzevičius, Informatika, 4 kursas
-1 testas.
+6 testas. Negnevitsky pavyzdys
 1) Taisyklės
 Z Y D
 Y X B E

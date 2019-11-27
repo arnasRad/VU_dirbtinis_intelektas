@@ -1,5 +1,5 @@
 Studentas Arnas Radzevičius, Informatika, 4 kursas
-1 testas.
+4 testas. Tikslas tarp faktų
 1) Taisyklės
 Z D
 D C

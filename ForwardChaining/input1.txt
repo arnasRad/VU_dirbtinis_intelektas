@@ -1,5 +1,5 @@
 Studentas Arnas Radzevičius, Informatika, 4 kursas
-1 testas.
+1 testas. V. Čyro konspekto pavyzdys su septyniomis produkcijomis
 1) Taisyklės
 L A
 K L

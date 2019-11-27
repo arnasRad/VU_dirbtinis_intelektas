@@ -1,5 +1,5 @@
 Studentas Arnas Radzevičius, Informatika, 4 kursas
-1 testas.
+5 testas. Kelias neegzistuoja
 1) Taisyklės
 B A
 Z C

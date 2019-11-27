@@ -1,5 +1,5 @@
 Studentas Arnas Radzevičius, Informatika, 4 kursas
-1 testas.
+3 testas. Čyras vs. Negnevitsky. Negnevitsky laimi
 1) Taisyklės
 Z D
 D C
