@@ -443,6 +443,15 @@ public class Chaining implements Runnable {
     /********* ALGORITHMS *********/
     private void runForwardChaining() {
 
+        if (productionSystem.isTargetReached()) {
+
+            this.exists = true;
+            addTraversalFrameDelay(e -> writeToDefaultFile("\t\tTikslas "
+                    + productionSystem.getTarget() + " tarp faktų. Kelias tuščias."));
+            addTraversalFrameDelay(e -> controller.processEndOfTraversal());
+            return;
+        }
+
         int iteration = 0;
 
         while (true) {
@@ -455,7 +464,7 @@ public class Chaining implements Runnable {
             for(Rule rule : rules) {
 
                 ++i;
-                sb.append("\t\tR").append(i).append(":").append(rule).append(" ");
+                sb.append("\t\t").append(rule).append(" ");
 
                 byte flag;
                 if ((flag = rule.getFlag()) != 0) {
@@ -472,7 +481,6 @@ public class Chaining implements Runnable {
                     ArrayList<String> absentFacts = productionSystem.applyRule(rule);
 
                     if (absentFacts.size() == 0) {
-                        // TODO: implement semantic and verification graphs
                         addTraversalFrameDelay(e -> synthesizedGraph.apply(rule));
                         addTraversalFrameDelay(e -> semanticGraph.apply(rule));
                         addTraversalFrameDelay(e -> verificationGraph.apply(rule));
@@ -495,14 +503,16 @@ public class Chaining implements Runnable {
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
                 }
-
-                if (!this.exists && i == rules.size()) {
-                    // solution does not exist
-                    addTraversalFrameDelay(e -> controller.processEndOfTraversal());
-                    break;
-                }
             }
 
+            if (!this.exists && i == rules.size()) {
+                // solution does not exist
+
+                sb.append("\n\t\tTikslas neegzistuoja.");
+                addTraversalFrameDelay(e -> writeToDefaultFile(sb));
+                addTraversalFrameDelay(e -> controller.processEndOfTraversal());
+                break;
+            }
             if (productionSystem.isTargetReached()) {
 
                 this.exists = true;

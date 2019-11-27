@@ -1,0 +1,32 @@
+1 DALIS. Duomenys
+
+	1) Taisyklės
+	R1: R1:Y, D -> Z
+	R1: R2:X, B, E -> Y
+	R1: R3:A -> X
+	R1: R4:C -> L
+	R1: R5:L, M -> N
+
+	2) Faktai: A, B, C, D, E, X, Y, Z.
+
+	3) Tikslas Z.
+
+	4) Naudojama procedūra: FORWARD
+
+2 DALIS. Vykdymas
+
+	1 ITERACIJA
+		R1:Y, D -> Z netaikome, nes trūksta Y
+		R2:X, B, E -> Y netaikome, nes trūksta X
+		R3:A -> X taikome. Pakeliame flag1. Faktai A, B, C, D, E, X
+	2 ITERACIJA
+		R1:Y, D -> Z netaikome, nes trūksta Y
+		R2:X, B, E -> Y taikome. Pakeliame flag1. Faktai A, B, C, D, E, X, Y
+	3 ITERACIJA
+		R1:Y, D -> Z taikome. Pakeliame flag1. Faktai A, B, C, D, E, X, Y, Z
+		Tikslas gautas.
+
+3 DALIS. Rezultatai
+	1) Tikslas Z išvestas. Bandymų 0
+
+2) Kelias: 

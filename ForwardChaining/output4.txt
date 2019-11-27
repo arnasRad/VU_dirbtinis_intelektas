@@ -1,0 +1,25 @@
+1 DALIS. Duomenys
+
+	1) Taisyklės
+	R1: R1:D -> Z
+	R1: R2:C -> D
+	R1: R3:B -> C
+	R1: R4:A -> B
+	R1: R5:A -> G
+	R1: R6:G -> Z
+
+	2) Faktai: A, D, B, Z, G.
+
+	3) Tikslas Z.
+
+	4) Naudojama procedūra: FORWARD
+
+2 DALIS. Vykdymas
+
+
+		Tikslas tarp faktų.
+
+3 DALIS. Rezultatai
+	1) Tikslas Z išvestas. Bandymų 0
+
+2) Kelias: 

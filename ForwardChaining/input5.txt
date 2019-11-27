@@ -1,0 +1,11 @@
+Studentas Arnas Radzevičius, Informatika, 4 kursas
+1 testas.
+1) Taisyklės
+B A
+Z C
+
+2) Faktai
+A
+
+3) Tikslas
+Z
