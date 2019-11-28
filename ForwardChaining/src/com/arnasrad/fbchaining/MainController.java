@@ -193,7 +193,7 @@ public class MainController {
     @FXML
     public void menuOpenClicked(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File("."));
+        fileChooser.setInitialDirectory(new File("input/"));
         fileChooser.setTitle("Open input file");
         File inputFile = fileChooser.showOpenDialog(boardVBox.getScene().getWindow());
         if (inputFile == null) {

@@ -1,0 +1,51 @@
+1 DALIS. Duomenys
+
+	1) Taisyklės
+	R1: R1:D, C -> Z
+	R1: R2:C -> D
+	R1: R3:B -> C
+	R1: R4:A -> B
+	R1: R5:D -> A
+	R1: R6:T -> D
+	R1: R7:G -> A
+	R1: R8:H -> B
+	R1: R9:J -> C
+
+	2) Faktai: T, D, A, B, C, Z.
+
+	3) Tikslas Z.
+
+	4) Naudojama procedūra: FORWARD
+
+2 DALIS. Vykdymas
+
+	1 ITERACIJA
+		R1:D, C -> Z netaikome, nes trūksta D C
+		R2:C -> D netaikome, nes trūksta C
+		R3:B -> C netaikome, nes trūksta B
+		R4:A -> B netaikome, nes trūksta A
+		R5:D -> A netaikome, nes trūksta D
+		R6:T -> D taikome. Pakeliame flag1. Faktai T, D
+	2 ITERACIJA
+		R1:D, C -> Z netaikome, nes trūksta C
+		R2:C -> D netaikome, nes konsekventas faktuose. Pakeliame flag2
+		R3:B -> C netaikome, nes trūksta B
+		R4:A -> B netaikome, nes trūksta A
+		R5:D -> A taikome. Pakeliame flag1. Faktai T, D, A
+	3 ITERACIJA
+		R1:D, C -> Z netaikome, nes trūksta C
+		R2:C -> D praleidžiame, nes pakelta flag2
+		R3:B -> C netaikome, nes trūksta B
+		R4:A -> B taikome. Pakeliame flag1. Faktai T, D, A, B
+	4 ITERACIJA
+		R1:D, C -> Z netaikome, nes trūksta C
+		R2:C -> D praleidžiame, nes pakelta flag2
+		R3:B -> C taikome. Pakeliame flag1. Faktai T, D, A, B, C
+	5 ITERACIJA
+		R1:D, C -> Z taikome. Pakeliame flag1. Faktai T, D, A, B, C, Z
+		Tikslas gautas.
+
+3 DALIS. Rezultatai
+	1) Tikslas Z išvestas. Bandymų 0
+
+2) Kelias: 
