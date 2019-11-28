@@ -425,7 +425,7 @@ public class MainController {
             return;
         }
 
-        fileName = fileName.concat(".txt");
+        fileName = "input/" + fileName.concat(".txt");
         loadedFileName = fileName;
 
         setupInputFile(fileName);
@@ -462,7 +462,7 @@ public class MainController {
             console.setText(null);
             return;
         }
-        outputFilename = outputFilename.concat(".txt");
+        outputFilename = "output/" + outputFilename.concat(".txt");
 
         // update console for UI
         // user will be asked to click on the starting vertex on the board
