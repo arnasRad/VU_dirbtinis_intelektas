@@ -48,6 +48,7 @@ public class MainController {
     private int traversalSpeed = 250;
     private String outputFilename = ""; // log output filename
     private FileWriter fileWriter;
+    private String loadedFileName;
 
 
     @FXML
@@ -163,18 +164,17 @@ public class MainController {
 
     @FXML
     public void processResetClicked(ActionEvent actionEvent) {
-        resetBoardContainers();
-        clearProgramStateLabels();
-
-        try {
-            this.chaining.reset();
-            changeToTraversalState();
-        } catch (Exception e) {
-            setInstructionsLbl(e.getMessage());
-        }
-//        this.labyrinth.reset();
-
-//        setupGraphContainers();
+        restartApplication();
+        setupInputFile(loadedFileName);
+//        resetBoardContainers();
+//        clearProgramStateLabels();
+//
+//        try {
+//            this.chaining.reset();
+//            changeToTraversalState();
+//        } catch (Exception e) {
+//            setInstructionsLbl(e.getMessage());
+//        }
     }
 
     @FXML
@@ -342,6 +342,8 @@ public class MainController {
         runBtn.setDisable(true);
 
         resetBoardContainers();
+
+        setProgramStateLbl(State.INPUT);
     }
 
     public void setProgramStateLbl(State state) {
@@ -425,6 +427,7 @@ public class MainController {
         }
 
         fileName = fileName.concat(".txt");
+        loadedFileName = fileName;
 
         setupInputFile(fileName);
     }
@@ -466,39 +469,7 @@ public class MainController {
         // user will be asked to click on the starting vertex on the board
         changeToTraversalState();
         setupGraphContainers();
-//        changeState(State.START_VERTEX);
-        // disable "Enter" button; not used in this step
-//        enterBtn.setDisable(true);
-//        enterBtn.setDefaultButton(false);
-//        console.setDisable(true);
     }
-
-//    public void setStartVertex(Vertex vertex) {
-//
-//        graph.setStartVertex(vertex);
-//        changeToTargetVertexState();
-//    }
-//
-//    public void setTargetVertex(Vertex vertex) {
-//
-//        graph.setTargetVertex(vertex);
-//        changeToTraversalState();
-//    }
-
-//    private void changeToStartVertexState() {
-//
-//        // update console for UI
-//        // user will be asked to click on the starting vertex on the board
-//        setupGraphContainers();
-//        changeState(State.START_VERTEX);
-//        // disable all buttons; not used in this step
-//        disableButtons();
-//    }
-
-//    private void changeToTargetVertexState() {
-//
-//        changeState(State.TARGET_VERTEX);
-//    }
 
     private void disableButtons() {
         enterBtn.setDisable(true);
@@ -513,8 +484,8 @@ public class MainController {
     public void changeToTraversalState() {
 
         changeState(State.TRAVERSE);
-//        labyrinth.getStartingTile().setValue(Tile.STARTING_VALUE);
-//        labyrinth.getStartingTile().setCurrent();
+        enterBtn.setDefaultButton(false);
+        enterBtn.setDisable(true);
         resetBtn.setDisable(false);
         runBtn.setDisable(false);
         runBtn.setDefaultButton(true);
@@ -543,14 +514,14 @@ public class MainController {
 
         ArrayList<OutputType> selectedOutputTypes = getOutputTypeOption();
 
-        if (selectedOutputTypes.contains(OutputType.SEMANTIC_GRAPH)) {
-
-            showSemanticGraph();
-        }
-
         if (selectedOutputTypes.contains(OutputType.VERIFICATION_GRAPH)) {
 
             showVerificationGraph();
+        }
+
+        if (selectedOutputTypes.contains(OutputType.SEMANTIC_GRAPH)) {
+
+            showSemanticGraph();
         }
     }
 

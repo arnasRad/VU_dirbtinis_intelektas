@@ -446,9 +446,9 @@ public class Chaining implements Runnable {
         if (productionSystem.isTargetReached()) {
 
             this.exists = true;
-            addTraversalFrameDelay(e -> writeToDefaultFile("\t\tTikslas "
+            addTraversalFrame(e -> writeToDefaultFile("\t\tTikslas "
                     + productionSystem.getTarget() + " tarp faktų. Kelias tuščias."));
-            addTraversalFrameDelay(e -> controller.processEndOfTraversal());
+            addTraversalFrame(e -> controller.processEndOfTraversal());
             return;
         }
 
@@ -483,14 +483,14 @@ public class Chaining implements Runnable {
                     ArrayList<String> absentFacts = productionSystem.applyRule(rule);
 
                     if (absentFacts.size() == 0) {
-                        addTraversalFrameDelay(e -> synthesizedGraph.apply(rule));
-                        addTraversalFrameDelay(e -> semanticGraph.apply(rule));
-                        addTraversalFrameDelay(e -> verificationGraph.apply(rule));
+                        addTraversalFrame(e -> synthesizedGraph.apply(rule));
+                        addTraversalFrame(e -> semanticGraph.apply(rule));
+                        addTraversalFrame(e -> verificationGraph.apply(rule));
                         final int tempFactsCount = productionSystem.getFactsCount();
-                        addTraversalFrameDelay(e -> controller.setFactsCountLbl(tempFactsCount));
+                        addTraversalFrame(e -> controller.setFactsCountLbl(tempFactsCount));
                         ++currentTransitionStep;
                         final int tempTransitionStep = currentTransitionStep;
-                        addTraversalFrameDelay(e -> controller.setCurrentIterationLbl(tempTransitionStep));
+                        addTraversalFrame(e -> controller.setCurrentIterationLbl(tempTransitionStep));
                         sb.append("taikome. Pakeliame flag1. Faktai ")
                                 .append(productionSystem.getFactsString());
 
@@ -513,20 +513,20 @@ public class Chaining implements Runnable {
 
                 this.exists = true;
                 sb.append("\n\t\tTikslas gautas.");
-                addTraversalFrameDelay(e -> writeToDefaultFile(sb));
-                addTraversalFrameDelay(e -> controller.processEndOfTraversal());
+                addTraversalFrame(e -> writeToDefaultFile(sb));
+                addTraversalFrame(e -> controller.processEndOfTraversal());
                 break;
             }
             if (!ruleApplied && !this.exists && i == rules.size()) {
                 // solution does not exist
 
                 sb.append("\n\t\tTikslas neegzistuoja.");
-                addTraversalFrameDelay(e -> writeToDefaultFile(sb));
-                addTraversalFrameDelay(e -> controller.processEndOfTraversal());
+                addTraversalFrame(e -> writeToDefaultFile(sb));
+                addTraversalFrame(e -> controller.processEndOfTraversal());
                 break;
             }
 
-            addTraversalFrameDelay(e -> writeToDefaultFile(sb));
+            addTraversalFrame(e -> writeToDefaultFile(sb));
             ++iteration;
         }
 
