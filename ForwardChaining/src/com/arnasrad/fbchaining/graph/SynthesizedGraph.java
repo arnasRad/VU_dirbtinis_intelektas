@@ -82,7 +82,7 @@ public class SynthesizedGraph extends Graph {
                 model.addVertex(fact);
                 model.addEdge(fact, PRODUCTIONS_ID, true, Edge.NULL_COST);
 
-                layout.relocateFact(this.factsPart.size()-1, fact);
+//                layout.relocateFact(this.factsPart.size()-1, fact);
             }
 
         } catch (Exception e) {
@@ -90,6 +90,8 @@ public class SynthesizedGraph extends Graph {
             e.printStackTrace();
         } finally {
             endUpdate();
+            layout.relocateFacts(this.factsPart.size() - facts.size(), facts);
+            triggerProdVertexOnChanged();
         }
     }
 
@@ -110,14 +112,20 @@ public class SynthesizedGraph extends Graph {
             model.addVertex(result);
             model.addEdge(PRODUCTIONS_ID, result, true, Edge.NULL_COST);
 
-            layout.relocateResult(this.resultsPart.size()-1, result);
-
         } catch (Exception e) {
             System.err.println("ERROR: error occurred while adding a new edge. " + e.getMessage());
             e.printStackTrace();
         } finally {
             endUpdate();
+            // relocate after endUpdate() to trigger Edges' onChanged()
+            layout.relocateResult(this.resultsPart.size()-1, result);
+            triggerProdVertexOnChanged();
         }
+    }
+
+    private void triggerProdVertexOnChanged() {
+
+        layout.triggerOnChanged(PRODUCTIONS_ID);
     }
 
     public void apply(Rule rule) {

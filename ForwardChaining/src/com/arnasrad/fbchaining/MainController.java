@@ -138,6 +138,8 @@ public class MainController {
         traverseGroup.selectedToggleProperty().addListener(
                 (observableValue, old_val, new_val) ->
                         setTraversalModeLbl(((RadioMenuItem) new_val).getText()));
+
+        appendOutputShowTypeLbl(getOutputTypesStringList());
     }
 
     @FXML
@@ -183,6 +185,7 @@ public class MainController {
 
         initializeFileWriter();
 
+        showOptionalGraphs();
         new Thread(chaining).start();
 //        new Thread(labyrinth).start();
     }
@@ -301,6 +304,20 @@ public class MainController {
 
         return types;
     }
+    public ArrayList<String> getOutputTypesStringList() {
+
+        ArrayList<String> types = new ArrayList<>();
+
+        if (menuSemanticGraph.isSelected()) {
+            types.add(menuSemanticGraph.getText());
+        }
+
+        if (menuVerificationGraph.isSelected()) {
+            types.add(menuVerificationGraph.getText());
+        }
+
+        return types;
+    }
 
     public int getTraversalSpeed() {
         return this.traversalSpeed;
@@ -356,6 +373,14 @@ public class MainController {
 
         this.outputShowTypeLbl.setText(
                 this.outputShowTypeLbl.getText().concat(type).concat("\n"));
+    }
+
+    public void appendOutputShowTypeLbl(ArrayList<String> types) {
+
+        for(String type : types) {
+            this.outputShowTypeLbl.setText(
+                    this.outputShowTypeLbl.getText().concat(type).concat("\n"));
+        }
     }
 
     public void removeOutputShowTypeLbl(String type) {
@@ -498,7 +523,7 @@ public class MainController {
     public void processEndOfTraversal() {
         changeState(State.FINISH);
 
-        showOptionalGraphs();
+//        showOptionalGraphs();
 
         enterBtn.setDisable(false);
         resetBtn.setDisable(false);

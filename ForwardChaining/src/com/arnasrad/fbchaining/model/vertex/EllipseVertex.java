@@ -35,6 +35,11 @@ public class EllipseVertex extends Vertex {
 
     }
 
+    public EllipseVertex(String id) {
+        this(id, State.IDLE);
+
+    }
+
     public void appendIdTxt(ArrayList<String> text) {
 
         if (text == null || text.size() == 0) {
@@ -69,28 +74,5 @@ public class EllipseVertex extends Vertex {
         Ellipse view = (Ellipse) getView();
         view.setRadiusX(textWidth);
         view.setRadiusY(textHeight);
-    }
-
-    public EllipseVertex(String id) {
-        super(id, State.IDLE);
-
-        double textWidth = this.getIdTxt().getLayoutBounds().getWidth();
-        double textHeight = this.getIdTxt().getLayoutBounds().getHeight();
-
-        if (textWidth < DEFAULT_RADIUSX) {
-            textWidth = DEFAULT_RADIUSX;
-        }
-
-        if (textHeight < DEFAULT_RADIUSY) {
-            textHeight = DEFAULT_RADIUSY;
-        }
-
-        Ellipse view = new Ellipse(textHeight, textWidth);
-
-        view.setStroke(Color.BLACK);
-        view.setFill(Color.DODGERBLUE);
-
-        setView( view);
-
     }
 }

@@ -48,6 +48,19 @@ public class SynthesizedLayout extends Layout {
         factVertex.relocate(x, y);
     }
 
+    public void relocateFacts(int startIndex, ArrayList<String> facts) {
+
+
+        for(String fact : facts) {
+            Vertex factVertex = graph.getModel().getVertex(fact);
+
+            double x = Spacing.LEFT;
+            double y = Spacing.TOP + (EllipseVertex.DEFAULT_RADIUSY * 2 + Spacing.BETWEEN_VER) * startIndex;
+            factVertex.relocate(x, y);
+            ++startIndex;
+        }
+    }
+
     public void relocateResult(int index, String result) {
 
         Model model = graph.getModel();
@@ -86,5 +99,11 @@ public class SynthesizedLayout extends Layout {
                 resultVertex.relocate(x, y);
             }
         }
+    }
+
+    public void triggerOnChanged(String vertexId) {
+
+        Vertex vertex = graph.getModel().getVertex(vertexId);
+        vertex.relocate(vertex.getLayoutX(), vertex.getLayoutY()+1);
     }
 }

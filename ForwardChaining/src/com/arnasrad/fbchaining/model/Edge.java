@@ -30,24 +30,10 @@ public class Edge extends Group {
 
     private boolean oriented;
 
-    private ChangeListener<Number> connectionCoordinatesListener = (observable, oldValue, newValue) -> {
+    private ChangeListener<Number> connectionCoordinatesListener
+            = (observable, oldValue, newValue) -> connectVertices();
 
-        Ellipse sourceNode = (Ellipse) source.getView();
-        Ellipse targetNode = (Ellipse) target.getView();
-
-        Point2D endLineOffset = getOffset(sourceNode, targetNode);
-        Point2D startLineOffset = getOffset(targetNode, sourceNode);
-
-        setStartX((source.getBoundsInParent().getCenterX() + startLineOffset.getX()));
-        setStartY((source.getBoundsInParent().getCenterY() + startLineOffset.getY()));
-        setEndX((target.getBoundsInParent().getCenterX() + endLineOffset.getX()));
-        setEndY((target.getBoundsInParent().getCenterY() + endLineOffset.getY()));
-    };
-
-    private InvalidationListener updater = o -> {
-
-        drawArrow();
-    };
+    private InvalidationListener updater = o -> drawArrow();
 
     public Edge(Vertex source, Vertex target, boolean isOriented, String label) {
 
@@ -140,6 +126,20 @@ public class Edge extends Group {
             arrow2.setStartX(ex + dx + oy);
             arrow2.setStartY(ey + dy - ox);
         }
+    }
+
+    public void connectVertices() {
+
+        Ellipse sourceNode = (Ellipse) source.getView();
+        Ellipse targetNode = (Ellipse) target.getView();
+
+        Point2D endLineOffset = getOffset(sourceNode, targetNode);
+        Point2D startLineOffset = getOffset(targetNode, sourceNode);
+
+        setStartX((source.getBoundsInParent().getCenterX() + startLineOffset.getX()));
+        setStartY((source.getBoundsInParent().getCenterY() + startLineOffset.getY()));
+        setEndX((target.getBoundsInParent().getCenterX() + endLineOffset.getX()));
+        setEndY((target.getBoundsInParent().getCenterY() + endLineOffset.getY()));
     }
 
     private void bindVerticesXYProperty() {

@@ -64,7 +64,6 @@ public class SemanticGraph extends Graph {
             }
             getModel().addEdge(ruleName, result, true);
 
-            layout.relocate(rule);
         } catch (Exception e) {
 
             System.err.println("ERROR: error occurred while adding a new edge. " + e.getMessage());
@@ -72,6 +71,7 @@ public class SemanticGraph extends Graph {
         } finally {
 
             endUpdate();
+            layout.relocate(rule);
         }
     }
 
