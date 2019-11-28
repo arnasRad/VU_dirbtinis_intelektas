@@ -50,8 +50,6 @@ public class Chaining implements Runnable {
     private int millisecondDelay;
     private int currentTransitionStep;
 
-    // TODO: fix line positioning on graph load
-
     public Chaining(MainController controller, String fileName) throws Exception {
 
         this.controller = controller;

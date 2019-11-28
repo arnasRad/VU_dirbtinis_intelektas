@@ -289,7 +289,6 @@ public class MainController {
         }
     }
 
-    // TODO: implement output types (choose which graph to output)
     public ArrayList<OutputType> getOutputTypeOption() {
 
         ArrayList<OutputType> types = new ArrayList<>();

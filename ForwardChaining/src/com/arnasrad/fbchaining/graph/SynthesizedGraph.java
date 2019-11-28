@@ -33,7 +33,6 @@ public class SynthesizedGraph extends Graph {
         initializeLayout();
     }
 
-    // TODO: fix graph resetting
     public void reset() {
 
         this.factsPart = new ArrayList<>();
