@@ -52,6 +52,11 @@ public class Rule {
         this.flag = flag;
     }
 
+    public String getFactString() {
+
+        return Utils.getListString(facts, ", ");
+    }
+
     @Override
     public String toString() {
         return name + ":" + Utils.getListString(facts, ", ") + " -> " + result;

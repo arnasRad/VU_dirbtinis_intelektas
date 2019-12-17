@@ -1,5 +1,7 @@
 package com.arnasrad.fbchaining.model;
 
+import com.arnasrad.fbchaining.utility.Utils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -7,7 +9,7 @@ public class ProductionSystem {
 
     private ArrayList<Rule> rules;
     private ArrayList<String> facts;
-    private ArrayList<String> originalFacts; // facts loaded from file; used for resetting
+    private ArrayList<String> originalFacts; // facts initially loaded from file
     private String target;
 
     public ProductionSystem() {
@@ -41,6 +43,11 @@ public class ProductionSystem {
         this.facts.add(fact);
     }
 
+    public void removeFacts(ArrayList<String> facts) {
+
+        this.facts.removeAll(facts);
+    }
+
     public void setTarget(String target) {
 
         this.target = target;
@@ -54,6 +61,16 @@ public class ProductionSystem {
     public ArrayList<String> getFacts() {
 
         return new ArrayList<>(this.facts);
+    }
+
+    public ArrayList<String> getInitialFacts() {
+
+        return new ArrayList<>(originalFacts);
+    }
+
+    public String getInitialFactsString() {
+
+        return Utils.getListString(originalFacts, ", ");
     }
 
     /**

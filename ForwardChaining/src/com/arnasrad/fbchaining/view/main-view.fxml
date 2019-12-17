@@ -170,9 +170,9 @@
                     <fx:define>
                         <ToggleGroup fx:id="traverseGroup"/>
                     </fx:define>
-                    <RadioMenuItem fx:id="menuForward" mnemonicParsing="false" selected="true"
+                    <RadioMenuItem fx:id="menuForward" mnemonicParsing="false"
                                    text="FORWARD_CHAINING" toggleGroup="$traverseGroup"/>
-                    <RadioMenuItem fx:id="menuBackward" mnemonicParsing="false"
+                    <RadioMenuItem fx:id="menuBackward" mnemonicParsing="false" selected="true"
                                    text="BACKWARD_CHAINING" toggleGroup="$traverseGroup"/>
                 </Menu>
             </Menu>

@@ -9,6 +9,7 @@ import com.arnasrad.fbchaining.model.Model;
 import com.arnasrad.fbchaining.model.ProductionSystem;
 import com.arnasrad.fbchaining.model.Rule;
 import com.arnasrad.fbchaining.model.vertex.Vertex;
+import com.arnasrad.fbchaining.utility.Utils;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -18,6 +19,7 @@ import javafx.util.Duration;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -43,6 +45,9 @@ public class Chaining implements Runnable {
     private ChainingType chainingType;
 
     private int currentIteration;
+    private ArrayList<String> addedFacts; // used in backward chaining algorithm
+    private ArrayList<String> newFacts; // used in backward chaining algorithm
+    private int currentDepth; // used in backward chaining algorithm
 
     private ArrayList<Vertex> searchPath; // a list of vertices specifying a path form start vertex to end vertex
     private ArrayList<KeyFrame> traversalFrames;
@@ -102,6 +107,7 @@ public class Chaining implements Runnable {
         resetAnimationFields();
         this.exists = false;
         currentIteration = 0;
+        currentDepth = 0;
     }
 
     private void stopTraversalAnimation() {
@@ -413,6 +419,12 @@ public class Chaining implements Runnable {
         }
     }
 
+    private void writeToDefaultFileFrame(int currentIteration, String initialText, String endText) {
+
+        addTraversalFrameDelay(e -> writeToDefaultFile(
+                String.format("%3d", currentIteration) + initialText + endText));
+    }
+
     /**** UPDATE UI LABELS ****/
 
     private void updateCurrentIterationLbl(int iteration) {
@@ -530,8 +542,122 @@ public class Chaining implements Runnable {
 
     }
 
-    private void runBackwardChaining() {
+    private boolean runBackwardChaining() {
 
+        this.addedFacts = new ArrayList<>();
+        this.newFacts = new ArrayList<>();
+        String target = productionSystem.getTarget();
+
+        boolean result = runBackwardChaining(target,
+                new ArrayList<String>(Collections.singleton(target)));
+        if (result) {
+            this.exists = true;
+        }
+        addTraversalFrameDelay(e -> controller.processEndOfTraversal());
+        return result;
+    }
+
+    private boolean runBackwardChaining(String target, ArrayList<String> usedFactsInChain) {
+
+        String initialText = ") " +
+                "-".repeat(Math.max(0, currentDepth)) +
+                "Tikslas " + target + ". ";
+
+        ArrayList<Rule> rules = productionSystem.getRules();
+
+        if (usedFactsInChain.subList(0, usedFactsInChain.size()-1).contains(target)) { // exclude the last element from list while searching for cycle
+            usedFactsInChain.remove(usedFactsInChain.size()-1);
+            --currentDepth;
+            ++currentIteration;
+            writeToDefaultFileFrame(currentIteration, initialText, "Ciklas. Grįžtame, FAIL.");
+            return false;
+        }
+        if (productionSystem.getFacts().contains(target)) {
+            usedFactsInChain.remove(usedFactsInChain.size()-1);
+            --currentDepth;
+            ++currentIteration;
+            writeToDefaultFileFrame(currentIteration, initialText,
+                    "Faktas (duotas), nes faktai " + getFactsString() + ". Grįžtame, sėkmė.");
+            return true;
+        }
+
+        int rulesForTargetCount = 0;
+        for(Rule rule : rules) {
+
+            if (rule.getResult().equals(target)) {
+                ++rulesForTargetCount;
+                ++currentIteration;
+                writeToDefaultFileFrame(currentIteration, initialText, "Randame " + rule
+                                + ". Nauji tikslai " + rule.getFactString());
+
+                int factBranchesSucceeded = 0;
+                ArrayList<String> ruleFacts = new ArrayList<>(rule.getFacts());
+                for(String fact : ruleFacts) {
+                    usedFactsInChain.add(fact);
+                    ++currentDepth;
+                    if (runBackwardChaining(fact, usedFactsInChain)) {
+                        ++factBranchesSucceeded;
+                        if (factBranchesSucceeded == ruleFacts.size()) {
+                            addedFacts.add(target);
+                        }
+                    }
+                }
+                if (factBranchesSucceeded == ruleFacts.size()) {
+
+                    for(String fact : addedFacts) {
+                        if (!productionSystem.getFacts().contains(target)) {
+
+                            productionSystem.addFact(fact);
+                            newFacts.add(fact);
+                        }
+                    }
+
+                    addedFacts.clear();
+
+                    usedFactsInChain.remove(usedFactsInChain.size()-1);
+                    --currentDepth;
+                    ++currentIteration;
+                    if (productionSystem.getInitialFacts().contains(target)) {
+                        writeToDefaultFileFrame(currentIteration, initialText, "Faktas (dabar gautas). Faktai "
+                                + getFactsString());
+                    } else {
+                        writeToDefaultFileFrame(currentIteration, initialText, "Faktas (buvo gautas). Faktai "
+                                + getFactsString());
+                    }
+
+                    return true;
+                } else { // error occurred while deriving a rule
+
+                    newFacts.removeAll(addedFacts);
+                    productionSystem.removeFacts(addedFacts);
+                    addedFacts.clear();
+                }
+            }
+        }
+
+        if (!productionSystem.getFacts().contains(target)) {
+            String endText;
+            if (rulesForTargetCount > 0) {
+                endText = "Nėra daugiau taisyklių jo išvedimui. Grįžtame, FAIL.";
+            } else {
+                endText = "Nėra taisyklių jo išvedimui. Grįžtame, FAIL.";
+            }
+            ++currentIteration;
+            writeToDefaultFileFrame(currentIteration, initialText, endText);
+        }
+
+        usedFactsInChain.remove(usedFactsInChain.size()-1);
+        --currentDepth;
+        return false;
+    }
+
+    private String getFactsString() {
+        if (newFacts.size() > 0) {
+            return productionSystem.getInitialFactsString() + " ir "
+                    + Utils.getListString(newFacts, ", ");
+        } else {
+            return productionSystem.getInitialFactsString();
+        }
     }
 
     private void orderListByCost(ArrayList<Vertex> vertices) {

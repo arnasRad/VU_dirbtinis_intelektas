@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d327e3e-c8a1-491d-b036-dddb64d4c4f3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../9skyrius/BreadthFirstSearch/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../9skyrius/BreadthFirstSearch/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ForwardChaining/input/bc_input1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../9skyrius/BreadthFirstSearch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../9skyrius/BreadthFirstSearch/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining$ChainingType.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining$ChainingType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/ProductionSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/ProductionSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/Rule.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/Rule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/view/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/view/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ForwardChaining/src/com/arnasrad/fbchaining/Chaining.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ForwardChaining/src/com/arnasrad/fbchaining/Chaining.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ForwardChaining/src/com/arnasrad/fbchaining/model/ProductionSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ForwardChaining/src/com/arnasrad/fbchaining/model/ProductionSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ForwardChaining/src/com/arnasrad/fbchaining/model/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ForwardChaining/src/com/arnasrad/fbchaining/model/Rule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ForwardChaining/src/com/arnasrad/fbchaining/view/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../ForwardChaining/src/com/arnasrad/fbchaining/view/main-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd3/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../nd3/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../nd3/.idea/workspace.xml" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,10 +33,15 @@
   </component>
   <component name="ProjectId" id="1R9RMV2bVm8wkGnEcdjbReVuMTv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nd3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -49,18 +61,6 @@
       <recent name="C:\Users\arnas\Desktop\A\VU\7 semestras\Dirbtinis intelektas\projektai\nd2" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -74,6 +74,18 @@
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -97,6 +109,8 @@
       <workItem from="1570520354488" duration="4424000" />
       <workItem from="1572950106859" duration="32000" />
       <workItem from="1572987181744" duration="610000" />
+      <workItem from="1574975783644" duration="758000" />
+      <workItem from="1575006425414" duration="643000" />
     </task>
     <servers />
   </component>
@@ -115,6 +129,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1135" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1575006455815">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1135" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575006455815" />
+    <state x="1135" y="257" width="607" height="526" key="find.popup" timestamp="1574975940809">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1135" y="257" width="607" height="526" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1574975940809" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/nd2$Main.ic" NAME="Main Coverage Results" MODIFIED="1569164133567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
