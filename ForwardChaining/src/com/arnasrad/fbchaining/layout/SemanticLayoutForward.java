@@ -1,14 +1,16 @@
 package com.arnasrad.fbchaining.layout;
 
-import com.arnasrad.fbchaining.graph.SemanticGraph;
+import com.arnasrad.fbchaining.MainController;
+import com.arnasrad.fbchaining.graph.SemanticGraphForward;
 import com.arnasrad.fbchaining.model.Model;
 import com.arnasrad.fbchaining.model.Rule;
 import com.arnasrad.fbchaining.model.vertex.EllipseVertex;
 import com.arnasrad.fbchaining.model.vertex.Vertex;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class SemanticLayout extends Layout {
+public class SemanticLayoutForward extends Layout {
 
     private static class Spacing {
 
@@ -18,13 +20,19 @@ public class SemanticLayout extends Layout {
         private static final double BETWEEN_VER = 20; // vertical spacing between vertices
     }
 
-    private SemanticGraph graph;
+    private final double horizontalOffset;
+    private final double verticalOffset;
+
+    private SemanticGraphForward graph;
     private ArrayList<String> facts;
 
-    public SemanticLayout(SemanticGraph graph) {
+    public SemanticLayoutForward(SemanticGraphForward graph) {
 
         this.graph = graph;
         this.facts = new ArrayList<>();
+
+        this.horizontalOffset = EllipseVertex.DEFAULT_RADIUSX*2 + Spacing.BETWEEN_HOR;
+        this.verticalOffset = EllipseVertex.DEFAULT_RADIUSY*2 + Spacing.BETWEEN_VER;
     }
 
     public void execute() {
@@ -47,7 +55,7 @@ public class SemanticLayout extends Layout {
 
                 factVertex = model.getVertex(fact);
                 x = factVertex.getLayoutX();
-                y = factVertex.getLayoutY() + EllipseVertex.DEFAULT_RADIUSY*2 + Spacing.BETWEEN_VER;
+                y = factVertex.getLayoutY() + verticalOffset;
                 break;
             }
         }
@@ -59,11 +67,11 @@ public class SemanticLayout extends Layout {
                 this.facts.add(fact);
                 Vertex vertex = model.getVertex(fact);
                 vertex.relocate(x, y);
-                y += EllipseVertex.DEFAULT_RADIUSY*2 + Spacing.BETWEEN_VER;
+                y += verticalOffset;
             }
         }
 
-        x += EllipseVertex.DEFAULT_RADIUSX*2 + Spacing.BETWEEN_HOR;
+        x += horizontalOffset;
 
         int maxChildCount = getMaxChildCount(ruleFacts);
         if (factVertex != null) {
@@ -71,40 +79,12 @@ public class SemanticLayout extends Layout {
         } else {
             y = model.getVertex(ruleFacts.get(0)).getLayoutY();
         }
-        y += (maxChildCount-1) * (EllipseVertex.DEFAULT_RADIUSY*2 + Spacing.BETWEEN_VER);
+        y += (maxChildCount-1) * (verticalOffset);
 
         model.getVertex(production).relocate(x, y);
-        x += EllipseVertex.DEFAULT_RADIUSX*2 + Spacing.BETWEEN_HOR;
+        x += horizontalOffset;
         this.facts.add(result);
         model.getVertex(result).relocate(x, y);
-
-
-        // y spacing * child
-
-
-        /*
-        Vertex factVertex = model.getVertex(fact);
-        if (factVertex == null) { // there is no vertex with specified fact id
-
-            return;
-        }
-
-        if (facts.size() == 0) { // this is the first fact to be added to the graph
-
-            this.facts.add(fact);
-
-            double x = Spacing.LEFT;
-            double y = Spacing.TOP;
-
-            factVertex.relocate(x, y);
-        } else if (facts.contains(fact)) { // this fact was previously a result of another production
-
-
-        } else { // this fact is newly added to a non-empty graph
-
-
-        }
-        */
     }
 
     /**

@@ -184,7 +184,7 @@ public class ProductionSystem {
         int i = 1;
         for(Rule rule : rules) {
 
-            sb.append("\tR").append(i).append(": ").append(rule).append("\n");
+            sb.append("\t").append(rule).append("\n");
         }
 
         return sb.toString();

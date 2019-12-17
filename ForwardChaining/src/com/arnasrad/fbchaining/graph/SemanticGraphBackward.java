@@ -1,22 +1,20 @@
 package com.arnasrad.fbchaining.graph;
 
 import com.arnasrad.fbchaining.MainController;
-import com.arnasrad.fbchaining.layout.Layout;
-import com.arnasrad.fbchaining.layout.SemanticLayout;
-import com.arnasrad.fbchaining.model.Model;
+import com.arnasrad.fbchaining.layout.SemanticLayoutBackward;
+import com.arnasrad.fbchaining.layout.SemanticLayoutForward;
 import com.arnasrad.fbchaining.model.Rule;
-import com.arnasrad.fbchaining.utility.Utils;
 
 import java.util.ArrayList;
 
-public class SemanticGraph extends Graph {
+public class SemanticGraphBackward extends Graph {
 
-    private SemanticLayout layout;
+    private SemanticLayoutBackward layout;
 
     private ArrayList<String> usedFacts;
     private ArrayList<String> usedProductions;
 
-    public SemanticGraph(MainController controller) {
+    public SemanticGraphBackward(MainController controller) {
 
         super(controller);
 
@@ -77,7 +75,7 @@ public class SemanticGraph extends Graph {
 
     public void initializeLayout() {
 
-        layout = new SemanticLayout(this);
+        layout = new SemanticLayoutBackward(this);
         layout.execute();
     }
 }

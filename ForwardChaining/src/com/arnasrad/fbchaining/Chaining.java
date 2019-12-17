@@ -1,7 +1,7 @@
 package com.arnasrad.fbchaining;
 
 import com.arnasrad.fbchaining.graph.Graph;
-import com.arnasrad.fbchaining.graph.SemanticGraph;
+import com.arnasrad.fbchaining.graph.SemanticGraphForward;
 import com.arnasrad.fbchaining.graph.SynthesizedGraph;
 import com.arnasrad.fbchaining.graph.VerificationGraph;
 import com.arnasrad.fbchaining.model.Edge;
@@ -39,7 +39,7 @@ public class Chaining implements Runnable {
 
     private boolean exists; // specifies whether a path from start to end vertices exists
     private SynthesizedGraph synthesizedGraph;
-    private SemanticGraph semanticGraph;
+    private SemanticGraphForward semanticGraphForward;
     private VerificationGraph verificationGraph;
     private ProductionSystem productionSystem;
     private ChainingType chainingType;
@@ -131,7 +131,7 @@ public class Chaining implements Runnable {
 
     private void initializeOptionalGraphs() {
 
-        this.semanticGraph = new SemanticGraph(controller);
+        this.semanticGraphForward = new SemanticGraphForward(controller);
         this.verificationGraph = new VerificationGraph(controller, productionSystem.getFacts());
     }
 
@@ -191,10 +191,10 @@ public class Chaining implements Runnable {
 
     private void restartSemanticGraph() throws Exception {
 
-        Model model = semanticGraph.getModel();
-        semanticGraph.resetContainers();
-        this.semanticGraph = new SemanticGraph(controller);
-        this.semanticGraph.copyModel(model);
+        Model model = semanticGraphForward.getModel();
+        semanticGraphForward.resetContainers();
+        this.semanticGraphForward = new SemanticGraphForward(controller);
+        this.semanticGraphForward.copyModel(model);
 //        initializeSemanticLayout();
     }
 
@@ -323,8 +323,8 @@ public class Chaining implements Runnable {
         return this.verificationGraph;
     }
 
-    public Graph getSemanticGraph() {
-        return this.semanticGraph;
+    public Graph getSemanticGraphForward() {
+        return this.semanticGraphForward;
     }
 
     public void setStartVertex(Vertex vertex) {
@@ -494,7 +494,7 @@ public class Chaining implements Runnable {
 
                     if (absentFacts.size() == 0) {
                         addTraversalFrame(e -> synthesizedGraph.apply(rule));
-                        addTraversalFrame(e -> semanticGraph.apply(rule));
+                        addTraversalFrame(e -> semanticGraphForward.apply(rule));
                         addTraversalFrame(e -> verificationGraph.apply(rule));
                         final int tempFactsCount = productionSystem.getFactsCount();
                         addTraversalFrame(e -> controller.setFactsCountLbl(tempFactsCount));
@@ -617,12 +617,13 @@ public class Chaining implements Runnable {
                     usedFactsInChain.remove(usedFactsInChain.size()-1);
                     --currentDepth;
                     ++currentIteration;
+
                     if (productionSystem.getInitialFacts().contains(target)) {
                         writeToDefaultFileFrame(currentIteration, initialText, "Faktas (dabar gautas). Faktai "
-                                + getFactsString());
+                                + getFactsString() + ". Grįžtame, sėkmė.");
                     } else {
                         writeToDefaultFileFrame(currentIteration, initialText, "Faktas (buvo gautas). Faktai "
-                                + getFactsString());
+                                + getFactsString() + ". Grįžtame, sėkmė.");
                     }
 
                     return true;

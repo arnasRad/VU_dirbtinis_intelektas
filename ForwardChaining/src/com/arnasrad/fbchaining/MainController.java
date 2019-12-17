@@ -4,8 +4,6 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
@@ -39,6 +37,9 @@ public class MainController {
         public static final String TRAVERSE = "Step or run through the graph. See help for more information";
         public static final String FINISH = "Path found! Enter a new input file or reset the current graph with new path search";
     }
+
+    public static final int OPTIONAL_GRAPH_WIDTH = 1200;
+    public static final int OPTIONAL_GRAPH_HEIGHT = 450;
 
     private State currentRunState = State.INPUT; // program state used to determine console input processing
 
@@ -524,19 +525,21 @@ public class MainController {
         }
     }
 
-    private void showSemanticGraph() {
-
-        Stage stage = new Stage();
-        stage.setTitle("Semantic graph");
-        stage.setScene(new Scene(chaining.getSemanticGraph().getScrollPane(), 1200, 450));
-        stage.show();
-    }
-
     private void showVerificationGraph() {
 
         Stage stage = new Stage();
         stage.setTitle("Verification graph");
-        stage.setScene(new Scene(chaining.getVerificationGraph().getScrollPane(), 1200, 450));
+        stage.setScene(new Scene(chaining.getVerificationGraph().getScrollPane(),
+                OPTIONAL_GRAPH_WIDTH, OPTIONAL_GRAPH_HEIGHT));
+        stage.show();
+    }
+
+    private void showSemanticGraph() {
+
+        Stage stage = new Stage();
+        stage.setTitle("Semantic graph");
+        stage.setScene(new Scene(chaining.getSemanticGraphForward().getScrollPane(),
+                OPTIONAL_GRAPH_WIDTH, OPTIONAL_GRAPH_HEIGHT));
         stage.show();
     }
 

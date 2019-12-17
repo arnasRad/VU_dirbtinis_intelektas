@@ -1,15 +1,15 @@
 1 DALIS. Duomenys
 
 	1) Taisyklės
-	R1: R1:D, C -> Z
-	R1: R2:C -> D
-	R1: R3:B -> C
-	R1: R4:A -> B
-	R1: R5:D -> A
-	R1: R6:T -> D
-	R1: R7:G -> A
-	R1: R8:H -> B
-	R1: R9:J -> C
+	R1:D, C -> Z
+	R2:C -> D
+	R3:B -> C
+	R4:A -> B
+	R5:D -> A
+	R6:T -> D
+	R7:G -> A
+	R8:H -> B
+	R9:J -> C
 
 	2) Faktai: T, D, A, B, C, Z.
 
@@ -36,15 +36,15 @@
  15) --Tikslas C. Nėra daugiau taisyklių jo išvedimui. Grįžtame, FAIL.
  16) -Tikslas D. Randame R6:T -> D. Nauji tikslai T
  17) --Tikslas T. Faktas (duotas), nes faktai T. Grįžtame, sėkmė.
- 18) -Tikslas D. Faktas (buvo gautas). Faktai T ir D
+ 18) -Tikslas D. Faktas (buvo gautas). Faktai T ir D. Grįžtame, sėkmė.
  19) -Tikslas C. Randame R3:B -> C. Nauji tikslai B
  20) --Tikslas B. Randame R4:A -> B. Nauji tikslai A
  21) ---Tikslas A. Randame R5:D -> A. Nauji tikslai D
  22) ----Tikslas D. Faktas (duotas), nes faktai T ir D. Grįžtame, sėkmė.
- 23) ---Tikslas A. Faktas (buvo gautas). Faktai T ir D, A
- 24) --Tikslas B. Faktas (buvo gautas). Faktai T ir D, A, B
- 25) -Tikslas C. Faktas (buvo gautas). Faktai T ir D, A, B, C
- 26) Tikslas Z. Faktas (buvo gautas). Faktai T ir D, A, B, C, Z
+ 23) ---Tikslas A. Faktas (buvo gautas). Faktai T ir D, A. Grįžtame, sėkmė.
+ 24) --Tikslas B. Faktas (buvo gautas). Faktai T ir D, A, B. Grįžtame, sėkmė.
+ 25) -Tikslas C. Faktas (buvo gautas). Faktai T ir D, A, B, C. Grįžtame, sėkmė.
+ 26) Tikslas Z. Faktas (buvo gautas). Faktai T ir D, A, B, C, Z. Grįžtame, sėkmė.
 
 3 DALIS. Rezultatai
 	1) Tikslas Z išvestas. Bandymų 26
