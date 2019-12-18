@@ -1,66 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="pre layout fix">
-      <change afterPath="$PROJECT_DIR$/../nd4/Backward Chaining/tem/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../nd4/Backward Chaining/tem/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../nd4/Backward Chaining/tem/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../nd4/Backward Chaining/tem/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../nd4/Backward Chaining/tem/out/production/tem/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../nd4/Backward Chaining/tem/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../nd4/Backward Chaining/tem/tem.iml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="post vertex label fix commit">
+      <change afterPath="$PROJECT_DIR$/output/bc_outputč.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining$ChainingType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining$ChainingType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$OutputType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$OutputType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$StatesPromptTexts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$StatesPromptTexts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/graph/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/graph/Graph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/graph/SemanticGraph.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/graph/SynthesizedGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/graph/SynthesizedGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/graph/VerificationGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/graph/VerificationGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/layout/SemanticLayout$Spacing.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/layout/SemanticLayout.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/layout/SynthesizedLayout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/layout/SynthesizedLayout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/model/Model$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/model/Model$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/model/Model.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/EllipseVertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/EllipseVertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/RectangleVertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/RectangleVertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/TriangleVertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/TriangleVertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/Vertex$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/Vertex$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/Vertex$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/Vertex$State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/Vertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/utility/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ForwardChaining/com/arnasrad/fbchaining/utility/Utils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/arnasrad/fbchaining/graph/SemanticGraphBackward.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arnasrad/fbchaining/graph/SemanticGraphBackward.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/arnasrad/fbchaining/layout/SemanticLayoutForward.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arnasrad/fbchaining/layout/SemanticLayoutForward.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/arnasrad/fbchaining/layout/SynthesizedLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arnasrad/fbchaining/layout/SynthesizedLayout.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/arnasrad/fbchaining/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arnasrad/fbchaining/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/arnasrad/fbchaining/model/vertex/EllipseVertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arnasrad/fbchaining/model/vertex/EllipseVertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/arnasrad/fbchaining/model/vertex/RectangleVertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arnasrad/fbchaining/model/vertex/RectangleVertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/arnasrad/fbchaining/model/vertex/TriangleVertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arnasrad/fbchaining/model/vertex/TriangleVertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/arnasrad/fbchaining/model/vertex/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arnasrad/fbchaining/model/vertex/Vertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/1_semantic.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/1_synthesized.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/1_verification.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/2_semantic.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/2_synthesized.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/2_verification.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/3_semantic.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/3_synthesized.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/3_verification.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/4_synthesized.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/4_verification.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/5_semantic.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/5_synthesized.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/5_verification.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/6_semantic.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/6_synthesized.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/6_verification.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nd4_forward_chaining/Arnas_Radzevicius_forward_chaining.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nd4/Backward Chaining/tem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../nd4/Backward Chaining/tem/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,7 +248,7 @@
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1576557831072" duration="9700000" />
-      <workItem from="1576644439053" duration="8402000" />
+      <workItem from="1576644439053" duration="9982000" />
     </task>
     <task id="LOCAL-00001" summary="pre-layout implementation commit">
       <created>1576558079433</created>
@@ -324,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576657250970</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="post vertex label fix commit">
+      <created>1576662066587</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1576662066587</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +291,8 @@
     <MESSAGE value="pre-layout implementation commit" />
     <MESSAGE value="forward-backward layout distinction" />
     <MESSAGE value="pre layout fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="pre layout fix" />
+    <MESSAGE value="post vertex label fix commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="post vertex label fix commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="284" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576557932006">
@@ -352,34 +307,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="559" y="298" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576557870758" />
-    <state x="785" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1576596842373">
+    <state x="785" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1576664762690">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="785" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576596842373" />
-    <state x="52" y="120" key="CommitChangelistDialog2" timestamp="1576657249718">
+    <state x="785" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576664762690" />
+    <state x="52" y="120" key="CommitChangelistDialog2" timestamp="1576662065601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="52" y="120" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1576657249718" />
+    <state x="52" y="120" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1576662065601" />
     <state x="536" y="256" key="FileChooserDialogImpl" timestamp="1576660005428">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="536" y="256" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1576660005428" />
-    <state width="1921" height="104" key="GridCell.Tab.0.bottom" timestamp="1576662023775">
+    <state width="1921" height="104" key="GridCell.Tab.0.bottom" timestamp="1576664610303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="104" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576662023775" />
-    <state width="1921" height="104" key="GridCell.Tab.0.center" timestamp="1576662023774">
+    <state width="1921" height="104" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576664610303" />
+    <state width="1921" height="104" key="GridCell.Tab.0.center" timestamp="1576664610303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="104" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576662023774" />
-    <state width="1921" height="104" key="GridCell.Tab.0.left" timestamp="1576662023774">
+    <state width="1921" height="104" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576664610303" />
+    <state width="1921" height="104" key="GridCell.Tab.0.left" timestamp="1576664610303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="104" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576662023774" />
-    <state width="1921" height="104" key="GridCell.Tab.0.right" timestamp="1576662023774">
+    <state width="1921" height="104" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576664610303" />
+    <state width="1921" height="104" key="GridCell.Tab.0.right" timestamp="1576664610303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="104" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576662023774" />
+    <state width="1921" height="104" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576664610303" />
     <state width="1921" height="356" key="GridCell.Tab.1.bottom" timestamp="1576661528173">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -400,10 +355,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="310" y="89" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1576557966324" />
-    <state x="1032" y="256" key="Vcs.Push.Dialog.v2" timestamp="1576597178115">
+    <state x="1032" y="256" key="Vcs.Push.Dialog.v2" timestamp="1576662074472">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1032" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1576597178115" />
+    <state x="1032" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1576662074472" />
     <state x="1136" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1576644496786">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -416,6 +371,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1136" y="260" width="607" height="526" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1576660888780" />
+    <state x="601" y="311" key="git4idea.merge.GitPullDialog" timestamp="1576662070727">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="601" y="311" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576662070727" />
     <state x="342" y="221" key="new project wizard" timestamp="1576660006344">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

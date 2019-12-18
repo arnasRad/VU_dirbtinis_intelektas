@@ -51,7 +51,7 @@ public class SemanticLayoutForward extends Layout {
 
             if (this.facts.contains(fact)) { // a rule fact is already present in the graph; use it as a relative point for consequent fact vertices
 
-                factVertex = model.getVertexByLabel(fact);
+                factVertex = model.getFirstVertexByLabel(fact);
                 x = factVertex.getLayoutX();
                 y = factVertex.getLayoutY() + verticalOffset;
                 break;
@@ -63,7 +63,7 @@ public class SemanticLayoutForward extends Layout {
             if (!this.facts.contains(fact)) {
 
                 this.facts.add(fact);
-                Vertex vertex = model.getVertexByLabel(fact);
+                Vertex vertex = model.getFirstVertexByLabel(fact);
                 vertex.relocate(x, y);
                 y += verticalOffset;
             }
@@ -75,14 +75,14 @@ public class SemanticLayoutForward extends Layout {
         if (factVertex != null) {
             y = factVertex.getLayoutY();
         } else {
-            y = model.getVertexByLabel(ruleFacts.get(0)).getLayoutY();
+            y = model.getFirstVertexByLabel(ruleFacts.get(0)).getLayoutY();
         }
         y += (maxChildCount-1) * (verticalOffset);
 
-        model.getVertexByLabel(production).relocate(x, y);
+        model.getFirstVertexByLabel(production).relocate(x, y);
         x += horizontalOffset;
         this.facts.add(result);
-        model.getVertexByLabel(result).relocate(x, y);
+        model.getFirstVertexByLabel(result).relocate(x, y);
     }
 
     /**
@@ -101,12 +101,12 @@ public class SemanticLayoutForward extends Layout {
         double[] bounds = new double[2];
         Model model = this.graph.getModel();
 
-        double y = model.getVertexByLabel(facts.get(0)).getLayoutY();
+        double y = model.getFirstVertexByLabel(facts.get(0)).getLayoutY();
         bounds[0] = y;
         bounds[1] = y;
         for(int i = 1; i < facts.size(); ++i) {
 
-            y = model.getVertexByLabel(facts.get(i)).getLayoutY();
+            y = model.getFirstVertexByLabel(facts.get(i)).getLayoutY();
 
             if (y < bounds[0]) {
                 bounds[0] = y; // new min
@@ -129,7 +129,7 @@ public class SemanticLayoutForward extends Layout {
         int maxChildCount = 0;
         for(String fact : facts) {
 
-            Vertex vertex = model.getVertexByLabel(fact);
+            Vertex vertex = model.getFirstVertexByLabel(fact);
             int childrenCount = vertex.getVertexChildren().size();
             if (childrenCount > maxChildCount) {
                 maxChildCount = childrenCount;

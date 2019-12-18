@@ -2,65 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1f0d493-1a41-428d-b277-b2390251c794" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/tem/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tem.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/output/bc_outputč.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining$ChainingType.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining$ChainingType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$OutputType.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$OutputType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$StatesPromptTexts.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController$StatesPromptTexts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/graph/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/graph/Graph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/graph/SemanticGraph.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/graph/SynthesizedGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/graph/SynthesizedGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/graph/VerificationGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/graph/VerificationGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/layout/SemanticLayout$Spacing.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/layout/SemanticLayout.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/layout/SynthesizedLayout.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/layout/SynthesizedLayout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/Model$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/Model$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/Model.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/EllipseVertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/EllipseVertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/RectangleVertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/RectangleVertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/TriangleVertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/TriangleVertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/Vertex$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/Vertex$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/Vertex$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/Vertex$State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/model/vertex/Vertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/utility/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/utility/Utils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/graph/SemanticGraphBackward.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/graph/SemanticGraphBackward.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/layout/SemanticLayoutForward.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/layout/SemanticLayoutForward.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/layout/SynthesizedLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/layout/SynthesizedLayout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/model/vertex/EllipseVertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/model/vertex/EllipseVertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/model/vertex/RectangleVertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/model/vertex/RectangleVertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/model/vertex/TriangleVertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/model/vertex/TriangleVertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/model/vertex/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/model/vertex/Vertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/1_semantic.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/1_synthesized.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/1_verification.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/2_semantic.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/2_synthesized.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/2_verification.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/3_semantic.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/3_synthesized.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/3_verification.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/4_synthesized.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/4_verification.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/5_semantic.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/5_synthesized.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/5_verification.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/6_semantic.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/6_synthesized.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/6_verification.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../nd4_forward_chaining/Arnas_Radzevicius_forward_chaining.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

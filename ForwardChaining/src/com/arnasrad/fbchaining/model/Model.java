@@ -67,7 +67,7 @@ public class Model {
         return getVertexById(id.concat(String.valueOf(index)));
     }
 
-    public Vertex getVertexByLabel(String label) {
+    public Vertex getFirstVertexByLabel(String label) {
         List<Vertex> verticesList = vertexLabelMap.get(label);
         if (verticesList == null) {
             return null;
@@ -75,6 +75,7 @@ public class Model {
 
         return verticesList.get(0);
     }
+
     public Vertex getVertexByLabel(String label, int index) {
         List<Vertex> verticesList = vertexLabelMap.get(label);
         if (verticesList == null) {
@@ -82,6 +83,15 @@ public class Model {
         }
 
         return verticesList.get(index);
+    }
+
+    public Vertex getLastVertexByLabel(String label) {
+        List<Vertex> verticesList = vertexLabelMap.get(label);
+        if (verticesList == null) {
+            return null;
+        }
+
+        return verticesList.get(verticesList.size()-1);
     }
 
     public List<Vertex> getAddedVertices() {
@@ -196,8 +206,8 @@ public class Model {
 
 //        Vertex sourceVertex = vertexMap.get( sourceId);
 //        Vertex targetVertex = vertexMap.get( targetId);
-        Vertex sourceVertex = getVertexByLabel(sourceId);
-        Vertex targetVertex = getVertexByLabel(targetId);
+        Vertex sourceVertex = getFirstVertexByLabel(sourceId);
+        Vertex targetVertex = getFirstVertexByLabel(targetId);
 
         if (sourceVertex == null) {
             throw new Exception("Vertex " + sourceId + " not specified in " +
