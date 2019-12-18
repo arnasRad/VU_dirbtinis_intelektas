@@ -12,11 +12,11 @@ public class EllipseVertex extends Vertex {
     public static int DEFAULT_RADIUSX = 30;
     public static int DEFAULT_RADIUSY = 30;
 
-    public EllipseVertex(String id, State state) {
-        super(id, state);
+    public EllipseVertex(String id, String label, State state) {
+        super(id, label, state);
 
-        double textWidth = this.getIdTxt().getLayoutBounds().getWidth();
-        double textHeight = this.getIdTxt().getLayoutBounds().getHeight();
+        double textWidth = this.getLabelTxt().getLayoutBounds().getWidth();
+        double textHeight = this.getLabelTxt().getLayoutBounds().getHeight();
 
         if (textWidth < DEFAULT_RADIUSX) {
             textWidth = DEFAULT_RADIUSX;
@@ -35,39 +35,39 @@ public class EllipseVertex extends Vertex {
 
     }
 
-    public EllipseVertex(String id) {
-        this(id, State.IDLE);
+    public EllipseVertex(String id, String label) {
+        this(id, label, State.IDLE);
 
     }
 
-    public void appendIdTxt(ArrayList<String> text) {
+    public void appendLabelTxt(ArrayList<String> text) {
 
         if (text == null || text.size() == 0) {
             return;
         }
 
-        Text idTxt = getIdTxt();
-        idTxt.setText(idTxt.getText() + "\n"
+        Text labelTxt = getLabelTxt();
+        labelTxt.setText(labelTxt.getText() + "\n"
                 + Utils.getListString(text, "\n"));
 
         resizeView();
     }
 
-    public void appendIdTxt(String text) {
+    public void appendLabelTxt(String text) {
 
         if (text == null) {
             return;
         }
 
-        Text idTxt = getIdTxt();
-        idTxt.setText(idTxt.getText() + "\n" + text);
+        Text labelTxt = getLabelTxt();
+        labelTxt.setText(labelTxt.getText() + "\n" + text);
 
         resizeView();
     }
 
     private void resizeView() {
 
-        Text idTxt = getIdTxt();
+        Text idTxt = getLabelTxt();
         double textWidth = idTxt.getLayoutBounds().getWidth();
         double textHeight = idTxt.getLayoutBounds().getHeight();
 

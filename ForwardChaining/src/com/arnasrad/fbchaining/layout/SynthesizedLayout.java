@@ -30,7 +30,7 @@ public class SynthesizedLayout extends Layout {
 
     public void execute() {
 
-        Vertex productionsVertex = graph.getModel().getVertex(SynthesizedGraph.PRODUCTIONS_ID);
+        Vertex productionsVertex = graph.getModel().getVertexByLabel(SynthesizedGraph.PRODUCTIONS_ID);
 
         // x = left_margin + default_vertex_width + between_hor
         double x = Spacing.LEFT + EllipseVertex.DEFAULT_RADIUSX + Spacing.BETWEEN_HOR;
@@ -41,7 +41,7 @@ public class SynthesizedLayout extends Layout {
 
     public void relocateFact(int index, String fact) {
 
-        Vertex factVertex = graph.getModel().getVertex(fact);
+        Vertex factVertex = graph.getModel().getVertexByLabel(fact);
 
         double x = Spacing.LEFT;
         double y = Spacing.TOP + (EllipseVertex.DEFAULT_RADIUSY *2 + Spacing.BETWEEN_VER) * index;
@@ -52,7 +52,7 @@ public class SynthesizedLayout extends Layout {
 
 
         for(String fact : facts) {
-            Vertex factVertex = graph.getModel().getVertex(fact);
+            Vertex factVertex = graph.getModel().getVertexByLabel(fact);
 
             double x = Spacing.LEFT;
             double y = Spacing.TOP + (EllipseVertex.DEFAULT_RADIUSY * 2 + Spacing.BETWEEN_VER) * startIndex;
@@ -64,8 +64,8 @@ public class SynthesizedLayout extends Layout {
     public void relocateResult(int index, String result) {
 
         Model model = graph.getModel();
-        Vertex resultVertex = model.getVertex(result);
-        Vertex productionsVertex = model.getVertex(SynthesizedGraph.PRODUCTIONS_ID);
+        Vertex resultVertex = model.getVertexByLabel(result);
+        Vertex productionsVertex = model.getVertexByLabel(SynthesizedGraph.PRODUCTIONS_ID);
 
         double x = Spacing.LEFT + EllipseVertex.DEFAULT_RADIUSX +
                 Spacing.BETWEEN_HOR + productionsVertex.getWidth() +
@@ -78,11 +78,11 @@ public class SynthesizedLayout extends Layout {
     public void appendProdVertexTxt(String production, ArrayList<String> resultPart) {
 
         Model model = graph.getModel();
-        EllipseVertex productionsVertex = (EllipseVertex) model.getVertex(SynthesizedGraph.PRODUCTIONS_ID);
+        EllipseVertex productionsVertex = (EllipseVertex) model.getVertexByLabel(SynthesizedGraph.PRODUCTIONS_ID);
 
         double widthBefore = productionsVertex.getWidth();
 
-        productionsVertex.appendIdTxt(production);
+        productionsVertex.appendLabelTxt(production);
 
         double widthAfter = productionsVertex.getWidth();
 
@@ -93,7 +93,7 @@ public class SynthesizedLayout extends Layout {
 
             for (String result : resultPart) {
 
-                Vertex resultVertex = model.getVertex(result);
+                Vertex resultVertex = model.getVertexByLabel(result);
                 double y = resultVertex.getLayoutY();
 
                 resultVertex.relocate(x, y);
@@ -103,7 +103,7 @@ public class SynthesizedLayout extends Layout {
 
     public void triggerOnChanged(String vertexId) {
 
-        Vertex vertex = graph.getModel().getVertex(vertexId);
+        Vertex vertex = graph.getModel().getVertexByLabel(vertexId);
         vertex.relocate(vertex.getLayoutX(), vertex.getLayoutY()+1);
     }
 }

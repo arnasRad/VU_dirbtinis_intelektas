@@ -1,13 +1,13 @@
 1 DALIS. Duomenys
 
 	1) Taisyklės
-	R1: R1:A -> L
-	R1: R2:L -> K
-	R1: R3:D -> A
-	R1: R4:D -> M
-	R1: R5:F, B -> Z
-	R1: R6:C, D -> F
-	R1: R7:A -> D
+	R1:A -> L
+	R2:L -> K
+	R3:D -> A
+	R4:D -> M
+	R5:F, B -> Z
+	R6:C, D -> F
+	R7:A -> D
 
 	2) Faktai: A, B, C, L, K, D, M, F, Z.
 

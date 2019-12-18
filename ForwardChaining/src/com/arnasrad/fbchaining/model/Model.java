@@ -21,10 +21,12 @@ public class Model {
     private List<Edge> removedEdges;
 
     private Map<String, Vertex> vertexMap; // <id,vertex>
+    private Map<String, List<Vertex>> vertexLabelMap; // <label, list of vertices>
+    private Map<String, Integer> vertexIdIndexMap;
 
     public Model() {
 
-        graphParent = new Vertex( "_ROOT_");
+        graphParent = new Vertex( "_ROOT_", "root");
 
         // clear model, create lists
         clear();
@@ -41,6 +43,8 @@ public class Model {
         removedEdges = new ArrayList<>();
 
         vertexMap = new HashMap<>(); // <id,vertex>
+        vertexLabelMap = new HashMap<>();
+        vertexIdIndexMap = new HashMap<>(); // <idKey, index>
         root = null;
     }
 
@@ -54,8 +58,30 @@ public class Model {
         return this.root;
     }
 
-    public Vertex getVertex(String id) {
+    public Vertex getVertexById(String id) {
         return vertexMap.get(id);
+    }
+
+    public Vertex getVertexById(String id, int index) {
+
+        return getVertexById(id.concat(String.valueOf(index)));
+    }
+
+    public Vertex getVertexByLabel(String label) {
+        List<Vertex> verticesList = vertexLabelMap.get(label);
+        if (verticesList == null) {
+            return null;
+        }
+
+        return verticesList.get(0);
+    }
+    public Vertex getVertexByLabel(String label, int index) {
+        List<Vertex> verticesList = vertexLabelMap.get(label);
+        if (verticesList == null) {
+            return null;
+        }
+
+        return verticesList.get(index);
     }
 
     public List<Vertex> getAddedVertices() {
@@ -107,20 +133,21 @@ public class Model {
 
     public Vertex addVertex(String id, VertexType type, Vertex.State state, boolean isRoot) {
 
+        String vertexId = generateVertexId(id);
         switch (type) {
 
             case RECTANGLE:
-                RectangleVertex rectangleVertex = new RectangleVertex(id, state);
+                RectangleVertex rectangleVertex = new RectangleVertex(vertexId, id, state);
                 addVertexModel(rectangleVertex, isRoot);
                 return rectangleVertex;
 
             case TRIANGLE:
-                TriangleVertex triangleVertex = new TriangleVertex(id, state);
+                TriangleVertex triangleVertex = new TriangleVertex(vertexId, id, state);
                 addVertexModel(triangleVertex, isRoot);
                 return triangleVertex;
 
             case ELLIPSE:
-                EllipseVertex ellipseVertex = new EllipseVertex(id, state);
+                EllipseVertex ellipseVertex = new EllipseVertex(vertexId, id, state);
                 addVertexModel(ellipseVertex, isRoot);
                 return ellipseVertex;
 
@@ -132,7 +159,8 @@ public class Model {
     private void addVertexModel(Vertex vertex, boolean isRoot) {
 
         addedVertices.add(vertex);
-        vertexMap.put( vertex.getVertexId(), vertex);
+        vertexMap.put(vertex.getVertexId(), vertex);
+        putToLabelMap(vertex);
         
         if (isRoot) {
             this.root = vertex;
@@ -166,8 +194,10 @@ public class Model {
 
     public void addEdge(String sourceId, String targetId, boolean isOriented, String label) throws Exception {
 
-        Vertex sourceVertex = vertexMap.get( sourceId);
-        Vertex targetVertex = vertexMap.get( targetId);
+//        Vertex sourceVertex = vertexMap.get( sourceId);
+//        Vertex targetVertex = vertexMap.get( targetId);
+        Vertex sourceVertex = getVertexByLabel(sourceId);
+        Vertex targetVertex = getVertexByLabel(targetId);
 
         if (sourceVertex == null) {
             throw new Exception("Vertex " + sourceId + " not specified in " +
@@ -244,6 +274,25 @@ public class Model {
         addedEdges.clear();
         removedEdges.clear();
 
+    }
+
+    private String generateVertexId(String id) {
+
+        if (!vertexIdIndexMap.containsKey(id)) {
+            vertexIdIndexMap.put(id, 0);
+        }
+
+        int vertexIdIndex = vertexIdIndexMap.get(id);
+        String vertexId = id.concat(String.valueOf(vertexIdIndex));
+        vertexIdIndexMap.put(id, vertexIdIndex+1);
+        return vertexId;
+    }
+
+    private void putToLabelMap(Vertex vertex) {
+
+        String label = vertex.getLabel();
+        vertexLabelMap.computeIfAbsent(label, k -> new ArrayList<>());
+        vertexLabelMap.get(label).add(vertex);
     }
 
     public int getVerticesCount() {

@@ -60,6 +60,7 @@ public class SemanticGraphBackward extends Graph {
 ////
 ////            addDepthFact(depth+1, result);
 ////            model.addVertex(ruleName);
+            // TODO: generate ids for vertices; check model and add +1 to id if there are equal labels??
             for(String fact : facts) {
                 model.addVertex(fact);
             }

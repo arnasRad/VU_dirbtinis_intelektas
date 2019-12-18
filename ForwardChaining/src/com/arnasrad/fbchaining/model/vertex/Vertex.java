@@ -1,6 +1,5 @@
 package com.arnasrad.fbchaining.model.vertex;
 
-import com.arnasrad.fbchaining.utility.Utils;
 import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -25,7 +24,8 @@ public class Vertex extends StackPane {
     }
 
     private String vertexId;
-    private Text idTxt;
+    private String label;
+    private Text labelTxt;
     private State state;
 
     private List<Vertex> children = new ArrayList<>();
@@ -35,26 +35,27 @@ public class Vertex extends StackPane {
 
     private Node view;
 
-    public Vertex(String vertexId, State state) {
+    public Vertex(String vertexId, String label, State state) {
 
         this.vertexId = vertexId;
-        this.idTxt = new Text(vertexId);
+        this.label = label;
+        this.labelTxt = new Text(label);
         this.state = state;
     }
 
-    public Vertex(String vertexId) {
+    public Vertex(String vertexId, String label) {
 
-        this(vertexId, State.UNSPECIFIED);
+        this(vertexId, label, State.UNSPECIFIED);
     }
 
-    public Vertex(Vertex vertex, State state) {
+    public Vertex(Vertex vertex, String label, State state) {
 
-        this(vertex.getVertexId(), state);
+        this(vertex.getVertexId(), label, state);
     }
 
-    public Vertex(Vertex vertex) {
+    public Vertex(Vertex vertex, String label) {
 
-        this(vertex.getVertexId(), State.IDLE);
+        this(vertex.getVertexId(), label, State.IDLE);
     }
 
     public void addVertexChild(Vertex vertex) {
@@ -86,8 +87,8 @@ public class Vertex extends StackPane {
         return adjacentVertices;
     }
 
-    public Text getIdTxt() {
-        return this.idTxt;
+    public Text getLabelTxt() {
+        return this.labelTxt;
     }
 
     public void setView(Node view) {
@@ -95,7 +96,7 @@ public class Vertex extends StackPane {
         this.view = view;
         setViewStyle();
 
-        getChildren().addAll(view, idTxt);
+        getChildren().addAll(view, labelTxt);
 
     }
 
@@ -156,6 +157,10 @@ public class Vertex extends StackPane {
 
     public String getVertexId() {
         return vertexId;
+    }
+
+    public String getLabel() {
+        return label;
     }
 
     public double getPathCost() {

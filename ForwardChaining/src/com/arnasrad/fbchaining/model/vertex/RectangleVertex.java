@@ -13,11 +13,11 @@ public class RectangleVertex extends Vertex {
     public static int DEFAULT_WIDTH = 60;
     public static int DEFAULT_HEIGHT = 60;
 
-    public RectangleVertex(String id, State state) {
-        super(id, state);
+    public RectangleVertex(String id, String label, State state) {
+        super(id, label, state);
 
-        double textWidth = this.getIdTxt().getLayoutBounds().getWidth();
-        double textHeight = this.getIdTxt().getLayoutBounds().getHeight();
+        double textWidth = this.getLabelTxt().getLayoutBounds().getWidth();
+        double textHeight = this.getLabelTxt().getLayoutBounds().getHeight();
 
         if (textWidth < DEFAULT_WIDTH) {
             textWidth = DEFAULT_WIDTH;
@@ -36,8 +36,8 @@ public class RectangleVertex extends Vertex {
 
     }
 
-    public RectangleVertex(String id) {
-        this(id, State.IDLE);
+    public RectangleVertex(String id, String label) {
+        this(id, label, State.IDLE);
 
     }
 
@@ -47,28 +47,28 @@ public class RectangleVertex extends Vertex {
             return;
         }
 
-        Text idTxt = getIdTxt();
+        Text idTxt = getLabelTxt();
         idTxt.setText(idTxt.getText() + "\n"
                 + Utils.getListString(text, "\n"));
 
         resizeView();
     }
 
-    public void appendIdTxt(String text) {
+    public void appendLabelTxt(String text) {
 
         if (text == null) {
             return;
         }
 
-        Text idTxt = getIdTxt();
-        idTxt.setText(idTxt.getText() + "\n" + text);
+        Text labelTxt = getLabelTxt();
+        labelTxt.setText(labelTxt.getText() + "\n" + text);
 
         resizeView();
     }
 
     private void resizeView() {
 
-        Text idTxt = getIdTxt();
+        Text idTxt = getLabelTxt();
         double textWidth = idTxt.getLayoutBounds().getWidth();
         double textHeight = idTxt.getLayoutBounds().getHeight();
 
