@@ -5,20 +5,21 @@ import com.arnasrad.fbchaining.layout.SemanticLayoutForward;
 import com.arnasrad.fbchaining.model.Rule;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SemanticGraphForward extends Graph {
 
     private SemanticLayoutForward layout;
 
     private ArrayList<String> usedFacts;
-    private ArrayList<String> usedProductions;
+    private ArrayList<String> pathProductions;
 
     public SemanticGraphForward(MainController controller) {
 
         super(controller);
 
         this.usedFacts = new ArrayList<>();
-        this.usedProductions = new ArrayList<>();
+        this.pathProductions = new ArrayList<>();
 
         initializeLayout();
     }
@@ -29,7 +30,7 @@ public class SemanticGraphForward extends Graph {
         resetContainers();
 
         this.usedFacts = new ArrayList<>();
-        this.usedProductions = new ArrayList<>();
+        this.pathProductions = new ArrayList<>();
 
         initializeLayout();
     }
@@ -40,6 +41,8 @@ public class SemanticGraphForward extends Graph {
             ArrayList<String> facts = rule.getFacts();
             String ruleName = rule.getName();
             String result = rule.getResult();
+
+            this.pathProductions.add(ruleName);
 
             beginUpdate();
             for (String fact : facts) {
@@ -76,5 +79,9 @@ public class SemanticGraphForward extends Graph {
 
         layout = new SemanticLayoutForward(this);
         layout.execute();
+    }
+
+    public List<String> getPathProductions() {
+        return this.pathProductions;
     }
 }

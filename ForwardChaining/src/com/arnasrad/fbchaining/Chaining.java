@@ -47,7 +47,7 @@ public class Chaining implements Runnable {
     private ArrayList<String> newFacts; // used in backward chaining algorithm
     private int currentDepth; // used in backward chaining algorithm
 
-    private ArrayList<Vertex> searchPath; // a list of vertices specifying a path form start vertex to end vertex
+    private ArrayList<String> searchPath; // a list of vertices specifying a path from start vertex to end vertex
     private ArrayList<KeyFrame> traversalFrames;
     private Timeline traversalTimeline;
     private int millisecondDelay;
@@ -134,28 +134,6 @@ public class Chaining implements Runnable {
         this.verificationGraph = new VerificationGraph(controller, productionSystem.getFacts());
     }
 
-//    private void initializeLayouts() {
-//
-//        initializeSemanticLayout();
-//        initializeSemanticLayout();
-//        initializeVerificationLayout();
-//    }
-
-//    private void initializeSynthesizedLayout() {
-//
-//        synthesizedGraph.initializeLayout();
-//    }
-//
-//    private void initializeSemanticLayout() {
-//
-//        semanticGraph.initializeLayout();
-//    }
-//
-//    private void initializeVerificationLayout() {
-//
-//        verificationGraph.initializeLayout();
-//    }
-
     private void resetProductionSystem() {
 
         this.productionSystem.reset();
@@ -169,7 +147,6 @@ public class Chaining implements Runnable {
             vertex.setState(Vertex.State.IDLE);
         }
 
-        setEdgesUnoriented();
     }
 
     private void restartGraphs() throws Exception {
@@ -294,16 +271,6 @@ public class Chaining implements Runnable {
         }
     }
 
-    private void readVertices(BufferedReader br) {
-
-
-    }
-
-    private void readVerticesCost(BufferedReader br) {
-
-
-    }
-
     public ChainingType getGraphSearchType(int type) {
 
         switch (type) {
@@ -336,18 +303,6 @@ public class Chaining implements Runnable {
 
     public Graph getSemanticBackwardGraph() {
         return this.semanticGraphBackward;
-    }
-
-    public void setStartVertex(Vertex vertex) {
-
-        vertex.setState(Vertex.State.CURRENT);
-//        this.startVertex = vertex;
-    }
-
-    public void setTargetVertex(Vertex vertex) {
-
-        vertex.setState(Vertex.State.TARGET);
-//        this.targetVertex = vertex;
     }
 
     public boolean exitExists() {
@@ -574,8 +529,6 @@ public class Chaining implements Runnable {
                 "-".repeat(Math.max(0, currentDepth)) +
                 "Tikslas " + target + ". ";
 
-        ArrayList<Rule> rules = productionSystem.getRules();
-
         if (usedFactsInChain.subList(0, usedFactsInChain.size()-1).contains(target)) { // exclude the last element from list while searching for cycle
             usedFactsInChain.remove(usedFactsInChain.size()-1);
             --currentDepth;
@@ -589,8 +542,11 @@ public class Chaining implements Runnable {
             ++currentIteration;
             writeToDefaultFileFrame(currentIteration, initialText,
                     "Faktas (duotas), nes faktai " + getFactsString() + ". Grįžtame, sėkmė.");
+
             return true;
         }
+
+        ArrayList<Rule> rules = productionSystem.getRules();
 
         int rulesForTargetCount = 0;
         for(Rule rule : rules) {
@@ -640,6 +596,7 @@ public class Chaining implements Runnable {
                                 + getFactsString() + ". Grįžtame, sėkmė.");
                     }
 
+                    this.searchPath.add(rule.getName());
                     return true;
                 } else { // error occurred while deriving a rule
 
@@ -675,93 +632,6 @@ public class Chaining implements Runnable {
         }
     }
 
-    private void orderListByCost(ArrayList<Vertex> vertices) {
-
-        vertices.sort((o1, o2) -> Double.compare(o2.getPathCost(), o1.getPathCost()));
-    }
-
-    private ArrayList<Vertex> getOpenVertices(Vertex vertex, List<Vertex> openedVertices, List<Vertex> closedVertices) {
-
-        switch(chainingType) {
-            case FORWARD:
-                return getAdjacentVerticesDFS(vertex, openedVertices, closedVertices);
-//            case INFIX:
-//                return getAdjacentVerticesDijkstra(vertex, openedVertices, closedVertices);
-//            case POSTFIX:
-//                return getAdjacentVerticesDFS(vertex, openedVertices, closedVertices);
-            default:
-                return null;
-        }
-    }
-
-    private ArrayList<Vertex> getAdjacentVerticesBFS(Vertex vertex, List<Vertex> openedVertices, List<Vertex> closedVertices) {
-
-        ArrayList<Vertex> adjacentVertices = new ArrayList<>(vertex.getAdjacentVertices());
-        ArrayList<Vertex> filteredList = new ArrayList<>();
-
-        for(Vertex adjVertex : adjacentVertices) {
-            if (!openedVertices.contains(adjVertex)
-                    && !closedVertices.contains(adjVertex)) {
-
-                filteredList.add(adjVertex);
-            }
-        }
-
-        if (filteredList.size() == 0)
-            return null;
-
-        return filteredList;
-    }
-
-    private ArrayList<Vertex> getAdjacentVerticesDijkstra(Vertex vertex, List<Vertex> openedVertices, List<Vertex> closedVertices) {
-
-        ArrayList<Vertex> adjacentVertices = new ArrayList<>(vertex.getAdjacentVertices());
-        ArrayList<Vertex> filteredList = new ArrayList<>();
-
-        for(Vertex adjVertex : adjacentVertices) {
-            if (!closedVertices.contains(adjVertex)) {
-
-                if (openedVertices.contains(adjVertex)) {
-
-                    Edge edge = synthesizedGraph.getModel().getEdge(vertex, adjVertex);
-                    double newCost = vertex.getPathCost() + Double.parseDouble(edge.getLabel());
-                    if (newCost < adjVertex.getPathCost()) {
-
-                        adjVertex.setSourceParent(vertex);
-                        adjVertex.setPathCost(newCost);
-                    }
-                } else {
-
-                    filteredList.add(adjVertex);
-                }
-            }
-        }
-
-        if (filteredList.size() == 0)
-            return null;
-
-        return filteredList;
-    }
-
-    private ArrayList<Vertex> getAdjacentVerticesDFS(Vertex vertex, List<Vertex> openedVertices, List<Vertex> closedVertices) {
-
-        ArrayList<Vertex> adjacentVertices = new ArrayList<>(vertex.getAdjacentVertices());
-        ArrayList<Vertex> filteredList = new ArrayList<>();
-
-        for(Vertex adjVertex : adjacentVertices) {
-            if (!closedVertices.contains(adjVertex)) {
-
-                filteredList.add(adjVertex);
-                openedVertices.remove(adjVertex);
-            }
-        }
-
-        if (filteredList.size() == 0)
-            return null;
-
-        return filteredList;
-    }
-
     private String getVerticesListString(ArrayList<Vertex> vertices) {
 
         if (vertices == null) {
@@ -790,76 +660,20 @@ public class Chaining implements Runnable {
 
     /********* DERIVE VERTICES PATH *********/
 
-    public void deriveSearchPath(Vertex endVertex) {
+    public void deriveSearchPath() {
 
-//        if (endVertex == null) {
+        if (this.chainingType.equals(ChainingType.FORWARD)) {
+
+            deriveSearchPathForward();
+        } //else if (this.chainingType.equals(ChainingType.BACKWARD)) {
 //
-//            searchPath = null;
-//            return;
+//            deriveSearchPathBackward();
 //        }
-//
-//        Vertex currentVertex = endVertex;
-//        while(!currentVertex.equals(startVertex)) {
-//
-//            if(currentVertex == null) {
-//
-//                searchPath = null;
-//                return;
-//            }
-//
-//            if (currentVertex != endVertex) {
-//
-//                currentVertex.setState(Vertex.State.PATH);
-//            }
-//
-//            searchPath.add(currentVertex);
-//            currentVertex = currentVertex.getSourceParent();
-//        }
-//        currentVertex.setState(Vertex.State.PATH);
-//        searchPath.add(currentVertex); // add the last source parent (start vertex)
-//
-//        reverseSearchPath();
-//        setSearchPathOrientated();
     }
 
-    private void reverseSearchPath() {
+    public void deriveSearchPathForward() {
 
-        int vertexListSize = searchPath.size();
-        for(int i = 0; i < vertexListSize / 2; ++i) {
-
-            Vertex vertex = searchPath.get(vertexListSize-i-1);
-            searchPath.set(vertexListSize-i-1, searchPath.get(i));
-            searchPath.set(i, vertex);
-        }
-    }
-
-    private void setSearchPathOrientated() {
-
-        if (searchPath.size() < 2) {
-
-            return;
-        }
-
-        Vertex source, target;
-        Edge edge;
-        Model model = synthesizedGraph.getModel();
-        for(int i = 0; i < searchPath.size()-1; ++i) {
-
-            source = searchPath.get(i);
-            target = searchPath.get(i+1);
-            edge = model.getEdge(source, target);
-            edge.defineOrientation(source, target);
-            edge.setOriented(true);
-        }
-    }
-
-    private void setEdgesUnoriented() {
-
-        List<Edge> edges = synthesizedGraph.getModel().getAllEdges();
-        for(Edge edge : edges) {
-
-            edge.setOriented(false);
-        }
+        this.searchPath.addAll(this.semanticGraphForward.getPathProductions());
     }
 
     public String getSearchPathString() {
@@ -870,9 +684,9 @@ public class Chaining implements Runnable {
         StringBuilder sb = new StringBuilder();
 
         int i = 0;
-        for (Vertex vertex : searchPath) {
+        for (String vertex : searchPath) {
 
-            sb.append(vertex.getVertexId()).append(" -> ");
+            sb.append(vertex).append(" -> ");
             ++i;
         }
         String str = sb.toString();

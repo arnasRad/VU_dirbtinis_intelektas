@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1f0d493-1a41-428d-b277-b2390251c794" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/output/bc_outputč.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/Chaining.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/Chaining.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/graph/SemanticGraphForward.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/graph/SemanticGraphForward.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
