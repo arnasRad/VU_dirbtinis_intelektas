@@ -1,5 +1,7 @@
 package com.arnasrad.fbchaining.utility;
 
+import com.arnasrad.fbchaining.model.vertex.Vertex;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,5 +41,17 @@ public class Utils {
         difference.remove(element);
 
         return difference;
+    }
+
+    public static Vertex getFirstFromList(List<Vertex> vertices, String id) {
+
+        for(Vertex vertex : vertices) {
+
+            if (vertex.getId().equals(id)) {
+                return vertex;
+            }
+        }
+
+        return null;
     }
 }

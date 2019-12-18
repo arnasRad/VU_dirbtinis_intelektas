@@ -10,6 +10,7 @@ import com.arnasrad.fbchaining.model.vertex.Vertex;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class SemanticLayoutBackward extends Layout {
 
@@ -29,7 +30,7 @@ public class SemanticLayoutBackward extends Layout {
 
     // used for backward chaining
     private int currentDepth;
-    private HashMap<Integer, Vertex> depthFacts;
+//    private HashMap<Integer, Vertex> depthFacts;
     private final double backwardStartX;
 
     public SemanticLayoutBackward(SemanticGraphBackward graph) {
@@ -41,7 +42,7 @@ public class SemanticLayoutBackward extends Layout {
         this.verticalOffset = EllipseVertex.DEFAULT_RADIUSY*2 + Spacing.BETWEEN_VER;
 
         this.currentDepth = 0;
-        this.depthFacts = new HashMap<>();
+//        this.depthFacts = new HashMap<>();
         this.backwardStartX = MainController.OPTIONAL_GRAPH_WIDTH - (verticalOffset);
     }
 
@@ -49,7 +50,8 @@ public class SemanticLayoutBackward extends Layout {
 
     }
 
-    public void relocate(Rule rule) {
+    public void relocate(Rule rule, HashMap<Integer, List<Vertex>> depthFacts, int depth) {
+
         ArrayList<String> ruleFacts = rule.getFacts();
         String production = rule.getName();
         String result = rule.getResult();
@@ -60,23 +62,10 @@ public class SemanticLayoutBackward extends Layout {
     }
 
     /**
-     * Get a number of maximum child vertices count of given fact vertices
-     * @param facts given vertices list
-     * @return max child count
+     * relocates vertices in a branch vertically downwards
      */
-    private int getMaxChildCount(ArrayList<String> facts) {
+    private void moveBranchDown(HashMap<Integer, List<Vertex>> depthFacts, int depth) {
 
-        Model model = this.graph.getModel();
-        int maxChildCount = 0;
-        for(String fact : facts) {
-
-            Vertex vertex = model.getVertex(fact);
-            int childrenCount = vertex.getVertexChildren().size();
-            if (childrenCount > maxChildCount) {
-                maxChildCount = childrenCount;
-            }
-        }
-
-        return maxChildCount;
+//        while ()
     }
 }

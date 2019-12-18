@@ -95,34 +95,34 @@ public class Model {
         return null;
     }
 
-    public void addVertex(String id) {
+    public Vertex addVertex(String id) {
 
-        addVertex(id, VertexType.ELLIPSE, Vertex.State.IDLE, false);
+        return addVertex(id, VertexType.ELLIPSE, Vertex.State.IDLE, false);
     }
 
-    public void addVertex(String id, boolean isRoot) {
+    public Vertex addVertex(String id, boolean isRoot) {
 
-        addVertex(id, VertexType.ELLIPSE, Vertex.State.IDLE, isRoot);
+        return addVertex(id, VertexType.ELLIPSE, Vertex.State.IDLE, isRoot);
     }
 
-    public void addVertex(String id, VertexType type, Vertex.State state, boolean isRoot) {
+    public Vertex addVertex(String id, VertexType type, Vertex.State state, boolean isRoot) {
 
         switch (type) {
 
             case RECTANGLE:
                 RectangleVertex rectangleVertex = new RectangleVertex(id, state);
                 addVertexModel(rectangleVertex, isRoot);
-                break;
+                return rectangleVertex;
 
             case TRIANGLE:
                 TriangleVertex triangleVertex = new TriangleVertex(id, state);
                 addVertexModel(triangleVertex, isRoot);
-                break;
+                return triangleVertex;
 
             case ELLIPSE:
                 EllipseVertex ellipseVertex = new EllipseVertex(id, state);
                 addVertexModel(ellipseVertex, isRoot);
-                break;
+                return ellipseVertex;
 
             default:
                 throw new UnsupportedOperationException("Unsupported type: " + type);
@@ -179,6 +179,25 @@ public class Model {
         }
 
         Edge edge = new Edge(sourceVertex, targetVertex, isOriented, label);
+        addedEdges.add(edge);
+    }
+
+    public void addEdge(Vertex source, Vertex target) throws Exception {
+
+        addEdge(source, target, true, "");
+    }
+
+    public void addEdge(Vertex source, Vertex target, boolean isOriented, String label) throws Exception {
+
+
+        if (source == null) {
+            throw new Exception("Source vertex not specified in vertex list.");
+        }
+        if (target == null) {
+            throw new Exception("Vertex not specified in vertex list.");
+        }
+
+        Edge edge = new Edge(source, target, isOriented, label);
         addedEdges.add(edge);
     }
 

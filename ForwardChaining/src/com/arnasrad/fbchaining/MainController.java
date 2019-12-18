@@ -521,7 +521,14 @@ public class MainController {
 
         if (selectedOutputTypes.contains(OutputType.SEMANTIC_GRAPH)) {
 
-            showSemanticGraph();
+            RadioMenuItem traverseOption = ((RadioMenuItem) traverseGroup
+                    .getSelectedToggle());
+
+            if (traverseOption.equals(menuBackward)) {
+                showSemanticBackwardGraph();
+            } else if (traverseOption.equals(menuForward)) {
+                showSemanticForwardGraph();
+            }
         }
     }
 
@@ -534,11 +541,20 @@ public class MainController {
         stage.show();
     }
 
-    private void showSemanticGraph() {
+    private void showSemanticForwardGraph() {
 
         Stage stage = new Stage();
         stage.setTitle("Semantic graph");
-        stage.setScene(new Scene(chaining.getSemanticGraphForward().getScrollPane(),
+        stage.setScene(new Scene(chaining.getSemanticForwardGraph().getScrollPane(),
+                OPTIONAL_GRAPH_WIDTH, OPTIONAL_GRAPH_HEIGHT));
+        stage.show();
+    }
+
+    private void showSemanticBackwardGraph() {
+
+        Stage stage = new Stage();
+        stage.setTitle("Semantic graph");
+        stage.setScene(new Scene(chaining.getSemanticBackwardGraph().getScrollPane(),
                 OPTIONAL_GRAPH_WIDTH, OPTIONAL_GRAPH_HEIGHT));
         stage.show();
     }

@@ -1,9 +1,6 @@
 package com.arnasrad.fbchaining;
 
-import com.arnasrad.fbchaining.graph.Graph;
-import com.arnasrad.fbchaining.graph.SemanticGraphForward;
-import com.arnasrad.fbchaining.graph.SynthesizedGraph;
-import com.arnasrad.fbchaining.graph.VerificationGraph;
+import com.arnasrad.fbchaining.graph.*;
 import com.arnasrad.fbchaining.model.Edge;
 import com.arnasrad.fbchaining.model.Model;
 import com.arnasrad.fbchaining.model.ProductionSystem;
@@ -40,6 +37,7 @@ public class Chaining implements Runnable {
     private boolean exists; // specifies whether a path from start to end vertices exists
     private SynthesizedGraph synthesizedGraph;
     private SemanticGraphForward semanticGraphForward;
+    private SemanticGraphBackward semanticGraphBackward;
     private VerificationGraph verificationGraph;
     private ProductionSystem productionSystem;
     private ChainingType chainingType;
@@ -132,6 +130,7 @@ public class Chaining implements Runnable {
     private void initializeOptionalGraphs() {
 
         this.semanticGraphForward = new SemanticGraphForward(controller);
+        this.semanticGraphBackward = new SemanticGraphBackward(controller);
         this.verificationGraph = new VerificationGraph(controller, productionSystem.getFacts());
     }
 
@@ -176,7 +175,8 @@ public class Chaining implements Runnable {
     private void restartGraphs() throws Exception {
 
         restartSynthesizedGraph();
-        restartSemanticGraph();
+        restartSemanticForwardGraph();
+        restartSemanticBackwardGraph();
         restartVerificationGraph();
     }
 
@@ -189,13 +189,20 @@ public class Chaining implements Runnable {
 //        initializeSynthesizedLayout();
     }
 
-    private void restartSemanticGraph() throws Exception {
+    private void restartSemanticForwardGraph() throws Exception {
 
         Model model = semanticGraphForward.getModel();
         semanticGraphForward.resetContainers();
         this.semanticGraphForward = new SemanticGraphForward(controller);
         this.semanticGraphForward.copyModel(model);
-//        initializeSemanticLayout();
+    }
+
+    private void restartSemanticBackwardGraph() throws Exception {
+
+        Model model = semanticGraphBackward.getModel();
+        semanticGraphBackward.resetContainers();
+        this.semanticGraphBackward = new SemanticGraphBackward(controller);
+        this.semanticGraphBackward.copyModel(model);
     }
 
     private void restartVerificationGraph() throws Exception {
@@ -323,8 +330,12 @@ public class Chaining implements Runnable {
         return this.verificationGraph;
     }
 
-    public Graph getSemanticGraphForward() {
+    public Graph getSemanticForwardGraph() {
         return this.semanticGraphForward;
+    }
+
+    public Graph getSemanticBackwardGraph() {
+        return this.semanticGraphBackward;
     }
 
     public void setStartVertex(Vertex vertex) {
@@ -590,8 +601,11 @@ public class Chaining implements Runnable {
                 writeToDefaultFileFrame(currentIteration, initialText, "Randame " + rule
                                 + ". Nauji tikslai " + rule.getFactString());
 
+                addTraversalFrame(e -> semanticGraphBackward.apply(rule, currentDepth));
+
                 int factBranchesSucceeded = 0;
                 ArrayList<String> ruleFacts = new ArrayList<>(rule.getFacts());
+
                 for(String fact : ruleFacts) {
                     usedFactsInChain.add(fact);
                     ++currentDepth;
