@@ -45,6 +45,7 @@ public class Chaining implements Runnable {
     private int currentIteration;
     private ArrayList<String> addedFacts; // used in backward chaining algorithm
     private ArrayList<String> newFacts; // used in backward chaining algorithm
+    private ArrayList<String> usedProductionsInBranch; // used in backward chaining algorithm
     private int currentDepth; // used in backward chaining algorithm
 
     private ArrayList<String> searchPath; // a list of vertices specifying a path from start vertex to end vertex
@@ -527,6 +528,7 @@ public class Chaining implements Runnable {
 
         this.addedFacts = new ArrayList<>();
         this.newFacts = new ArrayList<>();
+        this.usedProductionsInBranch = new ArrayList<>();
         String target = productionSystem.getTarget();
 
         if (productionSystem.getFacts().contains(target)) {
@@ -593,19 +595,23 @@ public class Chaining implements Runnable {
                         if (factBranchesSucceeded == ruleFacts.size()) {
                             addedFacts.add(target);
                         }
+                    } else {
+                        break; // skip excess productions
                     }
                 }
                 if (factBranchesSucceeded == ruleFacts.size()) {
 
                     for(String fact : addedFacts) {
-                        if (!productionSystem.getFacts().contains(target)) {
+                        if (!productionSystem.getFacts().contains(target) &&
+                            !productionSystem.getFacts().contains(fact)) {
 
                             productionSystem.addFact(fact);
                             newFacts.add(fact);
                         }
                     }
-
-                    addedFacts.clear();
+                    // inefficient, but works for now...
+                    // used to remove excess production results
+//                    addedFacts.clear();
 
                     usedFactsInChain.remove(usedFactsInChain.size()-1);
                     --currentDepth;
@@ -619,13 +625,21 @@ public class Chaining implements Runnable {
                                 + getFactsString() + ". Grįžtame, sėkmė.");
                     }
 
-                    this.searchPath.add(rule.getName());
+                    String ruleName = rule.getName();
+                    usedProductionsInBranch.add(ruleName);
+                    if (!this.searchPath.contains(ruleName)) {
+                        this.searchPath.add(rule.getName());
+                    }
+
                     return true;
                 } else { // error occurred while deriving a rule
 
                     newFacts.removeAll(addedFacts);
                     productionSystem.removeFacts(addedFacts);
                     addedFacts.clear();
+
+                    this.searchPath.removeAll(usedProductionsInBranch);
+                    usedProductionsInBranch.clear();
                 }
             }
         }

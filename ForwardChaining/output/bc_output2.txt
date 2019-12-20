@@ -11,7 +11,7 @@
 	R8:H -> B
 	R9:J -> C
 
-	2) Faktai: T, D, A, B, C, Z.
+	2) Faktai: T.
 
 	3) Tikslas Z.
 
@@ -48,5 +48,4 @@
 
 3 DALIS. Rezultatai
 	1) Tikslas Z išvestas. Bandymų 26
-
-2) Kelias: R6 -> R5 -> R4 -> R3 -> R1
+	2) Kelias: R6 -> R5 -> R4 -> R3 -> R1

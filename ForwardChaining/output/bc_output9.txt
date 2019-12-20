@@ -13,8 +13,8 @@
 
 2 DALIS. Vykdymas
 
-Tikslas A tarp faktų. Tuščias kelias.
+	Tikslas A tarp faktų. Tuščias kelias.
 
 3 DALIS. Rezultatai
 	1) Tikslas Z išvestas. Bandymų 0
-	2) Kelias: 
+	2) Kelias tuščias.

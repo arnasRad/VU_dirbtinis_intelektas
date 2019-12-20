@@ -19,9 +19,9 @@
   4) -Tikslas C. Faktas (buvo gautas). Faktai T ir C. Grįžtame, sėkmė.
   5) -Tikslas D. Nėra taisyklių jo išvedimui. Grįžtame, FAIL.
   6) Tikslas Z. Randame R3:T -> Z. Nauji tikslai T
-  7) -Tikslas T. Faktas (duotas), nes faktai T ir C. Grįžtame, sėkmė.
-  8) Tikslas Z. Faktas (buvo gautas). Faktai T ir C, Z. Grįžtame, sėkmė.
+  7) -Tikslas T. Faktas (duotas), nes faktai T. Grįžtame, sėkmė.
+  8) Tikslas Z. Faktas (buvo gautas). Faktai T ir Z. Grįžtame, sėkmė.
 
 3 DALIS. Rezultatai
 	1) Tikslas Z išvestas. Bandymų 8
-	2) Kelias: R2 -> R3
+	2) Kelias: R3
