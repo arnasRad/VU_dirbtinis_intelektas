@@ -1,12 +1,12 @@
 1 DALIS. Duomenys
 
 	1) Taisyklės
-	R1: R1:G -> Z
-	R1: R2:A -> G
-	R1: R3:A -> B
-	R1: R4:B -> C
-	R1: R5:C -> D
-	R1: R6:D -> Z
+	R1:G -> Z
+	R2:A -> G
+	R3:A -> B
+	R4:B -> C
+	R5:C -> D
+	R6:D -> Z
 
 	2) Faktai: A, G, Z.
 
@@ -24,6 +24,5 @@
 		Tikslas gautas.
 
 3 DALIS. Rezultatai
-	1) Tikslas Z išvestas. Bandymų 0
-
-2) Kelias: 
+	1) Tikslas Z išvestas. Bandymų 2
+	2) Kelias: R2 -> R1

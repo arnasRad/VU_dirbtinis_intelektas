@@ -1,8 +1,8 @@
 1 DALIS. Duomenys
 
 	1) Taisyklės
-	R1: R1:A -> B
-	R1: R2:C -> Z
+	R1:A -> B
+	R2:C -> Z
 
 	2) Faktai: A, B.
 

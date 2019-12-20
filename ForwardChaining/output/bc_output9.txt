@@ -1,0 +1,20 @@
+1 DALIS. Duomenys
+
+	1) Taisyklės
+	R1:A -> Z
+	R2:B -> Z
+	R3:C -> Z
+
+	2) Faktai: C, B, Z.
+
+	3) Tikslas Z.
+
+	4) Naudojama procedūra: BACKWARD
+
+2 DALIS. Vykdymas
+
+Tikslas A tarp faktų. Tuščias kelias.
+
+3 DALIS. Rezultatai
+	1) Tikslas Z išvestas. Bandymų 0
+	2) Kelias: 

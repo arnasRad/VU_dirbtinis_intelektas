@@ -1,7 +1,7 @@
 Studentas Arnas Radzevičius, Informatika, 4 kursas
-2 testas.
+3 testas.
 1) Taisyklės
-Z D C
+Z C D
 D C
 C B
 B A

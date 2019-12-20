@@ -1,0 +1,33 @@
+1 DALIS. Duomenys
+
+	1) Taisyklės
+	R1:A -> Z
+	R2:B -> A
+	R3:A, C -> B
+	R4:T -> B
+	R5:T -> C
+
+	2) Faktai: T.
+
+	3) Tikslas Z.
+
+	4) Naudojama procedūra: BACKWARD
+
+2 DALIS. Vykdymas
+
+  1) Tikslas Z. Randame R1:A -> Z. Nauji tikslai A
+  2) -Tikslas A. Randame R2:B -> A. Nauji tikslai B
+  3) --Tikslas B. Randame R3:A, C -> B. Nauji tikslai A, C
+  4) ---Tikslas A. Ciklas. Grįžtame, FAIL.
+  5) ---Tikslas C. Randame R5:T -> C. Nauji tikslai T
+  6) ----Tikslas T. Faktas (duotas), nes faktai T. Grįžtame, sėkmė.
+  7) ---Tikslas C. Faktas (buvo gautas). Faktai T ir C. Grįžtame, sėkmė.
+  8) --Tikslas B. Randame R4:T -> B. Nauji tikslai T
+  9) ---Tikslas T. Faktas (duotas), nes faktai T ir C. Grįžtame, sėkmė.
+ 10) --Tikslas B. Faktas (buvo gautas). Faktai T ir C, B. Grįžtame, sėkmė.
+ 11) -Tikslas A. Faktas (buvo gautas). Faktai T ir C, B, A. Grįžtame, sėkmė.
+ 12) Tikslas Z. Faktas (buvo gautas). Faktai T ir C, B, A, Z. Grįžtame, sėkmė.
+
+3 DALIS. Rezultatai
+	1) Tikslas Z išvestas. Bandymų 12
+	2) Kelias: R5 -> R4 -> R2 -> R1

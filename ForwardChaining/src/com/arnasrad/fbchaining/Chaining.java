@@ -70,12 +70,14 @@ public class Chaining implements Runnable {
 
         millisecondDelay = 0;
         currentTransitionStep = 0;
-
-        addTraversalFrameDelay(e -> printInfoData());
+//
+//        addTraversalFrame(e -> printInfoData());
 
         if (traversalOption.equals(ChainingType.FORWARD)) {
+            addTraversalFrame(e -> printInfoData());
             runForwardChaining();
         } else if (traversalOption.equals(ChainingType.BACKWARD)) {
+            printInfoData();
             runBackwardChaining();
         } else {
             return;
@@ -348,10 +350,15 @@ public class Chaining implements Runnable {
             if (exitExists()) {
 
                 fileWriter.write("\t1) Tikslas " + productionSystem.getTarget() +
-                        " išvestas. Bandymų " + getCurrentIteration() + "\n");
+                        " išvestas. Bandymų " + getCurrentIteration());
 
-                fileWriter.write("\n2) Kelias: " +
-                        getSearchPathString() + "\n");
+                String pathString = getSearchPathString();
+                if (pathString != null) {
+                    fileWriter.write("\n\t2) Kelias: " +
+                            getSearchPathString() + "\n");
+                } else {
+                    fileWriter.write("\n\t2) Kelias tuščias.\n");
+                }
             } else {
 
                 fileWriter.write("\t3.1) Tikslas negali būti pasiektas. " +
@@ -391,6 +398,11 @@ public class Chaining implements Runnable {
                 String.format("%3d", currentIteration) + initialText + endText));
     }
 
+    private void writeToDefaultFileFrame(String text) {
+
+        addTraversalFrameDelay(e -> writeToDefaultFile(text));
+    }
+
     /**** UPDATE UI LABELS ****/
 
     private void updateCurrentIterationLbl(int iteration) {
@@ -422,7 +434,8 @@ public class Chaining implements Runnable {
         if (productionSystem.isTargetReached()) {
 
             this.exists = true;
-            addTraversalFrame(e -> writeToDefaultFile("\t\tTikslas "
+            ++currentTransitionStep;
+            addTraversalFrame(e -> writeToDefaultFile("\tTikslas "
                     + productionSystem.getTarget() + " tarp faktų. Kelias tuščias."));
             addTraversalFrame(e -> controller.processEndOfTraversal());
             return;
@@ -465,6 +478,7 @@ public class Chaining implements Runnable {
                         final int tempFactsCount = productionSystem.getFactsCount();
                         addTraversalFrame(e -> controller.setFactsCountLbl(tempFactsCount));
                         ++currentTransitionStep;
+                        ++currentIteration;
                         final int tempTransitionStep = currentTransitionStep;
                         addTraversalFrame(e -> controller.setCurrentIterationLbl(tempTransitionStep));
                         sb.append("taikome. Pakeliame flag1. Faktai ")
@@ -489,6 +503,7 @@ public class Chaining implements Runnable {
 
                 this.exists = true;
                 sb.append("\n\t\tTikslas gautas.");
+                addTraversalFrame(e -> deriveSearchPath());
                 addTraversalFrame(e -> writeToDefaultFile(sb));
                 addTraversalFrame(e -> controller.processEndOfTraversal());
                 break;
@@ -513,6 +528,14 @@ public class Chaining implements Runnable {
         this.addedFacts = new ArrayList<>();
         this.newFacts = new ArrayList<>();
         String target = productionSystem.getTarget();
+
+        if (productionSystem.getFacts().contains(target)) {
+
+            writeToDefaultFileFrame("\tTikslas A tarp faktų. Tuščias kelias.");
+            addTraversalFrameDelay(e -> controller.processEndOfTraversal());
+            this.exists = true;
+            return true;
+        }
 
         boolean result = runBackwardChaining(target,
                 new ArrayList<String>(Collections.singleton(target)));
@@ -678,7 +701,7 @@ public class Chaining implements Runnable {
 
     public String getSearchPathString() {
         if (searchPath == null || searchPath.size() == 0) {
-            return "";
+            return null;
         }
 
         StringBuilder sb = new StringBuilder();

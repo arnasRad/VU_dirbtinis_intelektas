@@ -1,12 +1,12 @@
 1 DALIS. Duomenys
 
 	1) Taisyklės
-	R1: R1:D -> Z
-	R1: R2:C -> D
-	R1: R3:B -> C
-	R1: R4:A -> B
-	R1: R5:A -> G
-	R1: R6:G -> Z
+	R1:D -> Z
+	R2:C -> D
+	R3:B -> C
+	R4:A -> B
+	R5:A -> G
+	R6:G -> Z
 
 	2) Faktai: A, B, C, D, Z.
 
@@ -17,22 +17,21 @@
 2 DALIS. Vykdymas
 
 	1 ITERACIJA
-		R1:R1:D -> Z netaikome, nes trūksta D
-		R2:R2:C -> D netaikome, nes trūksta C
-		R3:R3:B -> C netaikome, nes trūksta B
-		R4:R4:A -> B taikome. Pakeliame flag1. Faktai A, B
+		R1:D -> Z netaikome, nes trūksta D
+		R2:C -> D netaikome, nes trūksta C
+		R3:B -> C netaikome, nes trūksta B
+		R4:A -> B taikome. Pakeliame flag1. Faktai A, B
 	2 ITERACIJA
-		R1:R1:D -> Z netaikome, nes trūksta D
-		R2:R2:C -> D netaikome, nes trūksta C
-		R3:R3:B -> C taikome. Pakeliame flag1. Faktai A, B, C
+		R1:D -> Z netaikome, nes trūksta D
+		R2:C -> D netaikome, nes trūksta C
+		R3:B -> C taikome. Pakeliame flag1. Faktai A, B, C
 	3 ITERACIJA
-		R1:R1:D -> Z netaikome, nes trūksta D
-		R2:R2:C -> D taikome. Pakeliame flag1. Faktai A, B, C, D
+		R1:D -> Z netaikome, nes trūksta D
+		R2:C -> D taikome. Pakeliame flag1. Faktai A, B, C, D
 	4 ITERACIJA
-		R1:R1:D -> Z taikome. Pakeliame flag1. Faktai A, B, C, D, Z
+		R1:D -> Z taikome. Pakeliame flag1. Faktai A, B, C, D, Z
 		Tikslas gautas.
 
 3 DALIS. Rezultatai
-	1) Tikslas Z išvestas. Bandymų 0
-
-2) Kelias: 
+	1) Tikslas Z išvestas. Bandymų 4
+	2) Kelias: R4 -> R3 -> R2 -> R1

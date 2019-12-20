@@ -51,6 +51,5 @@
 		Tikslas gautas.
 
 3 DALIS. Rezultatai
-	1) Tikslas Z išvestas. Bandymų 0
-
-2) Kelias: 
+	1) Tikslas Z išvestas. Bandymų 6
+	2) Kelias: R1 -> R2 -> R7 -> R4 -> R6 -> R5

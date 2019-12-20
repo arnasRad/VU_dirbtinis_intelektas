@@ -1,18 +1,14 @@
 Studentas Arnas Radzevičius, Informatika, 4 kursas
-2 testas.
+10 testas.
 1) Taisyklės
-Z D C
-D C
-C B
-B A
-A D
-D T
-A G
-B H
-C J
+Z Y D
+Y X B E
+X A
+L C
+N L M
 
 2) Faktai
-T
+A B C D E
 
 3) Tikslas
 Z

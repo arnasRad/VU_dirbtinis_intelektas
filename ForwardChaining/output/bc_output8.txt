@@ -1,0 +1,21 @@
+1 DALIS. Duomenys
+
+	1) Taisyklės
+	R1:C, D -> Z
+	R2:C, E -> Y
+
+	2) Faktai: C, D.
+
+	3) Tikslas Y.
+
+	4) Naudojama procedūra: BACKWARD
+
+2 DALIS. Vykdymas
+
+  1) Tikslas Y. Randame R2:C, E -> Y. Nauji tikslai C, E
+  2) -Tikslas C. Faktas (duotas), nes faktai C, D. Grįžtame, sėkmė.
+  3) -Tikslas E. Nėra taisyklių jo išvedimui. Grįžtame, FAIL.
+  4) Tikslas Y. Nėra daugiau taisyklių jo išvedimui. Grįžtame, FAIL.
+
+3 DALIS. Rezultatai
+	3.1) Tikslas negali būti pasiektas. Kelias neegzistuoja

@@ -2,9 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1f0d493-1a41-428d-b277-b2390251c794" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/input/bc_input10.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/input/bc_input3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/input/bc_input4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/input/bc_input5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/input/bc_input6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/input/bc_input7.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/input/bc_input8.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/input/bc_input9.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/output/bc_output10.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/output/bc_output3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/output/bc_output4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/output/bc_output5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/output/bc_output6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/output/bc_output7.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/output/bc_output8.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ForwardChaining/output/bc_output9.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/input/bc_input2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/input/bc_input2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/out/production/ForwardChaining/com/arnasrad/fbchaining/Chaining.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/output/bc_outputč.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/output/output1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/output/output1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/Chaining.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/Chaining.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/graph/SemanticGraphForward.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/graph/SemanticGraphForward.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/view/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ForwardChaining/src/com/arnasrad/fbchaining/view/main-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,21 +108,21 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1921" height="289" key="GridCell.Tab.0.bottom" timestamp="1576660186626">
+    <state width="1921" height="289" key="GridCell.Tab.0.bottom" timestamp="1576680896481">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="289" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576660186626" />
-    <state width="1921" height="289" key="GridCell.Tab.0.center" timestamp="1576660186626">
+    <state width="1921" height="289" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576680896481" />
+    <state width="1921" height="289" key="GridCell.Tab.0.center" timestamp="1576680896480">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="289" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576660186626" />
-    <state width="1921" height="289" key="GridCell.Tab.0.left" timestamp="1576660186625">
+    <state width="1921" height="289" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576680896480" />
+    <state width="1921" height="289" key="GridCell.Tab.0.left" timestamp="1576680896480">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="289" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576660186625" />
-    <state width="1921" height="289" key="GridCell.Tab.0.right" timestamp="1576660186626">
+    <state width="1921" height="289" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576680896480" />
+    <state width="1921" height="289" key="GridCell.Tab.0.right" timestamp="1576680896480">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="289" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576660186626" />
+    <state width="1921" height="289" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576680896480" />
   </component>
 </project>
